@@ -58,6 +58,10 @@
         "ecg-report-upload-data":    	    {url:"$A/modules/c/clinical-trials/tasks/ecg-report-upload-data.html",Table:"ecg-report-upload-wapp",form_module:"ecg-report-upload-form"},
         "ecg-report-upload-form":    	    {url:"$A/modules/c/clinical-trials/tasks/ecg-report-upload-form.html",Table:"ecg-report-upload-wapp"},
         
+        "nback1-data":    	                {url:"$A/modules/c/clinical-trials/tasks/nback1-data.html",Table:"nback1-demo", form_module:"nback1-form",game_module:"nback1-game",router:1},
+        "nback1-form":    	                {url:"$A/modules/c/clinical-trials/tasks/nback1-form.html",Table:"nback1-demo"},
+        "nback1-game":    	                {url:"$A/modules/c/clinical-trials/tasks/nback1-game.html",Table:"nback1-demo"},
+        
         /*
         "clinical-trials-app-wapp":         {url:"$A/modules/c/clinical-trials-wapp/index.html"},
 
@@ -83,6 +87,9 @@
         $vm.module_list[prefix+m]=modules[m];
         if($vm.module_list[prefix+m].form_module!=undefined){
             $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
+        }
+        if($vm.module_list[prefix+m].game_module!=undefined){
+            $vm.module_list[prefix+m].game_module=prefix+$vm.module_list[prefix+m].game_module;
         }
     }
     for(m in modules){
