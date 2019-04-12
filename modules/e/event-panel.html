@@ -1,8 +1,13 @@
 <div id=D__ID>
-    <div id=color__ID>
-        <u id=admin__ID style='float:right;cursor:pointer'>Admin</u>
-        VmInclude:__COMPONENT__/m/month.01.html
-        click the number with circle -> day calendar, then click the time bar to create an event.
+	<div class='g_section_title'>
+		The following section demonstrates how to share event information between team members.
+	</div>
+    <div id=container__ID>
+        <div id=color__ID>
+            <u id=admin__ID style='float:right;cursor:pointer'>Admin</u>
+            VmInclude:__COMPONENT__/m/month.01.html
+            click the number with circle -> day calendar, then click the time bar to create an event.
+        </div>
     </div>
     <script>
     function F__ID(){
@@ -82,6 +87,8 @@
             font-size:13px;
             font-family: Helvetica, Arial, sans-serif;
             height:100%;
+        }
+        #container__ID{
             overflow: auto;
 			background: url(__CURRENT_PATH__/event-panel.jpg) no-repeat center center;
 			background-size: cover;

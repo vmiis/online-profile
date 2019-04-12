@@ -1,5 +1,8 @@
 <div id=D__ID>
-	<div>
+	<div class='g_section_title'>
+		The common contact us section in most websites
+	</div>
+	<div id=container__ID>
 		<div class="container">
 			<div style='float:right;'>
 				<u id=admin__ID style='color:#fff;cursor:pointer'>Admin</u>
@@ -14,21 +17,21 @@
 				<div class="col-lg-12">
 					<form id=F__ID>
 						<div class="row">
-						    <div class="col-md-6">
+							<div class="col-md-6">
 								<input type="text" class="form-control" placeholder="Your Name *" name=Name required>
 								<input type="email" class="form-control" placeholder="Your Email *" name=Email required>
 								<input type="tel" class="form-control" placeholder="Your Phone" name=Phone>
-						    </div>
-						    <div class="col-md-6">
-						        <textarea class="form-control" placeholder="Your Message *" name=Message required style='height:138px'></textarea>
-						    </div>
+							</div>
+							<div class="col-md-6">
+								<textarea class="form-control" placeholder="Your Message *" name=Message required style='height:138px'></textarea>
+							</div>
 						</div>
 						<div class="row">
-						    <div class="col-lg-12 text-center">
+							<div class="col-lg-12 text-center">
 								<br><br>
 								<button id=submit__ID type="submit" class="btn btn-primary">Send Message</button>
 								<br><label id=after_submit_message__ID style='display:none;color:#fff'>Thank you for your message. We will respond as soon as possible.</label>
-						    </div>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -55,9 +58,12 @@
 	      height:100%;
 	      overflow:auto;
 	      animation: vm_module_fadein 1.0s;
-		  background-color: #222;
 		  margin-bottom:30px;
 	    }
+		#container__ID{
+			padding:50px 0px;
+			background-color: #222;
+		}
 		#D__ID .page-heading {
 		    padding: 50px 0px;
 			background: rgba(0,0,0,0.4);
