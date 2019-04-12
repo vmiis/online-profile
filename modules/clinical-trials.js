@@ -62,6 +62,9 @@
         "nback1-form":    	                {url:"$A/modules/c/clinical-trials/tasks/nback1-form.html",Table:"nback1-demo"},
         "nback1-game":    	                {url:"$A/modules/c/clinical-trials/tasks/nback1-game.html",Table:"nback1-demo"},
         
+        "dsst-data":    	                {url:"$A/modules/c/clinical-trials/tasks/dsst-data.html",Table:"dsst-demo", form_module:"dsst-form",game_module:"dsst-game",router:1},
+        "dsst-form":    	                {url:"$A/modules/c/clinical-trials/tasks/dsst-form.html",Table:"dsst-demo"},
+        "dsst-game":    	                {url:"$A/modules/c/clinical-trials/tasks/dsst-game.html",Table:"dsst-demo"},
         /*
         "clinical-trials-app-wapp":         {url:"$A/modules/c/clinical-trials-wapp/index.html"},
 
