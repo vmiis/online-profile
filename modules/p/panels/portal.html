@@ -198,7 +198,7 @@
                     <li><i class="fas fa-caret-right"></i>Sales: <a href=?/sales-data>Data</a>, <a href=?/sales-monthly-aggregation-data>Aggregation</a>, <a href=?/sales-monthly-aggregation-chart>Chart</a></li>
                     
                     <li style='display:none' class=builder__ID><a href=?/panel-modules><i class="fas fa-caret-right"></i>Module library</a></li>
-                    <li style='display:none' class=builder__ID><a href=?/column-chart-panel><i class="fas fa-caret-right"></i>test</a></li>
+                    <li style='display:none' class=builder__ID><a href=?/document-panel><i class="fas fa-caret-right"></i>test</a></li>
                 </ul>
 
             </div>
@@ -385,8 +385,8 @@
             ];
             */
             var c_list=[
-                'structure','contact-us-panel','aaxsys-panel','event-panel','survey-panel','flat-trial',
-                'food-special','particle-panel','first-aid-officer-panel','image-with-title-on-hover',
+                'structure','contact-us-panel','aaxsys-panel','event-panel','document-panel','survey-panel','flat-trial',
+                'column-chart-panel','food-special','particle-panel','first-aid-officer-panel','image-with-title-on-hover',
                 'image-and-title-with-scale-rotate-effect-on-hover',
                 'c_services'
             ];
@@ -399,7 +399,7 @@
                 if (Math.ceil(v1 + v2) >= v3) {
                     if(c_I>=c_list.length) return;
                     $('#p__ID').append('<div id=c'+c_I+'__ID></div>');
-                    $vm.load_component(c_list[c_I],"c"+c_I+"__ID");
+                    $vm.load_component(c_list[c_I],"c"+c_I+"__ID",{});
                     c_I++;
                 }
             }
@@ -411,14 +411,16 @@
                 }
             })
             //--------------------------------------------------------
-            var I=0, loop_1=setInterval(function (){
-                I++; if(I>50 || c_I>=c_list.length ){ clearInterval(loop_1); }
-                else{
-                    $('#p__ID').append('<div id=c'+c_I+'__ID></div>');
-                    $vm.load_component(c_list[c_I],"c"+c_I+"__ID");
-                    c_I++;
-                }
-            },300);
+            if(window.location.toString().indexOf('_a=1')==-1){
+                var I=0, loop_1=setInterval(function (){
+                    I++; if(I>50 || c_I>=c_list.length ){ clearInterval(loop_1); }
+                    else{
+                        $('#p__ID').append('<div id=c'+c_I+'__ID></div>');
+                        $vm.load_component(c_list[c_I],"c"+c_I+"__ID",{});
+                        c_I++;
+                    }
+                },300);
+            }
             //--------------------------------------------------------
         }
     </script>
@@ -435,10 +437,19 @@
             max-width:1600px;
     	}
         .g_section_title{
-            font-size:130%;font-family: 'Indie Flower', cursive;
+            font-size:150%;font-family: 'Indie Flower', cursive;
             color: #3a7623;
-    		padding:10px 0px 30px 0px;
+    		padding:10px 10px 10px 10px;
             width:100%;
+            background-color: #e8f2f5;
+    		margin-top:10px;
+    		margin-bottom:10px;
+        }
+        .g_section_admin{
+            font-size:14px;
+            font-family: Arial, sans-serif;
+            color: #888;
+            float:right;
         }
         /*
         .section_title__ID a{

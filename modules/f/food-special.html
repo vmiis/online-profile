@@ -1,11 +1,11 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section demonstrates a menu in a restaurant website.
+		<u class=g_section_admin id=admin__ID style='cursor:pointer'>Admin of this section</u>
 	</div>
 	<div id="works-section__ID">
 		<div id=color__ID>
 			<div class="container"> <!-- Container -->
-				<div class=row style='display:flow-root'><u style='float:right;cursor:pointer' id=food_admin__ID >Admin</u></div>
 				<div class="section-title">
 					<h2>Today's Lunch Special</h2>
 					<hr>
@@ -165,7 +165,7 @@
 					}
 				})
 			}
-			$('#food_admin__ID').on('click',function(){
+			$('#admin__ID').on('click',function(){
 				$vm.load_module('food-data','',{});
 			})
 			//---------------------------------------

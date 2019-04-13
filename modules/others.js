@@ -46,7 +46,7 @@
         "column-chart":  	            {url:"$A/modules/c/column-chart.html",Table:"column",router:1},
         "column-chart-group":           {url:"$A/modules/c/column-chart-group.html",Table:"column",router:1},
         "column-chart-stack":           {url:"$A/modules/c/column-chart-stack.html",Table:"column",router:1},
-        "column-chart-panel":           {url:"$A/modules/c/column-chart-panel.html",Table:"column",router:1},
+        "column-chart-panel":           {url:"$A/modules/c/column-chart-panel.html",Table:"column",form_module:"column-form",router:1},
         
         "client-data-wapp":             {url:"$A/modules/c/client-data-wapp.html",Table:"client-wapp",form_module:"client-form-wapp",router:1},
         "client-form-wapp":             {url:"$A/modules/c/client-form-wapp.html",Table:"client-wapp"},
@@ -58,6 +58,10 @@
         "date-form":      	 		 	{url:"$A/modules/d/date-form.html",Table:"date-vm"},          
         "dass-data":	 	            {url:"$A/modules/d/depression-anxiety-stress-scales-data.html",Table:"dass",form_module:"dass-form"},
         "dass-form":	 	            {url:"$A/modules/d/depression-anxiety-stress-scales-form.html",Table:"dass"},
+
+        "document-data":	 	        {url:"$A/modules/d/document-data.html",Table:"document-demo",form_module:"document-form",router:1},
+        "document-form":	 	        {url:"$A/modules/d/document-form.html",Table:"document-demo"},
+        "document-panel":	 	        {url:"$A/modules/d/document-panel.html",Table:"document-demo",form_module:"document-form",router:1},
 
         "email-setup-data":      	  	{url:"$A/modules/e/email-setup-data.html",Table:"email-setup",form_module:"email-setup-form"},
         "email-setup-form":      	  	{url:"$A/modules/e/email-setup-form.html",Table:"email-setup"},         

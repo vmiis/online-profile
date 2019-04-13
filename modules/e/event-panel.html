@@ -1,10 +1,10 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section demonstrates how to share event information between team members.
+		<u class=g_section_admin id=admin__ID style='cursor:pointer'>Admin of this section</u>
 	</div>
     <div id=container__ID>
         <div id=color__ID>
-            <u id=admin__ID style='float:right;cursor:pointer'>Admin</u>
             VmInclude:__COMPONENT__/m/month.01.html
             click the number with circle -> day calendar, then click the time bar to create an event.
         </div>
@@ -14,7 +14,6 @@
         //--------------------------------------------------------
         VmInclude:__COMPONENT__/m/month.01.js
         $('#elapsed__ID').hide();     
-        $("#admin__ID").appendTo("#toolbar__ID");
         $("#admin__ID").on('click',function(){
             $vm.load_module('event-data','',{})
         })

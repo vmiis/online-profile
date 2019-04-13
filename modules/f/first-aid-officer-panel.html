@@ -2,11 +2,11 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section shows "FIRST AID OFFICER" part in a company intranet.
+		<u class=g_section_admin id=admin__ID style='cursor:pointer'>Admin of this section</u>
 	</div>
 	<div id="section__ID">
 		<div id=color__ID>
 			<div class="container">
-				<div class=row style='display:flow-root'><u style='float:right;cursor:pointer' id=first_aid_officer_admin__ID >Admin</u></div>
 				<div class="row section-title">
 					<h2 style="font-family: 'Indie Flower', cursive;">First Aid Officer</h2>
 					<hr>
@@ -78,7 +78,7 @@
 					}
 				})
 			}
-			$('#first_aid_officer_admin__ID').on('click',function(){
+			$('#admin__ID').on('click',function(){
 				$vm.load_module('first-aid-officer-data','',{});
 			})
 			$('#D__ID .href__ID a').on('click',function(e){
