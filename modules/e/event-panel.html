@@ -1,7 +1,10 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section demonstrates how to share event information between team members.
-		<u class=g_section_admin id=admin__ID style='cursor:pointer'>Admin of this section</u>
+		<div class=g_section_admin>
+			<u id=admin__ID style='cursor:pointer'>Admin of this section</u>
+			<br><u id=code__ID style='cursor:pointer'>Source code of this section</u>
+		</div>
 	</div>
     <div id=container__ID>
         <div id=color__ID>
@@ -16,6 +19,9 @@
         $('#elapsed__ID').hide();     
         $("#admin__ID").on('click',function(){
             $vm.load_module('event-data','',{})
+        })
+        $('#code__ID').on('click',function(){
+            window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
         })
         //--------------------------------------------------------
         $('#name__ID').text("Research Team Event Calendar");
@@ -86,8 +92,10 @@
             font-size:13px;
             font-family: Helvetica, Arial, sans-serif;
             height:100%;
+            width:100%;
         }
         #container__ID{
+            width:100%;
             overflow: auto;
 			background: url(__CURRENT_PATH__/event-panel.jpg) no-repeat center center;
 			background-size: cover;

@@ -1,7 +1,10 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section demonstrates a menu in a restaurant website.
-		<u class=g_section_admin id=admin__ID style='cursor:pointer'>Admin of this section</u>
+		<div class=g_section_admin>
+			<u id=admin__ID style='cursor:pointer'>Admin of this section</u>
+			<br><u id=code__ID style='cursor:pointer'>Source code of this section</u>
+		</div>
 	</div>
 	<div id="works-section__ID">
 		<div id=color__ID>
@@ -165,8 +168,13 @@
 					}
 				})
 			}
+			//---------------------------------------
 			$('#admin__ID').on('click',function(){
 				$vm.load_module('food-data','',{});
+			})
+			//---------------------------------------
+			$('#code__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
 			})
 			//---------------------------------------
 			$('#D__ID').on('load',function(){
@@ -193,7 +201,6 @@
 			height:100%;
 			overflow:auto;
 			animation: vm_module_fadein 1.0s;
-			margin-bottom:30px;
 	    }
 	    #works-section__ID{
 			background: url(__CURRENT_PATH__/food-special.jpg) no-repeat center center;

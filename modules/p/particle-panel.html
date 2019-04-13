@@ -1,6 +1,9 @@
 <div id=D__ID>
 	<div class='g_section_title'>
         The following section demonstrates a dynamic background of a website landing page.
+		<div class=g_section_admin>
+			<u id=code__ID style='cursor:pointer'>Source code of this section</u>
+		</div>
 	</div>
     <div id=background__ID></div>
     <span id=text__ID>Relax for a while</span>
@@ -130,6 +133,10 @@
                     case 'Bubble':window.open($vm.module_list['bubble-background-app'].url); break;
                 }
             })
+			$('#code__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
+			})
+            //------------------------------------
         }
     </script>
     <style>

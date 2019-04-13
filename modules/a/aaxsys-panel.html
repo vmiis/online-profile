@@ -1,6 +1,9 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section demonstrates how to retrieve information from third party system.
+		<div class=g_section_admin>
+			<u id=code__ID style='cursor:pointer'>Source code of this section</u>
+		</div>
 	</div>
     <section id=form_container__ID>
         <div><h3>Aaxsys Search</h3></div>
@@ -138,6 +141,10 @@
                 $("#F__ID")[0].reset();
             })
             //--------------------------------------------------------
+			$('#code__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
+			})
+			//---------------------------------------
         }
     </script>
     <style>

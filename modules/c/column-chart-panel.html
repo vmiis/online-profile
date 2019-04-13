@@ -1,7 +1,10 @@
 <div id=D__ID>
 	<div class='g_section_title'>
 		The following section demonstrates a bar chart
-		<u class=g_section_admin id=admin__ID style='cursor:pointer'>Admin of this section</u>
+		<div class=g_section_admin>
+			<u id=admin__ID style='cursor:pointer'>Admin of this section</u>
+			<br><u id=code__ID style='cursor:pointer'>Source code of this section</u>
+		</div>
 	</div>
 	<!--Vm Include:__COMPONENT__/c/chart.01.html-->
 	<section id=chart_container__ID>
@@ -44,6 +47,9 @@
 			$('#admin__ID').on('click',function(){
 				$vm.load_module('column-data','',{})
 			})
+            $('#code__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
+            })
 			//-------------------------------------
 		}
 	</script>

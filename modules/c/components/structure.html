@@ -1,9 +1,12 @@
 <div id=D__ID>
-	<div class='row g_section_title'>
+	<div class='g_section_title'>
 		The structure of this application
+		<div class=g_section_admin>
+			<u id=code__ID style='cursor:pointer'>Source code of this section</u>
+		</div>
 	</div>
+	<br><br>
 	<div class=row style='padding-bottom:50px'>
-		<hr class=hr2__ID></hr>
 		<div class="col-lg-6" style='margin:0;padding:0'>
 			<img src="__CURRENT_PATH__/structure.html.png" alt="" style='object-fit:cover; width: 100%;'>
 		</div>
@@ -20,6 +23,16 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function F__ID(){
+			//---------------------------------------
+			$('#code__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
+			})
+			//---------------------------------------
+		}
+	</script>
+
 	<style>
 		.hr2__ID{
 			height:1px;
