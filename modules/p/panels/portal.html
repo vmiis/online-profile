@@ -393,8 +393,7 @@
             var c_list=[
                 'structure','contact-us-panel','aaxsys-panel','event-panel','document-panel','survey-panel','flat-trial',
                 'column-chart-panel','food-special','particle-panel','first-aid-officer-panel','image-with-title-on-hover',
-                'image-and-title-with-scale-rotate-effect-on-hover',
-                'c_services'
+                'image-and-title-with-scale-rotate-effect-on-hover','c_services'
             ];
             //-----------------
             $vm.portal_scroll_fun=function(){
@@ -403,10 +402,16 @@
                 var v2=document.getElementById('D__ID').scrollTop;
                 var v3=document.getElementById('D__ID').scrollHeight;
                 if (Math.ceil(v1 + v2) >= v3) {
-                    if(c_I>=c_list.length) return;
-                    $('#p__ID').append('<div id=c'+c_I+'__ID></div>');
-                    $vm.load_component(c_list[c_I],"c"+c_I+"__ID",{});
-                    c_I++;
+                    if(c_I>c_list.length) return;
+                    if(c_I<c_list.length){
+                        $('#p__ID').append('<div id=c'+c_I+'__ID><div class=text-center style="font-size:22px">Loading more...</div></div>');
+                        $vm.load_component(c_list[c_I],"c"+c_I+"__ID",{});
+                        c_I++;
+                    }
+                    else if(c_I==c_list.length){
+                        $('#p__ID').append('<div id=c'+c_I+'__ID><div class=text-center style="font-size:22px"><br>No more contents at moment. Come later to see more.</div></div>');
+                        c_I++;
+                    }
                 }
             }
             $('#D__ID').attr('onscroll','$vm.portal_scroll_fun()');
@@ -446,10 +451,6 @@
                 for(var i=0;i<txt.length;i++){
                     txt2+=(i+1).toString()+"\t"+txt[i]+"\r\n";
                 }
-                /*
-                var txt2=JSON.stringify($vm.module_list,null,4);
-                txt2=$('<div></div>').html(txt2).text();
-                */
                 $vm.load_module("sys_code_viewer",'',{code:txt2,msg:''});
             })
             //--------------------------------------------------------
@@ -467,12 +468,6 @@
             font-size:14px;
             max-width:1600px;
     	}
-        /*
-        .section_title__ID a{
-            color: #78a965;
-    		text-decoration: underline!Important;
-        }
-        */
     	.panel__ID a {
     		text-decoration: none;
     	}
