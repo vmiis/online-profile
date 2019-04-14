@@ -18,11 +18,13 @@
         <br>
         <i class="fas fa-arrow-down"></i> 
         <br>
-        <br>TAX aggregation and reports ③
+        <br>Aggregation and reports ③
         <br>
         <br>
         <div class=btn__ID>
-            <button type=button id=btn6__ID class="btn btn-secondary">BAS quarter aggregation</button> 
+            <button type=button id=btn6__ID class="btn btn-secondary">BAS quarterly aggregation</button>
+            <button type=button id=btn7__ID class="btn btn-secondary">Income/Expense monthly aggregation</button>
+            <button type=button id=btn8__ID class="btn btn-secondary">Item monthly aggregation</button>
         </div>
         <div id=comments__ID>
             <br>
@@ -38,32 +40,25 @@
                     <br>Input date and amount.
                 </li>
                 <li>
-                    TAX aggregation and reports.
-                    <br>Sum all tax amount by tax category for ATO reports.
+                    Aggregation and reports.
+                    <br>A. Sum all tax amount by tax category for ATO reports.
+                    <br>B. Sum all amount by income/expense for business managers.
+                    <br>C. Sum all amount by item for business managers.
                 </li>
             </ul>
         </div>
     </div>
     <script>
         function F__ID(){
-            $('#btn1__ID').on('click',function(){
-                $vm.load_module('predefined-transaction-item-data','',{})
-            })
-            $('#btn2__ID').on('click',function(){
-                $vm.load_module('transaction-data','',{})
-            })
-            $('#btn3__ID').on('click',function(){
-                $vm.load_module('transaction-y-q-data','',{})
-            })
-            $('#btn4__ID').on('click',function(){
-                $vm.load_module('transaction-y-q-bas-data','',{})
-            })
-            $('#btn5__ID').on('click',function(){
-                $vm.load_module('transaction-y-q-tax-return-data','',{})
-            })
-            $('#btn6__ID').on('click',function(){
-                $vm.load_module('ato-bas-quarter-aggregation-data','',{})
-            })
+            $('#btn1__ID').on('click',function(){  $vm.load_module('predefined-transaction-item-data','',{});       })
+            $('#btn2__ID').on('click',function(){  $vm.load_module('transaction-data','',{});                       })
+            $('#btn3__ID').on('click',function(){  $vm.load_module('transaction-y-q-data','',{});                   })
+            $('#btn4__ID').on('click',function(){  $vm.load_module('transaction-y-q-bas-data','',{});               })
+            $('#btn5__ID').on('click',function(){  $vm.load_module('transaction-y-q-tax-return-data','',{});        })
+            $('#btn6__ID').on('click',function(){  $vm.load_module('ato-bas-quarter-aggregation-data','',{});       })
+            $('#btn7__ID').on('click',function(){  $vm.load_module('income-expense-month-aggregation-data','',{});  })
+            $('#btn8__ID').on('click',function(){  $vm.load_module('item-month-aggregation-data','',{});        })
+			//---------------------------------------
         }
     </script>
     <style>
