@@ -10,10 +10,6 @@
         "autocomplete-form":  			        {url:"$A/modules/a/autocomplete-form.html",Table:"autocomplete"},
         "a-basic-application-framework-index":  {url:"$A/modules/a/a-basic-application-framework/index.html"},
         "angularjs-hello-world":	            {url:"$A/modules/a/angularjs-hello-world.html",router:1},
-        "ato-bas-quarter-aggregation-data":     {url:"$A/modules/a/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation",form_module:"ato-bas-quarter-aggregation-form",router:1},
-        "ato-bas-quarter-aggregation-form":     {url:"$A/modules/a/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation",
-                                                    transaction_table:'transaction'
-                                                },
         "accountant-list-data":  	            {url:"$A/modules/e/email-list-data.html",Table:"accountant-list",form_module:"accountant-list-form",router:1},
         "accountant-list-form":  	            {url:"$A/modules/e/email-list-form.html",Table:"accountant-list"},
         "bar-data":  	                        {url:"$A/modules/b/bar-data.html",Table:"bar",form_module:"bar-form",router:1},
@@ -21,9 +17,10 @@
         "bar-chart":  	                        {url:"$A/modules/b/bar-chart.html",Table:"bar",router:1},
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/modules/b/bubble-background/index.html"},
-        "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping/index.html"},
+        "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping-app/index.html"},
         "bookkeeping-app-wappsystem":  		    {url:"$A/modules/b/bookkeeping-wappsystem/index.html"},
         "bookkeeping-workflow":  			    {url:"$A/modules/b/bookkeeping-workflow.html",router:1},
+        "bookkeeping-panel":  			        {url:"$A/modules/b/bookkeeping-panel.html",router:1},
         "bookkeeping-workflow-wapp":  	        {url:"$A/modules/b/bookkeeping-workflow-wapp.html",router:1},
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
@@ -172,9 +169,6 @@
         "psqi-data":                    {url:"$A/modules/p/pittsburgh-sleep-quality-index-data.html",Table:"psqi",form_module:"psqi-form"},
         "psqi-form":   			        {url:"$A/modules/p/pittsburgh-sleep-quality-index-form.html",Table:"psqi"},
 
-        "predefined-transaction-item-data": {url:"$A/modules/p/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
-        "predefined-transaction-item-form": {url:"$A/modules/p/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
-
         "purchase-order-workflow": {url:"$A/modules/p/purchase-order-workflow.html",router:1},
         "purchase-order-data-s": {url:"$A/modules/p/purchase-order-data-s.html",Table:"purchase-order",form_module:"purchase-order-form-s",router:1},
         "purchase-order-form-s": {url:"$A/modules/p/purchase-order-form-s.html",Table:"purchase-order",
@@ -265,16 +259,6 @@
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
         
-        "transaction-y-q-tax-return-data":  {url:"$A/modules/t/transaction-year-quarter-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-y-q-bas-data":    		{url:"$A/modules/t/transaction-year-quarter-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-y-q-data":    		    {url:"$A/modules/t/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        
-        "transaction-bas-data":   		{url:"$A/modules/t/transaction-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-tax-return-data":  {url:"$A/modules/t/transaction-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-data":    			{url:"$A/modules/t/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-form":    			{url:"$A/modules/t/transaction-form.html",Table:"transaction",
-                                            item_table:'predefined-transaction-item'
-                                        },
 
         "under-construction": 		    {url:"$A/modules/u/under-construction.html",text:"Under Construction",router:1},
 
@@ -301,21 +285,45 @@
     //-------------------------------------------------------------------------------------
     //bookkeeping
     var modules={
-        "predefined-transaction-item-data": {url:"$A/modules/p/predefined-transaction-item-data.html",Table:"predefined-transaction-item-wappsystem",form_module:"predefined-transaction-item-form"},
-        "predefined-transaction-item-form": {url:"$A/modules/p/predefined-transaction-item-form.html",Table:"predefined-transaction-item-wappsystem"},
+        "predefined-transaction-item-data": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
+        "predefined-transaction-item-form": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
         
-        "transaction-y-q-tax-return-data":  {url:"$A/modules/t/transaction-year-quarter-tax-return-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
-        "transaction-y-q-bas-data":    		{url:"$A/modules/t/transaction-year-quarter-bas-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
-        "transaction-y-q-data":    		    {url:"$A/modules/t/transaction-year-quarter-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        "transaction-y-q-tax-return-data":  {url:"$A/modules/b/bookkeeping/transaction-year-quarter-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-bas-data":    		{url:"$A/modules/b/bookkeeping/transaction-year-quarter-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-data":    		    {url:"$A/modules/b/bookkeeping/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
         
-        "transaction-bas-data":   		    {url:"$A/modules/t/transaction-bas-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
-        "transaction-tax-return-data":      {url:"$A/modules/t/transaction-tax-return-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
-        "transaction-data":    			    {url:"$A/modules/t/transaction-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
-        "transaction-form":    			    {url:"$A/modules/t/transaction-form.html",Table:"transaction-wappsystem",
+        "transaction-bas-data":   		    {url:"$A/modules/b/bookkeeping/transaction-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-tax-return-data":      {url:"$A/modules/b/bookkeeping/transaction-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-data":    			    {url:"$A/modules/b/bookkeeping/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-form":    			    {url:"$A/modules/b/bookkeeping/transaction-form.html",Table:"transaction",
+                                                item_table:'predefined-transaction-item'
+                                            },
+        "ato-bas-quarter-aggregation-data": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation",form_module:"ato-bas-quarter-aggregation-form",router:1},
+        "ato-bas-quarter-aggregation-form": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation",transaction_table:'transaction'},
+        "income-expense-month-aggregation-data":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-data.html",Table:"income-expense-month-aggregation",form_module:"income-expense-month-aggregation-form",router:1},
+        "income-expense-month-aggregation-form":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-form.html",Table:"income-expense-month-aggregation", transaction_table:'transaction'},
+        "item-month-aggregation-data":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-data.html",Table:"item-month-aggregation",form_module:"item-month-aggregation-form",router:1},
+        "item-month-aggregation-form":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-form.html",Table:"item-month-aggregation", transaction_table:'transaction'},
+    }
+    for(m in modules){$vm.module_list[m]=modules[m];}
+    //-------------------------------------------------------------------------------------
+    //wapp bookkeeping
+    var modules={
+        "predefined-transaction-item-data": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-data.html",Table:"predefined-transaction-item-wappsystem",form_module:"predefined-transaction-item-form"},
+        "predefined-transaction-item-form": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-form.html",Table:"predefined-transaction-item-wappsystem"},
+        
+        "transaction-y-q-tax-return-data":  {url:"$A/modules/b/bookkeeping/transaction-year-quarter-tax-return-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        "transaction-y-q-bas-data":    		{url:"$A/modules/b/bookkeeping/transaction-year-quarter-bas-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        "transaction-y-q-data":    		    {url:"$A/modules/b/bookkeeping/transaction-year-quarter-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        
+        "transaction-bas-data":   		    {url:"$A/modules/b/bookkeeping/transaction-bas-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        "transaction-tax-return-data":      {url:"$A/modules/b/bookkeeping/transaction-tax-return-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        "transaction-data":    			    {url:"$A/modules/b/bookkeeping/transaction-data.html",Table:"transaction-wappsystem",form_module:"transaction-form",router:1},
+        "transaction-form":    			    {url:"$A/modules/b/bookkeeping/transaction-form.html",Table:"transaction-wappsystem",
                                                 item_table:'predefined-transaction-item-wappsystem'
                                             },
-        "ato-bas-quarter-aggregation-data": {url:"$A/modules/a/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation-wappsystem",form_module:"ato-bas-quarter-aggregation-form",router:1},
-        "ato-bas-quarter-aggregation-form": {url:"$A/modules/a/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation-wappsystem",
+        "ato-bas-quarter-aggregation-data": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation-wappsystem",form_module:"ato-bas-quarter-aggregation-form",router:1},
+        "ato-bas-quarter-aggregation-form": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation-wappsystem",
                                                 transaction_table:'transaction-wappsystem'
                                             },
     }

@@ -154,8 +154,10 @@
 				var Amount=$('#F__ID input[name=Amount]').val();
 				Amount=parseFloat(Amount);
 				if(tax.G1_sales=='on') $('#F__ID input[name=G1_sales]').val(Amount.toFixed(2));
-				if(tax['1A_GST']=='on') $('#F__ID input[name=1A_GST]').val((Amount/11).toFixed(2));
-				if(tax['1B_GST']=='on') $('#F__ID input[name=1B_GST]').val((Amount/11).toFixed(2));
+				var GST_sales=0;
+				if(tax['1A_GST']=='on'){ GST_sales=Amount/11; $('#F__ID input[name=1A_GST]').val((Amount/11).toFixed(2));}
+				var GST_purshase=0;
+				if(tax['1B_GST']=='on'){ GST_purshase=Amount/11; $('#F__ID input[name=1B_GST]').val((Amount/11).toFixed(2));}
 				if(tax.W1_salary=='on') $('#F__ID input[name=W1_salary]').val((Amount).toFixed(2));
 				if(tax.W2_withheld=='on') $('#F__ID input[name=W2_withheld]').val((Amount).toFixed(2));
 				if(tax.Other_sales=='on') $('#F__ID input[name=Other_sales]').val((Amount).toFixed(2));
@@ -163,8 +165,8 @@
 				if(tax.Salary_expenses=='on') $('#F__ID input[name=Salary_expenses]').val((Amount).toFixed(2));
 				if(tax.Super_expenses=='on') $('#F__ID input[name=Super_expenses]').val((Amount).toFixed(2));
 				if(tax.All_other_expenses=='on') $('#F__ID input[name=All_other_expenses]').val((Amount).toFixed(2));
-				if(tax.Type=='Income') $('#F__ID input[name=Income]').val((Amount).toFixed(2));
-				if(tax.Type=='Expense') $('#F__ID input[name=Expense]').val((Amount).toFixed(2));
+				if(tax.Type=='Income') $('#F__ID input[name=Income]').val((Amount-GST_sales).toFixed(2));
+				if(tax.Type=='Expense') $('#F__ID input[name=Expense]').val((Amount-GST_purshase).toFixed(2));
 				if(tax.Type=='Other') $('#F__ID input[name=Other]').val((Amount).toFixed(2));
 			}
 			//-------------------------------------
