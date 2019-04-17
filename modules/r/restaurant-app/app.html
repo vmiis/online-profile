@@ -4,27 +4,38 @@
     <!-------->
     <div id=components style='display:none'>
         <div id=c_header>
+            
+            <!-- mobile -->
             <div class=vm-mobile>
-                <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
+                <span id=vm-mobile_title class=vm-mobile-title>Restaurant</span>
                 <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
+            <!---------->
+            
+            <!-- desktop -->
             <div class=vm-desk-logo>
-                <span id=vm-logo-label-A>Business Portal</span><br>
-                <span id=vm-logo-label-B>Modular distributed web application</span>
+                <span id=vm-logo-label-A>Restaurant</span><br>
+                <!--<span id=vm-logo-label-B>Modular distributed web application</span>-->
             </div>
-            <div menu id="vm-menu">
+            <!---------->
+            
+            <!-- menu -->
+            <div menu id="vm-menu" class="vm-m-hide">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/contact-us-form-02">Contact Us</a>
+                <a href="?/contact-us-form-02"><i class="far fa-envelope fa-fw"></i> Contact Us</a>
                 <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
-                <div class="vm-dropdown">
-                    <span class="vm-dropbtn">Administrator <i class="fa fa-caret-down"></i></span>
-                    <div class="vm-dropdown-content">
-                        <a href="?/contact-us-data">Contact us records</a>
+                <span class=vm-right>
+                    <div class="_vm-admin vm-dropdown">
+                        <span class="vm-dropbtn">Administrator <i class="fa fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/contact-us-data">Contact us records</a>
+                        </div>
                     </div>
-                </div>
-                <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
-                <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
+                    <a href='' class='_vm-admin' id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
+                    <a href='' class='_vm-admin vm-hide' id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
+                </span>
             </div>
+            <!---------->
         </div>
         <div id=c_footer>
             <span id=text_0></span>
@@ -36,7 +47,7 @@
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
         $vm.default_title="Modular distributed web application";
-        var ft="<a target=_blank style='color:#fff' href=https://www.vmiis.com>https://www.vmiis.com</a>";
+        var ft="<a target=_blank style='color:#fff' href=https://www.vmiis.com>http://www.mysite.com</a>";
         $('#text_0').html(ft);
         //------------------------------------
         $('#c_header').contents().appendTo('#header');
@@ -45,12 +56,9 @@
         $('#vm-mobile_title').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
         $('.vm-desk-logo').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
         //------------------------------------
-        $vm.root_layout_content_slot='content'
-        $vm.root_layout_footer='footer';
-        //---------------------------------------------
         var set_layout=function(){
-            var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
-            var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
+            var header_height=$('#'+$vm.root_layout_header).outerHeight(); $vm.header_height=header_height;
+            var footer_height=$('#'+$vm.root_layout_footer).outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
             if($vm.active_id!=undefined){
                 $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
@@ -73,6 +81,10 @@
                 $('#D'+$vm.active_id).css('min-height','unset');
                 $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
+        }
+        //------------------------------------
+        if(window.location.toString().indexOf('admin=1')!=-1){
+            $('#vm-menu *').removeClass("vm-admin");
         }
         //------------------------------------
         $vm.show();
@@ -109,15 +121,13 @@
         #vm-logo-label-A{
             font-family: Arial, sans-serif;
             color:#fff;
-            font-size: 200%;
-            line-height:10px;
+            font-size: 300%;
             display:inline-block;
         }
         #vm-logo-label-B{
             font-family: Arial, sans-serif;
             color:#fff;
             font-size: 93%;
-            line-height:80%;
             display:inline-block;
         }
         #footer{
@@ -130,12 +140,46 @@
         }
         /*----------------------*/
         #header{height:100px;background:rgba(0,0,0,0.6);}
-        .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
-        #vm-menu{ float:left;padding:50px 30px 0 30px;}
+        .vm-desk-logo{ 
+            width:300px;
+            float:left;
+            cursor:pointer;
+            padding:20px 0 0 30px;
+        }
+        #vm-menu {
+            margin-left:300px;
+            padding:50px 50px 0 50px;
+        }
+        .vm-right{
+            float:right;
+        }
         @media screen and (max-width: 1200px){
             #header{height:50px;}
             .vm-desk-logo{display:none;}
-            #vm-menu{padding:0;}
+            #vm-menu {
+                margin-left:0;
+                padding:0 15px;
+            }
+            .vm-right{
+                float:unset;
+            }
+            .vm-m-hide{
+                display:none;
+            }
+            .vm-m-show{
+                padding:0 15px;
+                width:100%;
+                margin-top:0px;
+                margin-right:0px;
+                margin-left:0px;
+                overflow: hidden;
+                background: var(--mobile-menu-background-color);
+                display:block;
+                float:unset;
+                position: relative;
+                animation: vm-menu-show 1.8s;
+                z-index: 100;
+            }
         }
         /*----------------------*/
     </style>
@@ -149,9 +193,15 @@
         $(".vm-dropdown").mouseleave(function (){  $(".vm-dropdown-content").hide();  })
         $(".vm-dropdown-content").mouseleave(function (){  $(this).hide();  })
         $vm.toggle=function() {
-            var x = document.getElementById("vm-menu");
-            if(x.className==='') x.className="responsive";
-            else x.className="";
+            var mn=$('#vm-menu');
+            if(mn.attr('class')=='vm-m-show'){
+                mn.removeClass('vm-m-show');
+                mn.addClass('vm-m-hide');
+            }
+            else{
+                mn.removeClass('vm-m-hide');
+                mn.addClass('vm-m-show');
+            }
         }
         //------------------------------------
         $('#vm-menu a').on('click',function(e){
@@ -172,12 +222,7 @@
         //------------------------------------
     </script>
     <style menu-style>
-        #vm-menu {
-            overflow: hidden;
-            display:inline-block;
-            float:left;
-        }
-        #vm-menu > a {
+        #vm-menu > a, #vm-menu > span > a {
             color:var(--menu-color);
             float: left;
             display: block;
@@ -229,7 +274,7 @@
             cursor:pointer;
             border-bottom:1px solid var(--dropdown-menu-border-color);
         }
-        #vm-menu > a:hover, .vm-dropdown:hover .vm-dropbtn {
+        #vm-menu > a:hover, #vm-menu > span > a:hover, .vm-dropdown:hover .vm-dropbtn {
           background-color:var(--menu-hover-background-color);
           color:var(--menu-hover-color);
           border-radius:4px;
@@ -244,6 +289,9 @@
         }
         .vm-mobile{
             display:none;
+        }
+        .vm-admin{
+            display:none!Important;
         }
         /*----------------------*/
         @media screen and (max-width: 1200px) {
@@ -268,34 +316,14 @@
                 cursor:pointer;
                 color:var(--mobile-hamburger-color);
             }
-            #vm-menu {
-                width:100%;
-                margin-top:0px;
-                margin-right:0px;
-                margin-left:0px;
-                padding-left:15px;
-                padding-right:15px;
-                overflow: hidden;
-                background: var(--mobile-menu-background-color);
-                display:block;
-                float:unset;
-            }
-            #vm-menu a, .vm-dropdown .vm-dropbtn {
-                display: none;
-            }
-            #vm-menu.responsive {
-                position: relative;
-                animation: vm-menu-show 1.8s;
-                z-index: 100;
-            }
-            #vm-menu.responsive a {
+            #vm-menu.vm-m-show a {
                 float: none;
                 display: block;
                 text-align: left;
             }
-            #vm-menu.responsive .vm-dropdown {float: none;}
-            #vm-menu.responsive .vm-dropdown-content {position: relative;}
-            #vm-menu.responsive .vm-dropdown .vm-dropbtn {
+            #vm-menu.vm-m-show .vm-dropdown {float: none;}
+            #vm-menu.vm-m-show .vm-dropdown-content {position: relative;}
+            #vm-menu.vm-m-show .vm-dropdown .vm-dropbtn {
                 display: block;
                 width: 100%;
                 text-align: left;

@@ -222,6 +222,8 @@
         "reactjs-tic-tac-toe-passing-value":    {url:"$A/modules/r/reactjs-tic-tac-toe-passing-value.html",router:1},
         "reactjs-tic-tac-toe-starter":          {url:"$A/modules/r/reactjs-tic-tac-toe-starter.html",router:1},
         
+        "restaurant-app":    			        {url:"$A/modules/r/restaurant-app/index.html"},
+
         "sales-data":        			{url:"$A/modules/s/sales-data.html",Table:"sales-vm",form_module:"sales-form",router:1},
         "sales-form":        			{url:"$A/modules/s/sales-form.html",Table:"sales-vm"},
         "sales-item-data":       		{url:"$A/modules/s/sales-item-data.html",Table:"sales-item-vm",form_module:"sales-item-form",router:1},
