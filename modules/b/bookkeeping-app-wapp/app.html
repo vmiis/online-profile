@@ -15,7 +15,7 @@
             <!-- desktop -->
             <div class=vm-desk-logo>
                 <span id=vm-logo-label-A>Bookkeeping</span><br>
-                <!--<span id=vm-logo-label-B>Modular distributed web application</span>-->
+                <span id=vm-logo-label-B>For Wappsystem</span>
             </div>
             <!---------->
             
@@ -47,7 +47,6 @@
                         <a href="?/predefined-transaction-item-data">Predefined transaction items</a>
                     </div>
                 </div>
-                <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
                 <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
                 <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
             </div>
@@ -62,8 +61,8 @@
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
-        $vm.default_title="Modular distributed web application";
-        var ft="<a target=_blank style='color:#fff' href=https://www.vmiis.com>https://www.vmiis.com</a>";
+        $vm.default_title="Wappsystem Pty Ltd";
+        var ft="Wappsystem Pty Ltd";
         $('#text_0').html(ft);
         //------------------------------------
         $('#c_header').contents().appendTo('#header');
@@ -137,9 +136,8 @@
             text-transform: uppercase;
             font-family: 'Indie Flower', cursive;
             color:#fff;
-            font-size: 300%;
+            font-size: 200%;
             display:inline-block;
-
         }
         #vm-logo-label-B{
             font-family: Arial, sans-serif;
@@ -161,7 +159,7 @@
             width:380px;
             float:left;
             cursor:pointer;
-            padding:20px 0 0 30px;
+            padding:12px 0 0 30px;
         }
         #vm-menu {
             margin-left:380px;
@@ -226,7 +224,7 @@
         $('#vm-menu a').on('click',function(e){
             e.preventDefault();
             var href=$(this).attr('href');
-            if(href.substring(0,8)=="https://"){ window.open(href); return;}
+            if(href!=undefined && href.substring(0,8)=="https://"){ window.open(href); return;}
             if(href!=undefined && href!=''){
                 if($vm.menu_click!=undefined) $vm.menu_click(href);
             }
@@ -236,7 +234,7 @@
         $vm.menu_click=function(href){
             href=href.replace('?\/','');
             href=href.replace(/\//g,'_');
-            $vm.load_module(href,$vm.root_layout_content_slot,{});
+            $vm.load_module("wapp-bookkeeping-"+href,$vm.root_layout_content_slot,{});
         }
         //------------------------------------
     </script>

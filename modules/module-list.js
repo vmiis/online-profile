@@ -22,6 +22,7 @@
         "bookkeeping-workflow":  			    {url:"$A/modules/b/bookkeeping-workflow.html",router:1},
         "bookkeeping-panel":  			        {url:"$A/modules/b/bookkeeping-panel.html",router:1},
         "bookkeeping-workflow-wapp":  	        {url:"$A/modules/b/bookkeeping-workflow-wapp.html",router:1},
+        "bookkeeping-home":  			        {url:"$A/modules/b/bookkeeping/home.html",router:1},
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
         "checkbox-data":      			{url:"$A/modules/c/checkbox-data.html",Table:"checkbox",form_module:"checkbox-form",router:1},
@@ -328,6 +329,11 @@
         "ato-bas-quarter-aggregation-form": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation-wappsystem",
                                                 transaction_table:'transaction-wappsystem'
                                             },
+        "income-expense-month-aggregation-data":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-data.html",Table:"income-expense-month-aggregation-wappsystem",form_module:"income-expense-month-aggregation-form",router:1},
+        "income-expense-month-aggregation-form":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-form.html",Table:"income-expense-month-aggregation-wappsystem", transaction_table:'transaction-wappsystem'},
+        "item-month-aggregation-data":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-data.html",Table:"item-month-aggregation-wappsystem",form_module:"item-month-aggregation-form",router:1},
+        "item-month-aggregation-form":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-form.html",Table:"item-month-aggregation-wappsystem", transaction_table:'transaction-wappsystem'},
+        "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation-wappsystem",router:1},
     }
     var prefix="wapp-bookkeeping-"
     for(m in modules){

@@ -126,8 +126,8 @@
 			}
 			//-------------------------------------
 			m.before_submit=function(data,index){
-				index.I1=data.Year;
-				index.I2=data.Month;
+				index.I1=parseInt(data.Year);
+				index.I2=parseInt(data.Month);
 				return true;
 			}
 			//-------------------------------------
