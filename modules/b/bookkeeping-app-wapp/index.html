@@ -30,7 +30,7 @@
         //modules used in this app
         $vm.module_list={
             //you can add modules here directly
-            "wapp-bookkeeping-home":         {url:"$A/modules/b/bookkeeping/home-wapp.html",router:1},
+            "home":  {url:"$A/modules/b/bookkeeping/home-wapp.html",router:1},
         };
         //------------------------------------
         //where are your all other modules
@@ -49,6 +49,10 @@
         //------------------------------------
         $VmAPI={};$vm.start_time=new Date().getTime();
         //------------------------------------
+        $vm.root_layout_header='header';
+        $vm.root_layout_content_slot='content'
+        $vm.root_layout_footer='footer';
+        //---------------------------------------------
         //replace the url
         $vm.replace_url=function(url){
             var urlR=url.replace("$A",$vm.public_url_$A);

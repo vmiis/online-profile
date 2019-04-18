@@ -18,7 +18,7 @@
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/modules/b/bubble-background/index.html"},
         "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping-app/index.html"},
-        "bookkeeping-app-wappsystem":  		    {url:"$A/modules/b/bookkeeping-wappsystem/index.html"},
+        "bookkeeping-app-wapp":  		        {url:"$A/modules/b/bookkeeping-app-wapp/index.html"},
         "bookkeeping-workflow":  			    {url:"$A/modules/b/bookkeeping-workflow.html",router:1},
         "bookkeeping-panel":  			        {url:"$A/modules/b/bookkeeping-panel.html",router:1},
         "bookkeeping-workflow-wapp":  	        {url:"$A/modules/b/bookkeeping-workflow-wapp.html",router:1},
@@ -334,6 +334,7 @@
         "item-month-aggregation-data":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-data.html",Table:"item-month-aggregation-wappsystem",form_module:"item-month-aggregation-form",router:1},
         "item-month-aggregation-form":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-form.html",Table:"item-month-aggregation-wappsystem", transaction_table:'transaction-wappsystem'},
         "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation-wappsystem",router:1},
+        "item-chart":                           {url:"$A/modules/b/bookkeeping/item-chart.html",Table:"item-month-aggregation-wappsystem",router:1},
     }
     var prefix="wapp-bookkeeping-"
     for(m in modules){

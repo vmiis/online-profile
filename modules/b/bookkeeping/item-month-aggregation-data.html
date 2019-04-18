@@ -30,7 +30,7 @@
                             R[a]=1;
                             fs=fs+","+a.replace(/ /g,'_');
                         }
-                        m.records[i].Data[a.replace(/ /g,'_')]="$"+m.records[i].Data.Result[a];
+                        m.records[i].Data[a.replace(/ /g,'_')]="$"+parseFloat(m.records[i].Data.Result[a]).toFixed(2);
                     }
                     if(r!=null) m.records[i].Data.Result="$"+r;
                 }

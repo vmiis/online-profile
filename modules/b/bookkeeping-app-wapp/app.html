@@ -42,6 +42,13 @@
                     </div>
                 </div>
                 <div class="vm-dropdown">
+                    <span class="vm-dropbtn">Chart <i class="fa fa-caret-down"></i></span>
+                    <div class="vm-dropdown-content">
+                        <a href="?/income-expense-chart">Income/Expense</a>
+                        <a href="?/item-chart">Items</a>
+                    </div>
+                </div>
+                <div class="vm-dropdown">
                     <span class="vm-dropbtn">Setup <i class="fa fa-caret-down"></i></span>
                     <div class="vm-dropdown-content">
                         <a href="?/predefined-transaction-item-data">Predefined transaction items</a>
@@ -71,9 +78,6 @@
         $('#vm-mobile_title').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
         $('.vm-desk-logo').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
         //------------------------------------
-        $vm.root_layout_content_slot='content'
-        $vm.root_layout_footer='footer';
-        //---------------------------------------------
         var set_layout=function(){
             var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
@@ -156,13 +160,13 @@
         /*----------------------*/
         #header{height:100px;background:rgba(50,84,93,0.69);}
         .vm-desk-logo{ 
-            width:380px;
+            width:320px;
             float:left;
             cursor:pointer;
             padding:12px 0 0 30px;
         }
         #vm-menu {
-            margin-left:380px;
+            margin-left:320px;
             padding:50px 50px 0 50px;
         }
         .vm-right{
@@ -234,7 +238,8 @@
         $vm.menu_click=function(href){
             href=href.replace('?\/','');
             href=href.replace(/\//g,'_');
-            $vm.load_module("wapp-bookkeeping-"+href,$vm.root_layout_content_slot,{});
+            if(href=='home') $vm.load_module(href,$vm.root_layout_content_slot,{}); 
+            else $vm.load_module("wapp-bookkeeping-"+href,$vm.root_layout_content_slot,{});
         }
         //------------------------------------
     </script>
