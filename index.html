@@ -15,7 +15,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[1.11,0.76]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[1.12,0.76]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -51,6 +51,10 @@
         //------------------------------------
         $VmAPI={};$vm.start_time=new Date().getTime();
         //------------------------------------
+        $vm.root_layout_header='header';
+        $vm.root_layout_content_slot='content'
+        $vm.root_layout_footer='footer';
+        //---------------------------------------------
         //replace the url
         $vm.replace_url=function(url){
             var urlR=url.replace("$A",$vm.public_url_$A);
@@ -127,10 +131,6 @@
                 },10+T);
             })
         },10);
-        //---------------------------------------------
-        $vm.root_layout_header='header';
-        $vm.root_layout_content_slot='content'
-        $vm.root_layout_footer='footer';
         //---------------------------------------------
     </script>
 </html>
