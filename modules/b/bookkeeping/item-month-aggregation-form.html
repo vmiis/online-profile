@@ -15,6 +15,7 @@
     					<input type="Number" class="form-control" name=Month step=1 />
     				</div>
 				</div>
+				<!--
 				<br>
 				<div class="row">
 					<div class=col>
@@ -25,6 +26,7 @@
 				<br>
 				<div id=items__ID>
 				</div>
+			-->
     			<br>
     			<div class="row c_print">
     				<div class=col>
@@ -48,6 +50,7 @@
 				}
 			}
 			//-------------------------------------
+			/*
 			$('#agregate__ID').on('click',function(){
 				var y=$('#F__ID input[name=Year]').val();
 				var mm=$('#F__ID input[name=Month]').val();
@@ -107,10 +110,11 @@
 				}
 				$('#items__ID').html(txt);
 			}
+			*/
 			m.before_submit=function(data,index){
 				index.I1=parseInt(data.Year);
 				index.I2=parseInt(data.Month);
-				data.Result=RR;
+				//data.Result=RR;
 				return true;
 			}
 			//-------------------------------------

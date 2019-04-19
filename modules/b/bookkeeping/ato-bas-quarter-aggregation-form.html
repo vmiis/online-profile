@@ -15,6 +15,7 @@
     					<input type="text" class="form-control" name=Quarter />
     				</div>
 				</div>
+				<!--
 				<br>
 				<div class="row">
 					<div class=col>
@@ -22,6 +23,7 @@
 						<span style='padding-left:30px'></span>Last performed: <input type="text" name=Last_performed class=no_border__ID />
     				</div>
 				</div>
+				-->
 				<br>
 				<div id=items__ID>
 					<div class="row row__ID">
@@ -80,6 +82,7 @@
 				})
 			}
 			//-------------------------------------
+			/*
 			$('#agregate__ID').on('click',function(){
 				var y=$('#F__ID input[name=Year]').val();
 				var q=$('#F__ID input[name=Quarter]').val();
@@ -106,7 +109,9 @@
 					}
 				});
 			})
+			*/
 			//-------------------------------------
+			/*
 			m.cal_and_set=function(d){
 				$('#F__ID input[name=Last_performed]').val($vm.date_to_string_yyyymmdd(new Date()))
 				var G1_sales=0; 
@@ -127,6 +132,7 @@
 				$('#F__ID input[name=W1_salary]').val(W1_salary.toFixed(2))
 				$('#F__ID input[name=W2_withheld]').val(W2_withheld.toFixed(2))
 			}
+			*/
 			//-------------------------------------
 			m.before_submit=function(data,index){
 				index.I1=data.Year;

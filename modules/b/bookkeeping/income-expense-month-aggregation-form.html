@@ -16,12 +16,14 @@
     				</div>
 				</div>
 				<br>
+				<!--
 				<div class="row">
 					<div class=col>
 						<button style='margin-left:6px' id=agregate__ID type="button" class="btn btn-secondary">Aggregate</button>
 						<span style='padding-left:30px'></span>Last performed: <input type="text" name=Last_performed class=no_border__ID />
     				</div>
 				</div>
+				-->
 				<br>
 				<div id=items__ID>
 					<div class="row row__ID">
@@ -76,6 +78,7 @@
 				})
 			}
 			//-------------------------------------
+			/*
 			$('#agregate__ID').on('click',function(){
 				var y=$('#F__ID input[name=Year]').val();
 				var mm=$('#F__ID input[name=Month]').val();
@@ -125,6 +128,7 @@
 				$('#F__ID input[name=GST_on_purchase]').val(GST_on_purchase.toFixed(2))
 			}
 			//-------------------------------------
+			*/
 			m.before_submit=function(data,index){
 				index.I1=parseInt(data.Year);
 				index.I2=parseInt(data.Month);

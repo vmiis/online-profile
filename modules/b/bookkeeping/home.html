@@ -2,29 +2,30 @@
     <div id=container__ID>
         <h1>Bookkeeping workflow</h1>
         <br>
-        <button type=button id=btn1__ID class="btn btn-secondary">Predefined transaction item</button> ①
+        <button type=button id=btn1__ID class="btn btn-secondary">Predefined transaction item</button> <span style=font-size:120%>&#9312;</span><br>
+        <i class="fas fa-arrow-down vm-arrow"></i> 
+        <br>Add/Edit/View transaction records <span style=font-size:120%>&#9313;</span>
         <br>
-        <br>
-        <i class="fas fa-arrow-down"></i> 
-        <br>
-        <br>Add/Edit/View transaction records ②
-        <br><br>
         <div class=btn__ID>
             <button type=button id=btn2__ID class="btn btn-secondary">Transactions</button> 
             <button type=button id=btn3__ID class="btn btn-secondary">Transactions (quarterly)</button> 
             <br><button type=button id=btn4__ID class="btn btn-secondary">Transactions (quarterly with BAS info)</button> 
             <br><button type=button id=btn5__ID class="btn btn-secondary">Transactions (quarterly with TAX RETURN info)</button> 
         </div>
-        <br>
-        <i class="fas fa-arrow-down"></i> 
-        <br>
-        <br>Aggregation and reports ③
-        <br>
+        <i class="fas fa-arrow-down vm-arrow"></i> 
+        <br>Aggregation and reports <span style=font-size:120%>&#9314;</span>
         <br>
         <div class=btn__ID>
             <button type=button id=btn6__ID class="btn btn-secondary">BAS quarterly aggregation</button>
             <button type=button id=btn7__ID class="btn btn-secondary">Income/Expense monthly aggregation</button>
             <button type=button id=btn8__ID class="btn btn-secondary">Item monthly aggregation</button>
+        </div>
+        <i class="fas fa-arrow-down vm-arrow"></i> 
+        <br>Chart <span style=font-size:120%>&#9315;</span>
+        <br>
+        <div class=btn__ID>
+            <button type=button id=btn9__ID class="btn btn-secondary">Income/Expense chart</button>
+            <button type=button id=btn10__ID class="btn btn-secondary">Item chart</button>
         </div>
         <div id=comments__ID>
             <br>
@@ -45,20 +46,44 @@
                     <br>B. Sum all amount by income/expense for business managers.
                     <br>C. Sum all amount by item for business managers.
                 </li>
+                <li>
+                    Chart.
+                    <br>A. Income and expense chart.
+                    <br>B. Item chart.
+                </li>
             </ul>
         </div>
     </div>
     <script>
         function F__ID(){
-            $('#btn1__ID').on('click',function(){  $vm.load_module('predefined-transaction-item-data','',{});       })
-            $('#btn2__ID').on('click',function(){  $vm.load_module('transaction-data','',{});                       })
-            $('#btn3__ID').on('click',function(){  $vm.load_module('transaction-y-q-data','',{});                   })
-            $('#btn4__ID').on('click',function(){  $vm.load_module('transaction-y-q-bas-data','',{});               })
-            $('#btn5__ID').on('click',function(){  $vm.load_module('transaction-y-q-tax-return-data','',{});        })
-            $('#btn6__ID').on('click',function(){  $vm.load_module('ato-bas-quarter-aggregation-data','',{});       })
-            $('#btn7__ID').on('click',function(){  $vm.load_module('income-expense-month-aggregation-data','',{});  })
-            $('#btn8__ID').on('click',function(){  $vm.load_module('item-month-aggregation-data','',{});        })
-			//---------------------------------------
+            var m=$vm.module_list['__MODULE__'];
+            if(m.prefix==undefined) m.prefix="";
+            //var prefix="wapp-bookkeeping-";
+            $('#btn1__ID').on('click',function(){  $vm.load_module(m.prefix+'predefined-transaction-item-data','',{});       })
+            $('#btn2__ID').on('click',function(){  $vm.load_module(m.prefix+'transaction-data','',{});                       })
+            $('#btn3__ID').on('click',function(){  $vm.load_module(m.prefix+'transaction-y-q-data','',{});                   })
+            $('#btn4__ID').on('click',function(){  $vm.load_module(m.prefix+'transaction-y-q-bas-data','',{});               })
+            $('#btn5__ID').on('click',function(){  $vm.load_module(m.prefix+'transaction-y-q-tax-return-data','',{});        })
+            $('#btn6__ID').on('click',function(){  $vm.load_module(m.prefix+'ato-bas-quarter-aggregation-data','',{});       })
+            $('#btn7__ID').on('click',function(){  $vm.load_module(m.prefix+'income-expense-month-aggregation-data','',{});  })
+            $('#btn8__ID').on('click',function(){  $vm.load_module(m.prefix+'item-month-aggregation-data','',{});        })
+            $('#btn9__ID').on('click',function(){  $vm.load_module(m.prefix+'income-expense-chart','',{});        })
+            $('#btn10__ID').on('click',function(){  $vm.load_module(m.prefix+'item-chart','',{});        })
+            //---------------------------------------
+            var wait=function(){
+                if($vm.user_name=="guest" && m.prefix!=""){
+                    $('#D__ID button').off('click').on('click',function(e) {
+                        e.preventDefault();
+                        alert("Login first please.")
+                    });
+                }
+            }
+            //---------------------------------------
+            var I=0, loop=setInterval(function (){
+                if($vm.init_status==1){  clearInterval(loop); wait(); }
+                I++; if(I>50){ clearInterval(loop); alert("Network error.");}
+            },100);
+            //-------------------------------------
         }
     </script>
     <style>
@@ -71,7 +96,7 @@
         }
         #container__ID{
             text-align: center;
-            padding:60px 10px 50px 10px;
+            padding:30px 10px 50px 10px;
             margin-left: auto;
             margin-right: auto;
             font-family: Verdana,sans-serif;
@@ -97,6 +122,9 @@
         }
         .btn__ID *{
             margin:3px;
+        }
+        .vm-arrow{
+            margin:10px 0 0 0;
         }
         @media screen and (max-width:768px){
             #container__ID{
