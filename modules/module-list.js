@@ -260,6 +260,7 @@
         "text-input-form":    			{url:"$A/modules/t/text-input-form.html",Table:"text-input"},
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
+        "template-001":  		  		{url:"$A/modules/t/template-001/index.html"},
         
 
         "under-construction": 		    {url:"$A/modules/u/under-construction.html",text:"Under Construction",router:1},
@@ -792,6 +793,12 @@
         $vm.module_list[prefix+m].prefix=prefix;
         $vm.module_list[prefix+m].url=$vm.module_list[prefix+m].url.replace("$A",$A);
     }
+    //-------------------------------------------------------------------------------------
+    //template-001
+    var modules={
+        "footer": {url:"$A/modules/t/template-001/modules/footer.html"},
+    }
+    var prefix="template-001-"; for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //replace $A...
     for(m in $vm.module_list) $vm.module_list[m].url=$vm.replace_url($vm.module_list[m].url);
