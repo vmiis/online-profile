@@ -48,7 +48,7 @@
 				}
 				//----------------------------------
 				var data = google.visualization.arrayToDataTable(ds);
-				var options = {title: 'Incom/Expense'}; 
+				var options = {title: 'Incom/Expense',vAxis: {minValue: 0}}; 
 				var chart = new google.visualization.ColumnChart(document.getElementById('chart_div__ID'));
 				chart.draw(data, options);				
 			}

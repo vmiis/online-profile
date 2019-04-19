@@ -342,6 +342,36 @@
         if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
     }
     //-------------------------------------------------------------------------------------
+    //vmautomation bookkeeping
+    var modules={
+        "predefined-transaction-item-data": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-data.html",Table:"predefined-transaction-item-vmautomation",form_module:"predefined-transaction-item-form"},
+        "predefined-transaction-item-form": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-form.html",Table:"predefined-transaction-item-vmautomation"},
+        
+        "transaction-y-q-tax-return-data":  {url:"$A/modules/b/bookkeeping/transaction-year-quarter-tax-return-data.html",Table:"transaction-vmautomation",form_module:"transaction-form",router:1},
+        "transaction-y-q-bas-data":    		{url:"$A/modules/b/bookkeeping/transaction-year-quarter-bas-data.html",Table:"transaction-vmautomation",form_module:"transaction-form",router:1},
+        "transaction-y-q-data":    		    {url:"$A/modules/b/bookkeeping/transaction-year-quarter-data.html",Table:"transaction-vmautomation",form_module:"transaction-form",router:1},
+        
+        "transaction-bas-data":   		    {url:"$A/modules/b/bookkeeping/transaction-bas-data.html",Table:"transaction-vmautomation",form_module:"transaction-form",router:1},
+        "transaction-tax-return-data":      {url:"$A/modules/b/bookkeeping/transaction-tax-return-data.html",Table:"transaction-vmautomation",form_module:"transaction-form",router:1},
+        "transaction-data":    			    {url:"$A/modules/b/bookkeeping/transaction-data.html",Table:"transaction-vmautomation",form_module:"transaction-form",router:1},
+        "transaction-form":    			    {url:"$A/modules/b/bookkeeping/transaction-form.html",Table:"transaction-vmautomation",
+                                                item_table:'predefined-transaction-item-vmautomation'
+                                            },
+        "ato-bas-quarter-aggregation-data": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation-vmautomation",transaction_table:'transaction-vmautomation',form_module:"ato-bas-quarter-aggregation-form",router:1},
+        "ato-bas-quarter-aggregation-form": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation-vmautomation",transaction_table:'transaction-vmautomation'},
+        "income-expense-month-aggregation-data":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-data.html",Table:"income-expense-month-aggregation-vmautomation", transaction_table:'transaction-vmautomation',form_module:"income-expense-month-aggregation-form",router:1},
+        "income-expense-month-aggregation-form":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-form.html",Table:"income-expense-month-aggregation-vmautomation", transaction_table:'transaction-vmautomation'},
+        "item-month-aggregation-data":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-data.html",Table:"item-month-aggregation-vmautomation", transaction_table:'transaction-vmautomation',form_module:"item-month-aggregation-form",router:1},
+        "item-month-aggregation-form":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-form.html",Table:"item-month-aggregation-vmautomation", transaction_table:'transaction-vmautomation'},
+        "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation-vmautomation",router:1},
+        "item-chart":                           {url:"$A/modules/b/bookkeeping/item-chart.html",Table:"item-month-aggregation-vmautomation",router:1},
+    }
+    var prefix="vmautomation-bookkeeping-"
+    for(m in modules){
+        $vm.module_list[prefix+m]=modules[m];
+        if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
+    }
+    //-------------------------------------------------------------------------------------
     //car booking
     var modules={
         "car-booking-record-data":    	{url:"$A/modules/c/car-booking-record-data.html",Table:"car-booking-record",form_module:"car-booking-record-form",router:1},

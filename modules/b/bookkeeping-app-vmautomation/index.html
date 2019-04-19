@@ -4,7 +4,7 @@
         <!-- The meta data are changed by the active module-->
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="icon" href="data:,">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
     </head>
     <body>
         <!-- Typical website layout, the contents are dynamiclly updated by modules-->
@@ -12,10 +12,10 @@
         <div id=content></div>
         <div id=footer></div>
     </body>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[1.16,0.77]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.58,0.58]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -23,17 +23,14 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/app.html",              //app menu, title, footer etc
-            "$A/modules/f/frame.html",  //app frame work
+            "$A/modules/b/bookkeeping-app-vmautomation/app.html",   //app menu, title, footer etc
+            "$A/modules/f/frame.html",                              //app frame work
         ]
         //------------------------------------
         //modules used in this app
         $vm.module_list={
             //you can add modules here directly
-            "home":	            {url:"$A/modules/p/panels/portal.html",router:1},
-            "panel-modules":	{url:"$A/modules/p/panels/modules.html",router:1},
-            "vmiis-365-app":	{url:"$A/modules/v/vmiis-365-app/index.html",router:1},
-            "test":	            {url:"$A/modules/b/bookkeeping-panel.html",router:1},
+            "home":  {url:"$A/modules/b/bookkeeping/home.html",prefix:"vmautomation-bookkeeping-",router:1},
         };
         //------------------------------------
         //where are your all other modules
@@ -45,9 +42,10 @@
         
         
         
+        
         //------------------------------------
         //Do not need to chang the following code in most cases
-        //The following code will load a framework module and your application modules
+        //The following code will load a framework module and your application module
         //------------------------------------
         $VmAPI={};$vm.start_time=new Date().getTime();
         //------------------------------------
@@ -66,22 +64,12 @@
         for(p in $vm.start_modules) $vm.start_modules[p]=$vm.replace_url($vm.start_modules[p]);
         for(p in $vm.app_modules) $vm.app_modules[p]=$vm.replace_url($vm.app_modules[p]);
         //------------------------------------
-        $vm._I=0; $vm._N=$vm.start_modules.length;//+$vm.app_modules.length;
+        $vm._I=0; $vm._N=$vm.start_modules.length+$vm.app_modules.length;
         $vm._boot=function(){
             $vm._I++;
             if($vm._I==$vm._N){
                 for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-                console.log("build in module list  "+(new Date().getTime()-$vm.start_time)+'ms');
                 $vm._start();
-            }
-        }
-        //------------------------------------------
-        $vm._J=0; $vm._JN=$vm.app_modules.length;
-        $vm._boot2=function(){
-            $vm._J++;
-            if($vm._J==$vm._JN){
-                for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-                console.log("app module list  "+(new Date().getTime()-$vm.start_time)+'ms');
             }
         }
         //------------------------------------------
@@ -107,30 +95,24 @@
             }
         })
         //---------------------------------------------
-        setTimeout(function (){
-            var T=0;
-            $($vm.app_modules).each(function(index,url){
-                T+=10;
-                setTimeout(function (){
-                    var ver=localStorage.getItem(apppath+url+"ver");
-                    var txt=localStorage.getItem(apppath+url+"txt");
-                    if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
-                        $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                            localStorage.setItem(apppath+url+"txt",new_txt);
-                            localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
-                            console.log('loading from url. '+url);
-                            eval(new_txt);
-                            //$vm._boot2();
-                        },'text');
-                    }
-                    else{
-                        console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[0]);
-                        eval(txt);
-                        //$vm._boot2();
-                    }
-                },10+T);
-            })
-        },10);
+        $($vm.app_modules).each(function(index,url){
+            var ver=localStorage.getItem(apppath+url+"ver");
+            var txt=localStorage.getItem(apppath+url+"txt");
+            if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                    localStorage.setItem(apppath+url+"txt",new_txt);
+                    localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
+                    console.log('loading from url. '+url);
+                    eval(new_txt);
+                    $vm._boot();
+                },'text');
+            }
+            else{
+                console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[0]);
+                eval(txt);
+                $vm._boot();
+            }
+        })
         //---------------------------------------------
     </script>
 </html>
