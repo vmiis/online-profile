@@ -263,6 +263,13 @@
         "template-001":  		  		{url:"$A/modules/t/template-001/index.html"},
         "template-002":  		  		{url:"$A/modules/t/template-002/index.html"},
         "template-003":  		  		{url:"$A/modules/t/template-003/index.html"},
+        "template-004":  		  		{url:"$A/modules/t/template-004/index.html"},
+        "template-005":  		  		{url:"$A/modules/t/template-005/index.html"},
+        "template-006":  		  		{url:"$A/modules/t/template-006/index.html"},
+        "template-007":  		  		{url:"$A/modules/t/template-007/index.html"},
+        "template-008":  		  		{url:"$A/modules/t/template-008/index.html"},
+        "template-009":  		  		{url:"$A/modules/t/template-009/index.html"},
+        "template-010":  		  		{url:"$A/modules/t/template-010/index.html"},
         
 
         "under-construction": 		    {url:"$A/modules/u/under-construction.html",text:"Under Construction",router:1},
