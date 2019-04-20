@@ -337,7 +337,9 @@
             if($vm.localhost==true) $('.builder__ID').show();
             //--------------------------------------------------------
             var get_news=function(sid,feed){
+                console.log(111)            
                 $vm.request({cmd:'proxy',url:feed},function(res){
+                console.log(222)            
                     var $xml=$($.parseXML(res.result));     
                     $channel = $xml.find( "channel" );
                     var txt="";
@@ -371,30 +373,38 @@
                     $('#'+sid+'__ID').html(txt);   
                 });
             }
-            get_news("nnews","https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNR05vWjJoNUVnSmxiaWdBUAE?hl=en-AU&gl=AU&ceid=AU%3Aen");
-            get_news("wnews","https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pCVlNnQVAB?hl=en-AU&gl=AU&ceid=AU%3Aen");
-            //--------------------------------------------------------
-            $vm.request({cmd:'weather'},function(res){
-                var a=JSON.parse(res.result)
-                $('#w_t__ID').text( (parseFloat(a.main.temp)-273).toFixed(1));
-                $('#w_w__ID').text( a.wind.speed+" m/s");
-                $('#w_h__ID').text( a.main.humidity+"%");
-                $('#w_c__ID').text( a.clouds.all+"%");
-                $('#w_i__ID').attr("src","https://openweathermap.org/img/w/"+a.weather[0].icon+".png");
-            })
-            $vm.request({cmd:'forex'},function(res){
-                var a=JSON.parse(res.result)
-                console.log(a);
-                for(var i=0;i<a.length;i++){
-                    var s=a[i].symbol;
-                    switch(s){
-                        case "EURUSD": $('#f_eur__ID').text(a[i].bid); break;
-                        case "GBPUSD": $('#f_gbp__ID').text(a[i].bid); break;
-                        case "USDJPY": $('#f_jpy__ID').text(a[i].bid); break;
-                        case "AUDUSD": $('#f_aud__ID').text(a[i].bid); break;
+            var ready1=function(){
+                get_news("nnews","https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNR05vWjJoNUVnSmxiaWdBUAE?hl=en-AU&gl=AU&ceid=AU%3Aen");
+                get_news("wnews","https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pCVlNnQVAB?hl=en-AU&gl=AU&ceid=AU%3Aen");
+                //--------------------------------------------------------
+                $vm.request({cmd:'weather'},function(res){
+                    var a=JSON.parse(res.result)
+                    $('#w_t__ID').text( (parseFloat(a.main.temp)-273).toFixed(1));
+                    $('#w_w__ID').text( a.wind.speed+" m/s");
+                    $('#w_h__ID').text( a.main.humidity+"%");
+                    $('#w_c__ID').text( a.clouds.all+"%");
+                    $('#w_i__ID').attr("src","https://openweathermap.org/img/w/"+a.weather[0].icon+".png");
+                })
+                $vm.request({cmd:'forex'},function(res){
+                    var a=JSON.parse(res.result)
+                    console.log(a);
+                    for(var i=0;i<a.length;i++){
+                        var s=a[i].symbol;
+                        switch(s){
+                            case "EURUSD": $('#f_eur__ID').text(a[i].bid); break;
+                            case "GBPUSD": $('#f_gbp__ID').text(a[i].bid); break;
+                            case "USDJPY": $('#f_jpy__ID').text(a[i].bid); break;
+                            case "AUDUSD": $('#f_aud__ID').text(a[i].bid); break;
+                        }
                     }
-                }
-            })
+                })
+            }
+            //-------------------------------------
+            var I=0; var loop_1=setInterval(function (){
+                if($vm['init_status']==1){  clearInterval(loop_1); ready1(); }
+                I++; if(I>50){ clearInterval(loop_1); alert("init error."); }
+            },100);
+            //-------------------------------------
             //$vm.load_component("portfolio","c1__ID");
             var c_I=0;
             /*
@@ -409,10 +419,9 @@
             ];
             //-----------------
             $vm.portal_scroll_fun=function(){
-                var v1=$('#D__ID').outerHeight();
-                var v1=document.getElementById('D__ID').offsetHeight;
-                var v2=document.getElementById('D__ID').scrollTop;
-                var v3=document.getElementById('D__ID').scrollHeight;
+                var v1=document.documentElement.offsetHeight;
+                var v2=document.documentElement.scrollTop;
+                var v3=document.documentElement.scrollHeight;
                 if (Math.ceil(v1 + v2) >= v3) {
                     if(c_I>c_list.length) return;
                     if(c_I<c_list.length){
@@ -426,7 +435,7 @@
                     }
                 }
             }
-            $('#D__ID').attr('onscroll','$vm.portal_scroll_fun()');
+            $('body').attr('onscroll','$vm.portal_scroll_fun()');
             //--------------------------------------------------------
             $('#D__ID').on('show',function(){
                 for(var i=0;i<c_I;i++){

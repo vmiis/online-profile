@@ -5,17 +5,25 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.css" />
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9630553950451390",
+            enable_page_level_ads: true
+          });
+        </script>        
     </head>
     <body>
         <!-- Typical website layout, the contents are dynamiclly updated by modules-->
         <div id=header></div>
         <div id=content></div>
         <div id=footer></div>
+        <div id=app style='display:none'></div>
     </body>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[1.17,0.77]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[1.18,0.77]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -23,7 +31,7 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/app.html",              //app menu, title, footer etc
+            //"$A/app.html",              //app menu, title, footer etc
             "$A/modules/f/frame.html",  //app frame work
         ]
         //------------------------------------
@@ -31,6 +39,10 @@
         $vm.module_list={
             //you can add modules here directly
             "home":	            {url:"$A/modules/p/panels/portal.html",router:1},
+            "app":	            {url:"$A/modules/app.html"},
+            "header":	        {url:"$A/modules/header.html"},
+            "footer":	        {url:"$A/modules/footer.html"},
+            
             "panel-modules":	{url:"$A/modules/p/panels/modules.html",router:1},
             "vmiis-365-app":	{url:"$A/modules/v/vmiis-365-app/index.html",router:1},
             "test":	            {url:"$A/modules/b/bookkeeping-panel.html",router:1},
@@ -41,6 +53,13 @@
             //you can add a js file that will add mmodules to the $vm.module_list
             "$A/modules/module-list.js",
         ]
+        //------------------------------------
+        //called by framework
+        $vm.start=function(){
+            $vm.load_component('header',$vm.root_layout_header,{});
+            $vm.load_component('footer',$vm.root_layout_footer,{});
+            $vm.load_component('app',   $vm.root_layout_app,{});
+        }
         //------------------------------------
         
         
@@ -54,6 +73,8 @@
         $vm.root_layout_header='header';
         $vm.root_layout_content_slot='content'
         $vm.root_layout_footer='footer';
+        $vm.root_layout_app='app';
+        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //---------------------------------------------
         //replace the url
         $vm.replace_url=function(url){
@@ -62,7 +83,6 @@
             return urlR;
         }
         //------------------------------------
-        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         for(p in $vm.start_modules) $vm.start_modules[p]=$vm.replace_url($vm.start_modules[p]);
         for(p in $vm.app_modules) $vm.app_modules[p]=$vm.replace_url($vm.app_modules[p]);
         //------------------------------------
