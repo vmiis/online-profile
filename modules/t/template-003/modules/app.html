@@ -31,6 +31,13 @@
                     $('#D'+$vm.active_id).css('overflow','unset');
                     $('#D'+$vm.active_id).css('overflow-x','auto');
                     if(m_name=='home') $('#D'+$vm.active_id).css('height',$vm.min_height+"px");
+                    //-----------------------------
+                    if(m_name=='home'){
+                        $('#content').css(        'min-height',($(window).height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                        $('#D'+$vm.active_id).css('min-height',($(window).height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                        $('#D'+$vm.active_id).css('height','unset');
+                    }
+                    //-----------------------------
                 }
             }
             //------------------------------------
@@ -53,7 +60,7 @@
     <style main-style>
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk003.jpg);}
+        /*.body_background_default{ background-image: url(https://image.vmiis.com/bk003.jpg);}*/
         #header{
             height:100px;
             position:fixed;

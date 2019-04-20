@@ -1,22 +1,8 @@
 <div id=D__ID>
-    <div>
-        <div class=vm-mobile>
-            <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
-            <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container"> <a id="logo_0" style="cursor:pointer"><img src="https://www.sfix.com.au/images/sleepfix-logo.png" width="auto" height="45px" alt=""></a>
         </div>
-        <div class=vm-desk-logo>
-            <span id=vm-logo-label-A>Business Portal</span><br>
-            <span id=vm-logo-label-B>Modular distributed web application</span>
-        </div>
-        <div menu id="vm-menu">
-            <a href="?/home"><i class="fa fa-home"></i> Home</a>
-            <a href="?/short-page">Short</a>
-            <a href="?/long-page">Long</a>
-            <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
-            <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
-            <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
-        </div>
-    </div>
+    </nav>
     <script>
         //------------------------------------
         $('#vm-mobile_title').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
@@ -57,14 +43,15 @@
     <style>
         /*----------------------*/
         #header{
-            height:100px;
+            height:80px;
             overflow: hidden;
-            background:rgba(0,0,0,0.6);
+            background-color: rgba(162, 213, 203, 0.7);
+            padding: 0.5rem 1rem;
         }
         .vm-desk-logo{float:left;padding:36px 30px 0 30px;cursor:pointer;}
         #vm-menu{ float:left;padding:50px 30px 0 30px;}
         @media screen and (max-width: 1200px){
-            #header{height:50px;}
+            #header{height:80px;}
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
         }

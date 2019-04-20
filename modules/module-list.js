@@ -261,6 +261,8 @@
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
         "template-001":  		  		{url:"$A/modules/t/template-001/index.html"},
+        "template-002":  		  		{url:"$A/modules/t/template-002/index.html"},
+        "template-003":  		  		{url:"$A/modules/t/template-003/index.html"},
         
 
         "under-construction": 		    {url:"$A/modules/u/under-construction.html",text:"Under Construction",router:1},
@@ -282,6 +284,7 @@
         "first-aid-officer-form":    	{url:"$A/modules/f/first-aid-officer-form.html",Table:"first-aid-officer-demo"},
         "first-aid-officer-panel":      {url:"$A/modules/f/first-aid-officer-panel.html",router:1},
         "flat-trial":    			    {url:"$A/modules/f/flat-trial.html",router:1},
+        "flat-trial-home": 			    {url:"$A/modules/f/flat-trial-home.html",router:1},
         "aaxsys-panel":                 {url:"$A/modules/a/aaxsys-panel.html",router:1},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
