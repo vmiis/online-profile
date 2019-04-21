@@ -8,7 +8,7 @@
         "about-vmiis":    			            {url:"$A/modules/a/about-vmiis.html",router:1},
         "autocomplete-data":  			        {url:"$A/modules/a/autocomplete-data.html",Table:"autocomplete",form_module:"autocomplete-form",router:1},
         "autocomplete-form":  			        {url:"$A/modules/a/autocomplete-form.html",Table:"autocomplete"},
-        "a-basic-application-framework-index":  {url:"$A/modules/a/a-basic-application-framework/index.html"},
+        "a-basic-application-framework-index":  {url:"$A/modules/a/a-basic-application-framework/index.html",app:1},
         "angularjs-hello-world":	            {url:"$A/modules/a/angularjs-hello-world.html",router:1},
         "accountant-list-data":  	            {url:"$A/modules/e/email-list-data.html",Table:"accountant-list",form_module:"accountant-list-form",router:1},
         "accountant-list-form":  	            {url:"$A/modules/e/email-list-form.html",Table:"accountant-list"},
@@ -16,9 +16,9 @@
         "bar-form":  	                        {url:"$A/modules/b/bar-form.html",Table:"bar"},
         "bar-chart":  	                        {url:"$A/modules/b/bar-chart.html",Table:"bar",router:1},
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
-        "bubble-background-app":		        {url:"$A/modules/b/bubble-background/index.html"},
-        "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping-app/index.html"},
-        "bookkeeping-app-wapp":  		        {url:"$A/modules/b/bookkeeping-app-wapp/index.html"},
+        "bubble-background-app":		        {url:"$A/modules/b/bubble-background/index.html",app:1},
+        "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping-app/index.html",app:1},
+        "bookkeeping-app-wapp":  		        {url:"$A/modules/b/bookkeeping-app-wapp/index.html",app:1},
         "bookkeeping-workflow":  			    {url:"$A/modules/b/bookkeeping/home.html",router:1},
         "bookkeeping-panel":  			        {url:"$A/modules/b/bookkeeping-panel.html",router:1},
         "bookkeeping-home":  			        {url:"$A/modules/b/bookkeeping/home.html",router:1},
@@ -37,7 +37,7 @@
         "contact-us-form-02":  			{url:"$A/modules/c/contact-us-form-02.html",Table:"ccontact-us-vm"},
         "contact-us-form-03":  			{url:"$A/modules/c/contact-us-form-03.html",Table:"ccontact-us-vm"},
         "contact-us-panel":  			{url:"$A/modules/c/contact-us-panel.html",Table:"ccontact-us-vm"},
-        "contact-us-app":  			    {url:"$A/modules/c/contact-us/index.html"},
+        "contact-us-app":  			    {url:"$A/modules/c/contact-us/index.html",app:1},
         "column-data":  	            {url:"$A/modules/c/column-data.html",Table:"column",form_module:"column-form",router:1},
         "column-form":  	            {url:"$A/modules/c/column-form.html",Table:"column"},
         "column-chart":  	            {url:"$A/modules/c/column-chart.html",Table:"column",router:1},
@@ -64,7 +64,7 @@
         "email-setup-form":      	  	{url:"$A/modules/e/email-setup-form.html",Table:"email-setup"},         
         "enquiry-data":      	  		{url:"$A/modules/e/enquiry-data.html",Table:"vm-enquiry",form_module:"enquiry-form"},
         "enquiry-form":      	  		{url:"$A/modules/e/enquiry-form.html",Table:"vm-enquiry"},         
-        "enquiry-app":      	  		{url:"$A/modules/e/enquiry/index.html"},         
+        "enquiry-app":      	  		{url:"$A/modules/e/enquiry/index.html",app:1},         
         "event-data":      	  		    {url:"$A/modules/e/event-data.html",Table:"event-vm",form_module:"event-form"},
         "event-form":      	  		    {url:"$A/modules/e/event-form.html",Table:"event-vm"},         
         "event-daily":      	 	    {url:"$A/modules/e/event-daily.html",Table:"event-vm",router:1,
@@ -78,7 +78,7 @@
                                             event_daily:"event-daily",
                                             form_module:"event-form"
                                         },         
-        "event-calendar-app":  		    {url:"$A/modules/e/event-calendar/index.html"},
+        "event-calendar-app":  		    {url:"$A/modules/e/event-calendar/index.html",app:1},
 
         "ffs-data":      	  			{url:"$A/modules/f/flinders-fatigue-scale-data.html",Table:"ffs",form_module:"ffs-form"},
         "ffs-form":      	  			{url:"$A/modules/f/flinders-fatigue-scale-form.html",Table:"ffs"},
@@ -88,12 +88,12 @@
         "fss-form":      	  			{url:"$A/modules/f/fatigue-severity-scale-form.html",Table:"fss"},
         "form-maker":                   {url:"$A/modules/f/form-maker.html",router:1},
         "fountains-illumination":		{url:"$A/modules/f/fountains-illumination.html",router:1},
-        "fountains-illumination-app":	{url:"$A/modules/f/fountains-illumination-background/index.html"},
+        "fountains-illumination-app":	{url:"$A/modules/f/fountains-illumination-background/index.html",app:1},
         "frame":                        {url:"$A/modules/f/frame.html"},
         "form-text-input-fields":       {url:"$A/modules/f/form-text-input-fields.html",router:1},
         "form-sql-fields":              {url:"$A/modules/f/form-sql-fields.html",router:1},
         "fitness":                      {url:"$A/modules/f/fitness.html",router:1},
-        "fitness-app":                  {url:"$A/modules/f/fitness/index.html"},
+        "fitness-app":                  {url:"$A/modules/f/fitness/index.html",app:1},
         "formio-data":                  {url:"$A/modules/f/formio-data.html",Table:"formio-vm",form_module:"formio-form",router:1},
         "formio-form":                  {url:"$A/modules/f/formio-form.html",Table:"formio-vm"},
 
@@ -133,7 +133,7 @@
         "medication-form":              {url:"$A/modules/m/medication-form.html",Table:"medication"},
         "medical-practitioners-data":  	{url:"$A/modules/m/medical-practitioners-data.html",Table:"vm-medical-practitioners",form_module:"medical-practitioners-form",router:1},
         "medical-practitioners-form":  	{url:"$A/modules/m/medical-practitioners-form.html",Table:"vm-medical-practitioners"},
-        "medical-practitioner-app":     {url:"$A/modules/m/medical-practitioner/index.html"},
+        "medical-practitioner-app":     {url:"$A/modules/m/medical-practitioner/index.html",app:1},
 
         "manager-list-data":  	        {url:"$A/modules/e/email-list-data.html",Table:"manager-list",form_module:"manager-list-form",router:1},
         "manager-list-form":  	        {url:"$A/modules/e/email-list-form.html",Table:"manager-list"},
@@ -141,10 +141,10 @@
 
         "notes":  		  	  			{url:"$A/modules/n/notes.html"},
         "nasa":  		  	  			{url:"$A/modules/n/nasa.html",router:1},
-        "nasa-background-app":		    {url:"$A/modules/n/nasa-background/index.html"},
+        "nasa-background-app":		    {url:"$A/modules/n/nasa-background/index.html",app:1},
         "not-ready": 		            {url:"$A/modules/u/under-construction.html",text:"Not Ready",router:1},
         "nyan":  		  	  			{url:"$A/modules/n/nyan.html",router:1},
-        "nyan-background-app":		    {url:"$A/modules/n/nyan-background/index.html"},
+        "nyan-background-app":		    {url:"$A/modules/n/nyan-background/index.html",app:1},
 
         "online-questionnaire-setup": 	    {url:"$A/modules/o/online-questionnaire-setup.html",Table:"participant"},
         
@@ -163,7 +163,7 @@
 
         "particle":  		  			{url:"$A/modules/p/particle.html",router:1},
         "particle-panel":  	  			{url:"$A/modules/p/particle-panel.html",router:1},
-        "particle-background-app":      {url:"$A/modules/p/particle-background/index.html"},
+        "particle-background-app":      {url:"$A/modules/p/particle-background/index.html",app:1},
         "prices":  		  	  			{url:"$A/modules/p/prices.html",router:1},
         "price-02":  		  	 		{url:"$A/modules/p/price-02.html",router:1},
         "psqi-data":                    {url:"$A/modules/p/pittsburgh-sleep-quality-index-data.html",Table:"psqi",form_module:"psqi-form"},
@@ -196,7 +196,7 @@
         "purchase-order-email-to-accountant":   {url:"$A/modules/p/purchase-order-email-to-accountant.html",Table:"email-setup"},
         "purchase-order-email-to-requester":    {url:"$A/modules/p/purchase-order-email-to-requester.html",Table:"email-setup"},
 
-        "purchase-order-request-app":           {url:"$A/modules/p/purchase-order-request/index.html"},
+        "purchase-order-request-app":           {url:"$A/modules/p/purchase-order-request/index.html",app:1},
         "pie-data":  	            {url:"$A/modules/p/pie-data.html",Table:"pie",form_module:"pie-form",router:1},
         "pie-form":  	            {url:"$A/modules/p/pie-form.html",Table:"pie"},
         "pie-chart":  	            {url:"$A/modules/p/pie-chart.html",Table:"pie",router:1},
@@ -222,7 +222,7 @@
         "reactjs-tic-tac-toe-passing-value":    {url:"$A/modules/r/reactjs-tic-tac-toe-passing-value.html",router:1},
         "reactjs-tic-tac-toe-starter":          {url:"$A/modules/r/reactjs-tic-tac-toe-starter.html",router:1},
         
-        "restaurant-app":    			        {url:"$A/modules/r/restaurant-app/index.html"},
+        "restaurant-app":    			        {url:"$A/modules/r/restaurant-app/index.html",app:1},
 
         "sales-data":        			{url:"$A/modules/s/sales-data.html",Table:"sales-vm",form_module:"sales-form",router:1},
         "sales-form":        			{url:"$A/modules/s/sales-form.html",Table:"sales-vm"},
@@ -247,9 +247,9 @@
         "survey-form":      	  		{url:"$A/modules/s/survey-form.html",Table:"survey-vm"},         
         "survey-panel":      	  		{url:"$A/modules/s/survey-panel.html",Table:"survey-vm"},         
         "survey-app":      	  		    {url:"$A/modules/s/survey/index.html"},         
-        "success":  		  	  		{url:"$A/modules/s/success.html",router:1},
-        "success-app":  		  	  	{url:"$A/modules/s/success/index.html"},
-        "simple-app":  		  	  	    {url:"$A/modules/s/simple/index.html"},
+        "success":  		  	  		{url:"$A/modules/s/success.html",router:1,app:1},
+        "success-app":  		  	  	{url:"$A/modules/s/success/index.html",app:1},
+        "simple-app":  		  	  	    {url:"$A/modules/s/simple/index.html",app:1},
         "surveyjs-data":                {url:"$A/modules/s/surveyjs-data.html",Table:"surveyjs-vm",form_module:"surveyjs-form",router:1},
         "surveyjs-form":                {url:"$A/modules/s/surveyjs-form.html",Table:"surveyjs-vm"},
 
@@ -277,7 +277,7 @@
         "visit-date-data":    			{url:"$A/modules/v/visit-date-data.html",Table:"visit-date",form_module:"visit-date-form"},
         "visit-date-form":    			{url:"$A/modules/v/visit-date-form.html",Table:"visit-date"},
         
-        "woolcock-template-app":		{url:"$A/modules/w/woolcock-template/index.html"},
+        "woolcock-template-app":		{url:"$A/modules/w/woolcock-template/index.html",app:1},
         
         "portfolio":	                {url:"$A/modules/c/components/portfolio.html",router:1},
         "structure":	                {url:"$A/modules/c/components/structure.html",router:1},

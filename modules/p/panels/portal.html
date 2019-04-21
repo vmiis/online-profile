@@ -495,10 +495,12 @@
                 }
                 var txt=[];
                 for( a in $vm.module_list){
-                    var L=a.length;
-                    var s="";
-                    for(k=0;k<60-L;k++) s+=" ";
-                    txt.push("https://www.vmiis.com/?/"+a);
+                    if($vm.module_list[a].nositemap==undefined){
+                        var L=a.length;
+                        var s="";
+                        for(k=0;k<60-L;k++) s+=" ";
+                        txt.push("https://www.vmiis.com/?/"+a);
+                    }
                 }
                 txt.sort();
                 var txt2="";
