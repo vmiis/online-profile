@@ -45,9 +45,10 @@ m.cell_render=function(records,I,field,td){
 //-------------------------------------
 m.new=function(){
     if(m.form_module!=undefined){
+        var prefix=""; if(m.prefix!=undefined) prefix=m.prefix;
         //we are using child panel
         var participant_record=$vm.vm['__ID'].input.record;
-        $vm.load_module(m.form_module,'',{participant_record:participant_record,goback:1});
+        $vm.load_module(prefix+m.form_module,'',{participant_record:participant_record,goback:1});
     }
 }
 //-------------------------------------
