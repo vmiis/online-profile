@@ -346,11 +346,7 @@
         "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation-wappsystem",router:1},
         "item-chart":                           {url:"$A/modules/b/bookkeeping/item-chart.html",Table:"item-month-aggregation-wappsystem",router:1},
     }
-    var prefix="wapp-bookkeeping-"
-    for(m in modules){
-        $vm.module_list[prefix+m]=modules[m];
-        if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
-    }
+    var prefix="wapp-bookkeeping-";  for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //vmautomation bookkeeping
     var modules={
@@ -376,11 +372,7 @@
         "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation-vmautomation",router:1},
         "item-chart":                           {url:"$A/modules/b/bookkeeping/item-chart.html",Table:"item-month-aggregation-vmautomation",router:1},
     }
-    var prefix="vmautomation-bookkeeping-"
-    for(m in modules){
-        $vm.module_list[prefix+m]=modules[m];
-        if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
-    }
+    var prefix="vmautomation-bookkeeping-"; for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //car booking
     var modules={
@@ -489,13 +481,7 @@
         "dsst-form":    	                {url:"$A/modules/c/clinical-trials/tasks/dsst-form.html",Table:"dsst-demo"},
         "dsst-game":    	                {url:"$A/modules/c/clinical-trials/tasks/dsst-game.html",Table:"dsst-demo"},
     }
-    var prefix="clinical-trials-"
-    for(m in modules){
-        $vm.module_list[prefix+m]=modules[m];
-        $vm.module_list[prefix+m].prefix=prefix;
-        if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
-        if($vm.module_list[prefix+m].game_module!=undefined)  $vm.module_list[prefix+m].game_module=prefix+$vm.module_list[prefix+m].game_module;
-    }
+    var prefix="clinical-trials-"; for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //apap
     var modules={
@@ -691,13 +677,7 @@
         "maintenance-wakefulness-test-form":            {url:"$A/modules/b/biomarkers-ii-tasks/maintenance-wakefulness-test-form.html",Table:"91000596"},
         
     }
-    var prefix="biomarkers-ii-"
-    for(m in modules){
-        $vm.module_list[prefix+m]=modules[m];
-        $vm.module_list[prefix+m].prefix=prefix;
-        if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
-        if($vm.module_list[prefix+m].game_module!=undefined)  $vm.module_list[prefix+m].game_module=prefix+$vm.module_list[prefix+m].game_module;
-    }
+    var prefix="biomarkers-ii-"; for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //isleephealth
     var modules = {
@@ -705,12 +685,7 @@
         "appointment-data":     { url: "$A/modules/i/isleephealth/appointment-data.html", Table: "appointment", form_module: "appointment-form",router:1},
         "appointment-form":     { url: "$A/modules/i/isleephealth/appointment-form.html", Table: "appointment"},
     }
-    var prefix="isleephealth-";
-    for(m in modules){
-        $vm.module_list[prefix+m]=modules[m];
-        $vm.module_list[prefix+m].prefix=prefix;
-        if($vm.module_list[prefix+m].form_module!=undefined)  $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
-    }
+    var prefix="isleephealth-";  for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //astn
     var modules = {
