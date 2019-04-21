@@ -265,6 +265,12 @@
                     <li><a href=?/astn-project-shq-data><i class="fas fa-caret-right fa-fw"></i>Projects (astn)</a></li>
                     <li><a app href=?/bookkeeping-app-wapp><i class="fas fa-dollar-sign fa-fw"></i>Bookkeeping (wapp)</a></li>
                 </ul>
+                <span class=hd__ID><i class="fas fa-clone"></i>Site info</span>
+                <hr class=hr__ID>
+                <ul>
+                    <li><u id=code_links__ID style='cursor:pointer;text-decoration: none;'><i class="fas fa-caret-right fa-fw"></i>Module source code links</u></li>
+                    <li><u id=html_links__ID style='cursor:pointer;text-decoration: none;'><i class="fas fa-caret-right fa-fw"></i>Module access links (sitmape)</u></li>
+                </ul>
             </div>
             <div class='col-sm col-md-6 col-lg-3'>
                 <span class=hd__ID><i class="fas fa-globe-asia"></i>National News</span>
@@ -316,7 +322,8 @@
                 if(href!=undefined){
                     href=href.replace('?\/','');
                     href=href.replace(/\//g,'_');
-                    if(app==undefined) $vm.load_module(href,'',{});
+                    if(app==undefined && $vm.module_list[href]!=undefined && $vm.module_list[href].app==undefined) $vm.load_module(href,'',{});
+                    //else if($vm.module_list[href]!=undefined && $vm.module_list[href].app==1) window.open($vm.module_list[href].url);
                     else if($vm.module_list[href]!=undefined) window.open($vm.module_list[href].url);
                     else alert("The '"+ href +"' is not defined in the module list");
                 }
@@ -456,7 +463,7 @@
             }
             */
             //--------------------------------------------------------
-            $('#all_links__ID').on('click',function(){
+            var code_links=function(){
                 if($vm.module_list["sys_code_viewer"]==undefined){
                     $vm.module_list["sys_code_viewer"]={url:'__COMPONENT__/c/code-viewer.01.html'}
                 }
@@ -471,6 +478,32 @@
                 var txt2="";
                 for(var i=0;i<txt.length;i++){
                     txt2+=(i+1).toString()+"\t"+txt[i]+"\r\n";
+                }
+                $vm.load_module("sys_code_viewer",'',{code:txt2,msg:''});
+            }
+            //--------------------------------------------------------
+            $('#code_links__ID').on('click',function(){
+                code_links();
+            })
+            $('#all_links__ID').on('click',function(){
+                code_links();
+            })
+            //--------------------------------------------------------
+            $('#html_links__ID').on('click',function(){
+                if($vm.module_list["sys_code_viewer"]==undefined){
+                    $vm.module_list["sys_code_viewer"]={url:'__COMPONENT__/c/code-viewer.01.html'}
+                }
+                var txt=[];
+                for( a in $vm.module_list){
+                    var L=a.length;
+                    var s="";
+                    for(k=0;k<60-L;k++) s+=" ";
+                    txt.push("https://www.vmiis.com/?/"+a);
+                }
+                txt.sort();
+                var txt2="";
+                for(var i=0;i<txt.length;i++){
+                    txt2+=txt[i]+"\r\n";
                 }
                 $vm.load_module("sys_code_viewer",'',{code:txt2,msg:''});
             })

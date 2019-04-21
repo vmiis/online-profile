@@ -242,7 +242,7 @@
         "services":  	  	  			{url:"$A/modules/s/services.html",router:1},
         "short-page":  		  	 		{url:"$A/modules/s/short-page.html",router:1},
         "snow":  		  	  			{url:"$A/modules/s/snow.html",router:1},
-        "snow-background-app":		    {url:"$A/modules/s/snow-background/index.html"},
+        "snow-background-app":		    {url:"$A/modules/s/snow-background/index.html",app:1},
         "survey-data":      	  		{url:"$A/modules/s/survey-data.html",Table:"survey-vm",form_module:"survey-form"},
         "survey-form":      	  		{url:"$A/modules/s/survey-form.html",Table:"survey-vm"},         
         "survey-panel":      	  		{url:"$A/modules/s/survey-panel.html",Table:"survey-vm"},         

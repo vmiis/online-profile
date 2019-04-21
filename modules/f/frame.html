@@ -166,7 +166,10 @@
                         var loop=setInterval(function (){
                             if($vm.module_list[$vm.search_module]!=undefined){
                                 clearInterval(loop);
-                                $vm.load_module($vm.search_module,'',{});
+
+                                if($vm.module_list[$vm.search_module].app==undefined)  $vm.load_module($vm.search_module,'',{});
+                                else location.replace($vm.module_list[$vm.search_module].url);
+                                
                                 console.log($vm.search_module+"  "+(new Date().getTime()-$vm.start_time)+'ms');
                                 $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
                             }

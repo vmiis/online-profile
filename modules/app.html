@@ -22,7 +22,7 @@
             $vm.show=function(m_name){
                 var nm="";
                 var ns=window.location.href.split('?/');
-                if(ns.length>1) nm=ns[1].split('&')[0].replace(/-/g,' ');
+                if(ns.length>1) nm=ns[1].split('&')[0].replace('-data','').replace(/-/g,' ');
                 document.title=$vm.default_title;
                 if(nm!=""){
                     var name=nm.charAt(0).toUpperCase() + nm.slice(1)
