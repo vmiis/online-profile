@@ -23,12 +23,14 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/modules/r/room-booking/app.html",
+            "$A/modules/r/room-booking-app/app.html",
             "$A/modules/f/frame.html",
         ]
         //------------------------------------
         //modules used in this app
         $vm.module_list={
+            "home":         {url:"$A/modules/h/home.html",router:1},
+            "about-vmiis":  {url:"$A/modules/a/about-vmiis.html",router:1},
         };
         //------------------------------------
         //where are your all other modules

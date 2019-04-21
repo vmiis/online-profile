@@ -215,6 +215,7 @@
         "radio-data":      	  			{url:"$A/modules/r/radio-data.html",Table:"radio",form_module:"radio-form",router:1},
         "radio-form":      	  			{url:"$A/modules/r/radio-form.html",Table:"radio"},
         "room-booking-workflow":  		{url:"$A/modules/r/room-booking-workflow.html",router:1},
+        "room-booking-app":  		    {url:"$A/modules/r/room-booking-app/index.html",app:1},
         
 
         
@@ -383,20 +384,20 @@
         "car-booking":   			    {url:"$A/modules/c/car-booking.html",Table:"car","booking_form":"car-booking-record-form",router:1},
         "car-booking-calendar": 	    {url:"$A/modules/c/car-booking-calendar.html",Table:"car-booking-record",
                                             "booking":"car-booking","booking_form":"car-booking-record-form",router:1},
-        "car-booking-app":   			{url:"$A/modules/c/car-booking/index.html"},
+        "car-booking-app":   			{url:"$A/modules/c/car-booking-app/index.html",app:1},
     }
     for(m in modules) $vm.module_list[m]=modules[m]; 
     //-------------------------------------------------------------------------------------
     //room booking
     var modules={
-        "car-booking-record-data":    	{url:"$A/modules/c/car-booking-record-data.html",Table:"car-booking-record",form_module:"car-booking-record-form",router:1},
-        "car-booking-record-form":    	{url:"$A/modules/c/car-booking-record-form.html",Table:"car-booking-record"},
-        "car-data":      	  			{url:"$A/modules/c/car-data.html",Table:"car",form_module:"car-form",router:1},
-        "car-form":      	  			{url:"$A/modules/c/car-form.html",Table:"car"},
-        "car-booking":   			    {url:"$A/modules/c/car-booking.html",Table:"car","booking_form":"car-booking-record-form",router:1},
-        "car-booking-calendar": 	    {url:"$A/modules/c/car-booking-calendar.html",Table:"car-booking-record",
-                                            "booking":"car-booking","booking_form":"car-booking-record-form",router:1},
-        "car-booking-app":   			{url:"$A/modules/c/car-booking/index.html"},
+        "room-booking-record-data":    	{url:"$A/modules/r/room-booking-record-data.html",Table:"room-booking-record",form_module:"room-booking-record-form",router:1},
+        "room-booking-record-form":    	{url:"$A/modules/r/room-booking-record-form.html",Table:"room-booking-record"},
+        "room-data":      	  			{url:"$A/modules/r/room-data.html",Table:"room",form_module:"room-form",router:1},
+        "room-form":      	  			{url:"$A/modules/r/room-form.html",Table:"room"},
+        "room-booking":   			    {url:"$A/modules/r/room-booking.html",Table:"room","booking_form":"room-booking-record-form",router:1},
+        "room-booking-calendar": 	    {url:"$A/modules/r/room-booking-calendar.html",Table:"room-booking-record",
+                                            "booking":"room-booking","booking_form":"room-booking-record-form",router:1},
+        "room-booking-app":   			{url:"$A/modules/r/room-booking-app/index.html",app:1},
     }
     for(m in modules) $vm.module_list[m]=modules[m];
     //-------------------------------------------------------------------------------------
