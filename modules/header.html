@@ -12,16 +12,14 @@
             <span id=vm-logo-label-A>Online Profile</span> 
             <br>
             <span id=vm-logo-label-B>
-                Zhiming Zhou 
-                <i class="fas fa-map-marker-alt"></i> Sydney, Australia 
-                <i class="fas fa-envelope"></i>  <a target=_blank href=mailto:zzm.vmiis@gmail.com>zzm.vmiis@gmail.com</a>
-                <!--  
-                <i class="fab fa-linkedin"></i> <a target=_blank href=https://www.linkedin.com/in/zhimingzhouaustralia>https://www.linkedin.com/in/zhimingzhouaustralia</a>
-                <i class="fab fa-github"></i> <a target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a> 
-                -->
+                Zhiming Zhou
+                <i class="fas fa-envelope"></i> <a target=_blank href=mailto:zzm.vmiis@gmail.com>zzm.vmiis@gmail.com</a>
+                <!--
                 <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
                 <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
+                -->
             </span>
+            <!--
             <div style='position:fixed;top:30px;right:10px;width:300px;'>
                 <script>
                 (function() {
@@ -36,8 +34,26 @@
                 </script>
                 <gcse:search></gcse:search>                
             </div>
+            -->
         </div>
-        <div>
+        <div menu id="vm-menu">
+            <a href="?/home"><i class="fa fa-home"></i> Home</a>
+            <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
+            <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
+        </div>
+        <div class=search__ID>
+            <script>
+            (function() {
+                var cx = '009326528071997814232:69bqklq_u1s';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+            </script>
+            <gcse:search></gcse:search>                
         </div>
     <script>
         //------------------------------------
@@ -78,6 +94,19 @@
         //------------------------------------
     </script>
     <style>
+        .search__ID{
+            float:right;
+            padding-top:30px; 
+            width:300px;
+            padding-right:10px;
+        }
+        @media screen and (max-width: 1200px){
+            .search__ID{
+                float:unset;
+                width:100%;
+                padding:0px 10px;
+            }
+        }
         /*----------------------*/
         #header{
             height:100px;
@@ -86,16 +115,16 @@
             top:0;
             left:0;
             width:100%;
-            overflow: hidden;
+            /*overflow: hidden;*/
             background:rgba(0,0,0,0.6);
         }
-        .vm-desk-logo{ _display:inline-block;float:left;padding:36px 30px 0 30px;width:100%;}
-        .vm-desk-logo i {margin-left:20px;}
+        .vm-desk-logo{ float:left;padding:36px 30px 0 30px;width:500px;}
+        .vm-desk-logo i {margin-left:10px;}
         .vm-desk-logo a {color:#fff}
         #vm-menu{ float:left;padding:50px 30px 0 30px;}
         
         @media screen and (max-width: 1200px){
-            #header{height:50px;}
+            #header{height:120px;}
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
         }
@@ -133,6 +162,7 @@
             line-height:10px;
             display:inline-block;
             margin-left:20px;
+            margin-top:-10px;
         }
         #vm-logo-label-B{
             font-family: Arial, sans-serif;
