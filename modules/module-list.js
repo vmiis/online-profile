@@ -96,6 +96,7 @@
         "fitness-app":                  {url:"$A/modules/f/fitness/index.html",app:1},
         "formio-data":                  {url:"$A/modules/f/formio-data.html",Table:"formio-vm",form_module:"formio-form",router:1},
         "formio-form":                  {url:"$A/modules/f/formio-form.html",Table:"formio-vm"},
+        "forex-overview":	            {url:"$A/modules/f/forex-overview.html",router:1},
 
         
 

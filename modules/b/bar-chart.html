@@ -8,46 +8,6 @@
     		//-------------------------------------
             VmInclude:__COMPONENT__/c/chart.01.js
 			//-------------------------------------
-			/*
-			m.fields="City,2010_Population,2000_Population";
-			m.sort={'I1':-1};
-			m.data_process=function(){
-				var lb=[];
-				var ds=[];
-				var fd=m.fields.split(',')
-				for(var i=0;i<m.records.length;i++){
-					for(var j=0;j<fd.length;j++){
-						if(j==0) lb.push(m.records[i].Data[fd[j]]);
-						else if(j==1) ds.push(parseFloat(m.records[i].Data[fd[j]]));
-					}
-				}
-				var ctx = document.getElementById('chart_div__ID').getContext('2d');
-				var myChart = new Chart(ctx, {
-					type: 'bar',
-					data: {
-						labels: lb,
-						datasets: [{
-							label: '',
-							data: ds,
-							backgroundColor: "rgba(0,60,100,1)",
-							borderWidth: 1
-						}]
-					},
-					options: {
-						scales: {
-							yAxes: [{
-								ticks: {
-									beginAtZero:true
-								}
-							}]
-						}
-						,
-						responsive: true
-					}
-				});
-
-			}
-			*/
 			m.fields="City,2010_Population,2000_Population";
 			m.sort={'I1':-1};
 			m.data_process=function(){
