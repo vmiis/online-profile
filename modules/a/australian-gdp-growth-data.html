@@ -1,0 +1,42 @@
+<div id=D__ID>
+    <div>
+        <div id=toolbar__ID class="navbar navbar-default">
+            <form class="form-inline">
+                <button id=query__ID type=button class="btn btn-secondary" title='Refresh'>Refresh</button><span style='margin-left:30px;font-size:150%' id=title__ID></span>
+            </form>
+            <span id=elapsed__ID style='float:right'></span>
+        </div>
+        <div id=table__ID>
+            <table id=grid__ID></table>
+        </div>
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/g/grid.01.js
+            //-------------------------------------
+            m.fields="Year,GDP_Growth";
+            //-------------------------------------
+            m.request_data=function(){
+                $.getJSON("https://api.worldbank.org/v2/country/aus/indicator/NY.GDP.MKTP.KD.ZG?format=json", function( data ) {
+                    //console.log(data);
+                    m.records=[];
+                    for(i in data[1]){
+                        m.records.push({'Year':data[1][i].date,'GDP_Growth':data[1][i].value})
+                    }
+                    m.render();
+                });
+            }
+            $('#title__ID').text('Australian GDP Growth')
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/g/grid.01.css
+        #toolbar__ID{
+            background-color:#ccc;
+            padding:5px 10px;
+            margin-bottom:0px;
+            overflow:hidden
+        }
+    </style>
+</div>

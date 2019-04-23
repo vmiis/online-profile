@@ -208,6 +208,7 @@
                     localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
                     console.log('loading from url. '+url+' '+ver+'/'+$vm.ver[1]);
                     $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
+                    console.log('vm is ready');
                     $vm._start_frame();
                     $vm.start();
                 },'text');
@@ -215,6 +216,7 @@
             else{
                 console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[1]);
                 $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
+                console.log('vm is ready');
                 $vm._start_frame();
                 $vm.start();
             }
