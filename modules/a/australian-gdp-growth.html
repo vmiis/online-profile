@@ -3,13 +3,16 @@
         <div id=toolbar__ID class="navbar navbar-default">
             <form class="form-inline">
                 <button id=query__ID type=button class="btn btn-secondary" title='Refresh'>Refresh</button>
-                <button id=export__ID type=button class="btn btn-secondary" title='Export'>Export</button>
+                <button id=export__ID type=button class="btn btn-secondary" title='Export'>Export Data</button>
                 <span style='margin-left:30px;font-size:150%' id=title__ID></span>
             </form>
             <span id=elapsed__ID style='float:right'></span>
         </div>
-        <div id=table__ID>
+        <div style='float:left'>
             <table id=grid__ID></table>
+        </div>
+        <div style='float:left;min-width:80%;'>
+            <div id=chart_div__ID style='min-height:800px'></div>
         </div>
     </div>
     <script>
@@ -29,6 +32,9 @@
                         m.records.push({'Year':data[1][i].date,'GDP_Growth':data[1][i].value})
                     }
                     m.render();
+                    //$('#chart_div__ID').css('width',"80%");
+                    google.charts.load('current', {packages: ['corechart', 'bar']});
+				    google.charts.setOnLoadCallback(draw_chart);
                 });
             }
             //-------------------------------------
@@ -36,10 +42,37 @@
                 $vm.download_csv("au.csv",m.records);
             }
             //-------------------------------------
+			var draw_chart=function(){
+				//----------------------------------
+				var ds=[]
+				ds.push(['Year', 'GDP_Growth'])
+				var fd=m.fields.split(',')
+				for(var i=m.records.length-1;i>=0;i--){
+					var row=[];
+					for(var j=0;j<fd.length;j++){
+                        if(j==0) row.push(m.records[i][fd[j]]);
+                        else row.push(parseFloat(m.records[i][fd[j]]));
+					}
+					ds.push(row)
+				}
+				//----------------------------------
+				var data = google.visualization.arrayToDataTable(ds);
+				var options = {
+                    title: 'Percentage change of real GDP compared to previous year. Real GDP is adjusted for inflation.',
+                    vAxis: {minValue: 0},
+                    legend: {position: 'none'}
+                }; 
+				var chart = new google.visualization.ColumnChart(document.getElementById('chart_div__ID'));
+				chart.draw(data, options);				
+			}
+			//-------------------------------------
         }
     </script>
     <style>
         VmInclude:__COMPONENT__/g/grid.01.css
+        #D__ID{
+            overflow: hidden;
+        }
         #toolbar__ID{
             background-color:#ccc;
             padding:5px 10px;
@@ -49,5 +82,9 @@
         #toolbar__ID button{
             margin-right:8px; 
         }
+		#chart_div__ID{
+			/*height:80%;*/
+			/*width:100%;*/
+		}
     </style>
 </div>

@@ -80,8 +80,7 @@ https://www.vmiis.com/?/astn-wa-astn-data
 https://www.vmiis.com/?/astn-wa-astn-form
 https://www.vmiis.com/?/ato-bas-quarter-aggregation-data
 https://www.vmiis.com/?/ato-bas-quarter-aggregation-form
-https://www.vmiis.com/?/australian-gdp-growth-chart
-https://www.vmiis.com/?/australian-gdp-growth-data
+https://www.vmiis.com/?/australian-gdp-growth
 https://www.vmiis.com/?/autocomplete-data
 https://www.vmiis.com/?/autocomplete-form
 https://www.vmiis.com/?/bar-chart
