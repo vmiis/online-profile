@@ -80,6 +80,8 @@ https://www.vmiis.com/?/astn-wa-astn-data
 https://www.vmiis.com/?/astn-wa-astn-form
 https://www.vmiis.com/?/ato-bas-quarter-aggregation-data
 https://www.vmiis.com/?/ato-bas-quarter-aggregation-form
+https://www.vmiis.com/?/australian-gdp-growth-chart
+https://www.vmiis.com/?/australian-gdp-growth-data
 https://www.vmiis.com/?/autocomplete-data
 https://www.vmiis.com/?/autocomplete-form
 https://www.vmiis.com/?/bar-chart
@@ -313,6 +315,7 @@ https://www.vmiis.com/?/flat-trial-home
 https://www.vmiis.com/?/food-data
 https://www.vmiis.com/?/food-form
 https://www.vmiis.com/?/food-special
+https://www.vmiis.com/?/forex-overview
 https://www.vmiis.com/?/form-maker
 https://www.vmiis.com/?/form-sql-fields
 https://www.vmiis.com/?/form-text-input-fields
@@ -448,8 +451,14 @@ https://www.vmiis.com/?/reactjs-hello-world
 https://www.vmiis.com/?/reactjs-tic-tac-toe-passing-value
 https://www.vmiis.com/?/reactjs-tic-tac-toe-starter
 https://www.vmiis.com/?/restaurant-app
+https://www.vmiis.com/?/room-booking
 https://www.vmiis.com/?/room-booking-app
+https://www.vmiis.com/?/room-booking-calendar
+https://www.vmiis.com/?/room-booking-record-data
+https://www.vmiis.com/?/room-booking-record-form
 https://www.vmiis.com/?/room-booking-workflow
+https://www.vmiis.com/?/room-data
+https://www.vmiis.com/?/room-form
 https://www.vmiis.com/?/sales-data
 https://www.vmiis.com/?/sales-form
 https://www.vmiis.com/?/sales-item-data

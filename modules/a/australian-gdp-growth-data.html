@@ -2,7 +2,9 @@
     <div>
         <div id=toolbar__ID class="navbar navbar-default">
             <form class="form-inline">
-                <button id=query__ID type=button class="btn btn-secondary" title='Refresh'>Refresh</button><span style='margin-left:30px;font-size:150%' id=title__ID></span>
+                <button id=query__ID type=button class="btn btn-secondary" title='Refresh'>Refresh</button>
+                <button id=export__ID type=button class="btn btn-secondary" title='Export'>Export</button>
+                <span style='margin-left:30px;font-size:150%' id=title__ID></span>
             </form>
             <span id=elapsed__ID style='float:right'></span>
         </div>
@@ -14,6 +16,8 @@
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
+            //-------------------------------------
+            $('#title__ID').text('Australian GDP Growth');
             //-------------------------------------
             m.fields="Year,GDP_Growth";
             //-------------------------------------
@@ -27,7 +31,11 @@
                     m.render();
                 });
             }
-            $('#title__ID').text('Australian GDP Growth')
+            //-------------------------------------
+            m.export_records=function(){
+                $vm.download_csv("au.csv",m.records);
+            }
+            //-------------------------------------
         }
     </script>
     <style>
@@ -37,6 +45,9 @@
             padding:5px 10px;
             margin-bottom:0px;
             overflow:hidden
+        }
+        #toolbar__ID button{
+            margin-right:8px; 
         }
     </style>
 </div>
