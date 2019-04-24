@@ -34,7 +34,7 @@
                     m.render();
                     //$('#chart_div__ID').css('width',"80%");
                     google.charts.load('current', {packages: ['corechart', 'bar']});
-				    google.charts.setOnLoadCallback(draw_chart);
+                    google.charts.setOnLoadCallback(draw_chart);
                 });
             }
             //-------------------------------------
@@ -42,34 +42,34 @@
                 $vm.download_csv("au.csv",m.records);
             }
             //-------------------------------------
-			var draw_chart=function(){
-				//----------------------------------
-				var ds=[]
-				ds.push(['Year', 'GDP_Growth'])
-				var fd=m.fields.split(',')
-				for(var i=m.records.length-1;i>=0;i--){
-					var row=[];
-					for(var j=0;j<fd.length;j++){
+            var draw_chart=function(){
+                //----------------------------------
+                var ds=[]
+                ds.push(['Year', 'GDP_Growth'])
+                var fd=m.fields.split(',')
+                for(var i=m.records.length-1;i>=0;i--){
+                    var row=[];
+                    for(var j=0;j<fd.length;j++){
                         if(j==0) row.push(m.records[i][fd[j]]);
                         else row.push(parseFloat(m.records[i][fd[j]]));
-					}
-					ds.push(row)
-				}
-				//----------------------------------
-				var data = google.visualization.arrayToDataTable(ds);
-				var options = {
+                    }
+                    ds.push(row)
+                }
+                //----------------------------------
+                var data = google.visualization.arrayToDataTable(ds);
+                var options = {
                     title: 'Percentage change of real GDP compared to previous year. Real GDP is adjusted for inflation.',
                     vAxis: {minValue: 0},
                     legend: {position: 'none'}
                 }; 
-				var chart = new google.visualization.ColumnChart(document.getElementById('chart_div__ID'));
-				chart.draw(data, options);				
-			}
-			//-------------------------------------
-			$('#sourcecode__ID').on('click',function(){
+                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div__ID'));
+                chart.draw(data, options);				
+            }
+            //-------------------------------------
+            $('#sourcecode__ID').on('click',function(){
                 window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
-			})
-			//---------------------------------------
+            })
+            //---------------------------------------
         }
     </script>
     <style>
@@ -86,9 +86,9 @@
         #toolbar__ID button{
             margin-right:8px; 
         }
-		#chart_div__ID{
-			/*height:80%;*/
-			/*width:100%;*/
-		}
+        #chart_div__ID{
+            /*height:80%;*/
+            /*width:100%;*/
+        }
     </style>
 </div>
