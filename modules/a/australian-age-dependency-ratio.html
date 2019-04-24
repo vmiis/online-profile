@@ -71,16 +71,16 @@
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
             //-------------------------------------
-            $('#title__ID').text('Australian GDP Growth');
+            $('#title__ID').text('Age dependency ratio (% of working-age population)');
             //-------------------------------------
-            m.fields="Year,GDP_Growth";
+            m.fields="Year,Ratio";
             //-------------------------------------
             m.request_data=function(){
-                $.getJSON("https://api.worldbank.org/v2/country/aus/indicator/NY.GDP.MKTP.KD.ZG?format=json", function( data ) {
+                $.getJSON("https://api.worldbank.org/v2/country/aus/indicator/SP.POP.DPND?format=json", function( data ) {
                     //console.log(data);
                     m.records=[];
                     for(i in data[1]){
-                        m.records.push({'Year':data[1][i].date,'GDP_Growth':data[1][i].value})
+                        m.records.push({'Year':data[1][i].date,'Ratio':data[1][i].value})
                     }
                     m.render();
                     google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -95,7 +95,7 @@
             var draw_chart=function(){
                 //----------------------------------
                 var ds=[]
-                ds.push(['Year', 'GDP_Growth'])
+                ds.push(['Year', 'Ratio'])
                 var fd=m.fields.split(',')
                 for(var i=m.records.length-1;i>=0;i--){
                     var row=[];
@@ -108,11 +108,11 @@
                 //----------------------------------
                 var data = google.visualization.arrayToDataTable(ds);
                 var options = {
-                    title: 'Percentage change of real GDP compared to previous year. Real GDP is adjusted for inflation.',
+                    title: 'Age dependency ratio (% of working-age population)',
                     vAxis: {minValue: 0},
                     legend: {position: 'none'}
                 }; 
-                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div__ID'));
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div__ID'));
                 chart.draw(data, options);				
             }
             //-------------------------------------
@@ -121,7 +121,7 @@
             })
             //---------------------------------------
             m.show=function(){
-                $("meta[name='description']").attr("content", "Percentage change of real GDP compared to previous year. Real GDP is adjusted for inflation.");
+                $("meta[name='description']").attr("content", "Age dependency ratio (% of working-age population)");
             }
             //---------------------------------------
         }

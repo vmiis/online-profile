@@ -13,6 +13,8 @@
         "accountant-list-data":  	            {url:"$A/modules/e/email-list-data.html",Table:"accountant-list",form_module:"accountant-list-form",router:1},
         "accountant-list-form":  	            {url:"$A/modules/e/email-list-form.html",Table:"accountant-list"},
         "australian-gdp-growth":	            {url:"$A/modules/a/australian-gdp-growth.html",router:1},
+        "australian-age-dependency-ratio":	    {url:"$A/modules/a/australian-age-dependency-ratio.html",router:1},
+        
 
         "bar-data":  	                        {url:"$A/modules/b/bar-data.html",Table:"bar",form_module:"bar-form",router:1},
         "bar-form":  	                        {url:"$A/modules/b/bar-form.html",Table:"bar"},
