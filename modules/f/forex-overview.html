@@ -1,5 +1,8 @@
 <div id=D__ID>
     <div>
+        <div id=toolbar__ID class="navbar navbar-default">
+            <span> </span><u id=sourcecode__ID style='float:right;cursor:pointer'>Source code of this module</u>
+        </div>
         <div  id=chart_div__ID ></div>
         <div id=data__ID style='padding-left:120px;padding-bottom:30px'></div>
     </div>
@@ -111,6 +114,10 @@
                 }
             },100);
             //-------------------------------------
+			$('#sourcecode__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
+			})
+			//---------------------------------------
     	}
     </script>
     <style>
@@ -118,5 +125,11 @@
 		#chart_div__ID{
 			height:800px;
 		}
+        #toolbar__ID{
+            background-color:#ccc;
+            padding:5px 10px;
+            margin-bottom:0px;
+            overflow:hidden
+        }
     </style>
 </div>

@@ -6,7 +6,7 @@
                 <button id=export__ID type=button class="btn btn-secondary" title='Export'>Export Data</button>
                 <span style='margin-left:30px;font-size:150%' id=title__ID></span>
             </form>
-            <span id=elapsed__ID style='float:right'></span>
+            <u id=sourcecode__ID style='float:right;cursor:pointer'>Source code of this module</u>
         </div>
         <div style='float:left'>
             <table id=grid__ID></table>
@@ -66,6 +66,10 @@
 				chart.draw(data, options);				
 			}
 			//-------------------------------------
+			$('#sourcecode__ID').on('click',function(){
+                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
+			})
+			//---------------------------------------
         }
     </script>
     <style>
