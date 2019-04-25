@@ -1,5 +1,14 @@
 (function(){
     //-------------------------------------------------------------------------------------
+    var url_replace=function(modules,prefix,$A,$R,$L){
+        for(m in modules){
+            var $S=$R; if($vm.localhost==true) $S=$L;
+            modules[m].url=modules[m].url.replace($A,$S); 
+            $vm.module_list[prefix+m]=modules[m]; 
+            $vm.module_list[prefix+m].prefix=prefix; 
+        } 
+    }
+    //-------------------------------------------------------------------------------------
     //generic
     var modules={
         "2-columns-contents": 			{url:"$A/modules/2/2-columns-contents.html",router:1},
@@ -21,8 +30,8 @@
         "bar-chart":  	                        {url:"$A/modules/b/bar-chart.html",Table:"bar",router:1},
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/modules/b/bubble-background/index.html",app:1},
-        "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping-app/index.html",app:1},
-        "bookkeeping-app-wapp":  		        {url:"$A/modules/b/bookkeeping-app-wapp/index.html",app:1},
+        //"bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping-app/index.html",app:1},
+        //"bookkeeping-app-wapp":  		        {url:"$A/modules/b/bookkeeping-app-wapp/index.html",app:1},
         "bookkeeping-workflow":  			    {url:"$A/modules/b/bookkeeping/home.html",router:1},
         "bookkeeping-panel":  			        {url:"$A/modules/b/bookkeeping-panel.html",router:1},
         "bookkeeping-home":  			        {url:"$A/modules/b/bookkeeping/home.html",router:1},
@@ -266,7 +275,7 @@
         "text-input-form":    			{url:"$A/modules/t/text-input-form.html",Table:"text-input"},
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
-        "template-001":  		  		{url:"$A/modules/t/template-001/index.html"},
+        //"template-001":  		  		{url:"$A/modules/t/template-001/index.html"},
         "template-002":  		  		{url:"$A/modules/t/template-002/index.html"},
         "template-003":  		  		{url:"$A/modules/t/template-003/index.html"},
         "template-004":  		  		{url:"$A/modules/t/template-004/index.html"},
@@ -304,29 +313,29 @@
     //-------------------------------------------------------------------------------------
     //bookkeeping
     var modules={
-        "predefined-transaction-item-data": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
-        "predefined-transaction-item-form": {url:"$A/modules/b/bookkeeping/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
+        "predefined-transaction-item-data": {url:"$A/b/bookkeeping/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
+        "predefined-transaction-item-form": {url:"$A/b/bookkeeping/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
         
-        "transaction-y-q-tax-return-data":  {url:"$A/modules/b/bookkeeping/transaction-year-quarter-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-y-q-bas-data":    		{url:"$A/modules/b/bookkeeping/transaction-year-quarter-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-y-q-data":    		    {url:"$A/modules/b/bookkeeping/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-tax-return-data":  {url:"$A/b/bookkeeping/transaction-year-quarter-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-bas-data":    		{url:"$A/b/bookkeeping/transaction-year-quarter-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-data":    		    {url:"$A/b/bookkeeping/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
         
-        "transaction-bas-data":   		    {url:"$A/modules/b/bookkeeping/transaction-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-tax-return-data":      {url:"$A/modules/b/bookkeeping/transaction-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-data":    			    {url:"$A/modules/b/bookkeeping/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
-        "transaction-form":    			    {url:"$A/modules/b/bookkeeping/transaction-form.html",Table:"transaction",
+        "transaction-bas-data":   		    {url:"$A/b/bookkeeping/transaction-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-tax-return-data":      {url:"$A/b/bookkeeping/transaction-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-data":    			    {url:"$A/b/bookkeeping/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-form":    			    {url:"$A/b/bookkeeping/transaction-form.html",Table:"transaction",
                                                 item_table:'predefined-transaction-item'
                                             },
-        "ato-bas-quarter-aggregation-data": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation",transaction_table:'transaction',form_module:"ato-bas-quarter-aggregation-form",router:1},
-        "ato-bas-quarter-aggregation-form": {url:"$A/modules/b/bookkeeping/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation",transaction_table:'transaction'},
-        "income-expense-month-aggregation-data":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-data.html",Table:"income-expense-month-aggregation", transaction_table:'transaction',form_module:"income-expense-month-aggregation-form",router:1},
-        "income-expense-month-aggregation-form":{url:"$A/modules/b/bookkeeping/income-expense-month-aggregation-form.html",Table:"income-expense-month-aggregation", transaction_table:'transaction'},
-        "item-month-aggregation-data":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-data.html",Table:"item-month-aggregation", transaction_table:'transaction',form_module:"item-month-aggregation-form",router:1},
-        "item-month-aggregation-form":          {url:"$A/modules/b/bookkeeping/item-month-aggregation-form.html",Table:"item-month-aggregation", transaction_table:'transaction'},
-        "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation",router:1},
-        "item-chart":                           {url:"$A/modules/b/bookkeeping/item-chart.html",Table:"item-month-aggregation",router:1},
+        "ato-bas-quarter-aggregation-data":     {url:"$A/b/bookkeeping/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation",transaction_table:'transaction',form_module:"ato-bas-quarter-aggregation-form",router:1},
+        "ato-bas-quarter-aggregation-form":     {url:"$A/b/bookkeeping/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation",transaction_table:'transaction'},
+        "income-expense-month-aggregation-data":{url:"$A/b/bookkeeping/income-expense-month-aggregation-data.html",Table:"income-expense-month-aggregation", transaction_table:'transaction',form_module:"income-expense-month-aggregation-form",router:1},
+        "income-expense-month-aggregation-form":{url:"$A/b/bookkeeping/income-expense-month-aggregation-form.html",Table:"income-expense-month-aggregation", transaction_table:'transaction'},
+        "item-month-aggregation-data":          {url:"$A/b/bookkeeping/item-month-aggregation-data.html",Table:"item-month-aggregation", transaction_table:'transaction',form_module:"item-month-aggregation-form",router:1},
+        "item-month-aggregation-form":          {url:"$A/b/bookkeeping/item-month-aggregation-form.html",Table:"item-month-aggregation", transaction_table:'transaction'},
+        "income-expense-chart":                 {url:"$A/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation",router:1},
+        "item-chart":                           {url:"$A/b/bookkeeping/item-chart.html",Table:"item-month-aggregation",router:1},
     }
-    for(m in modules){$vm.module_list[m]=modules[m];}
+    url_replace(modules,"","$A","https://modules.vmiis.com/","http://127.0.0.1:8000/vmiis/modules");
     //-------------------------------------------------------------------------------------
     //wapp bookkeeping
     var modules={
@@ -352,6 +361,7 @@
         "income-expense-chart":                 {url:"$A/modules/b/bookkeeping/income-expense-chart.html",Table:"income-expense-month-aggregation-wappsystem",router:1},
         "item-chart":                           {url:"$A/modules/b/bookkeeping/item-chart.html",Table:"item-month-aggregation-wappsystem",router:1},
     }
+    //url_replace(modules,"wapp-bookkeeping-","$A","https://modules.vmiis.com/","http://127.0.0.1:8000/vmiis/modules");
     var prefix="wapp-bookkeeping-";  for(m in modules){ $vm.module_list[prefix+m]=modules[m]; $vm.module_list[prefix+m].prefix=prefix;}
     //-------------------------------------------------------------------------------------
     //vmautomation bookkeeping
@@ -794,4 +804,16 @@
     //replace $A...
     for(m in $vm.module_list) $vm.module_list[m].url=$vm.replace_url($vm.module_list[m].url);
     //-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //apps
+    var modules={
+        "template-001":  		  		        {url:"$T/a/a-simple-application/index.html"},
+        "aaxsys":  		  		                {url:"$T/a/aaxsys/index.html"},
+        "bookkeeping-app":  			        {url:"$T/b/bookkeeping/index.html",app:1},
+        "bookkeeping-app-wapp":  		        {url:"$T/b/bookkeeping-wappsystem/index.html",app:1},
+    }
+    url_replace(modules,"","$T","https://app-templates.vmiis.com/","http://127.0.0.1:8000/vmiis/app-templates");
+    //-------------------------------------------------------------------------------------
+
+
 })();

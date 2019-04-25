@@ -18,7 +18,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[1.35,0.78]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[1.36,0.79]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -34,9 +34,9 @@
         $vm.module_list={
             //you can add modules here directly
             "home":	            {url:"$A/modules/p/panels/portal.html",router:1},
-            "app":	            {url:"$A/modules/app.html",nositemap:1},
-            "header":	        {url:"$A/modules/header.html",nositemap:1},
-            "footer":	        {url:"$A/modules/footer.html",nositemap:1},
+            "app":	            {url:"$A/modules/0/app.html",nositemap:1},
+            "header":	        {url:"$A/modules/0/header.html",nositemap:1},
+            "footer":	        {url:"$A/modules/0/footer.html",nositemap:1},
             
             "panel-modules":	{url:"$A/modules/p/panels/modules.html",router:1},
             "vmiis-365-app":	{url:"$A/modules/v/vmiis-365-app/index.html",router:1},
@@ -96,7 +96,8 @@
             $vm._J++;
             if($vm._J==$vm._JN){
                 for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-                console.log("app module list  "+(new Date().getTime()-$vm.start_time)+'ms');
+                console.log("module list is ready  "+(new Date().getTime()-$vm.start_time)+'ms');
+                $vm.all_module=1;
             }
         }
         //------------------------------------------
@@ -135,13 +136,13 @@
                             localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
                             console.log('loading from url. '+url);
                             eval(new_txt);
-                            //$vm._boot2();
+                            $vm._boot2();
                         },'text');
                     }
                     else{
                         console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[0]);
                         eval(txt);
-                        //$vm._boot2();
+                        $vm._boot2();
                     }
                 },10+T);
             })
