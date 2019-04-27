@@ -71,6 +71,16 @@
                         txt+="\t\t<div id="+a+" module=@1span class=c@2"+m+"@1/span@2>"+c+"</div>\r\n";
                     })
                     txt+="\t</footer>\r\n";
+                    txt+="\t<system>\r\n";
+                        $('#system >div').each(function(){
+                        var a=$(this).attr('id');
+                        var m=$(this).attr('module');
+                        var c="url:"+"@1span class=c1@2"+$vm.module_list[m].url+"@1/span@2";
+                        var tb=$vm.module_list[m].Table;
+                        if(tb!=undefined) c=c+", table:"+"@1span class=c2@2"+tb+"@1/span@2";
+                        txt+="\t\t<div id="+a+" module=@1span class=c@2"+m+"@1/span@2>"+c+"</div>\r\n";
+                    })
+                    txt+="\t</system>\r\n";
                     txt+="</body>\r\n";
                     txt=txt.replace(/</g,'&lt;');
                     txt=txt.replace(/>/g,'&gt;');
