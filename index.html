@@ -13,7 +13,7 @@
         <div id=header></div>
         <div id=content></div>
         <div id=footer></div>
-        <div id=app style='display:none'></div>
+        <div id=system></div>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
     </body>
     <script boot-up>
@@ -63,7 +63,7 @@
         $vm.start=function(){
             $vm.load_component('header',$vm.root_layout_header,{});
             $vm.load_component('footer',$vm.root_layout_footer,{});
-            $vm.load_component('app',$vm.root_layout_app,{});
+            $vm.load_component('app',$vm.root_layout_system,{});
         }
         //------------------------------------
         
@@ -77,7 +77,7 @@
         $vm.root_layout_header='header';
         $vm.root_layout_content_slot='content'
         $vm.root_layout_footer='footer';
-        $vm.root_layout_app='app';
+        $vm.root_layout_system='system';
         //---------------------------------------------
         $vm._I=0; $vm._N=$vm.start_modules.length;
         $vm._boot=function(){
@@ -108,13 +108,13 @@
                     localStorage.setItem(apppath+url+"txt",new_txt);
                     localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
                     console.log('loading from url, done at '+(new Date().getTime()-$vm.start_time)+'ms. '+url );
-                    $('#content').append(new_txt.replace(/__ID/g,'_'+(index+1)));
+                    $('#system').append(new_txt.replace(/__ID/g,'_'+(index+1)));
                     $vm._boot();
                 },'text');
             }
             else{
                 console.log('loading from storage. done at '+(new Date().getTime()-$vm.start_time)+'ms. '+url+' '+ver+'/'+$vm.ver[0]);
-                $('#content').append(txt.replace(/__ID/g,'_'+(index+1)));
+                $('#system').append(txt.replace(/__ID/g,'_'+(index+1)));
                 $vm._boot();
             }
         })
