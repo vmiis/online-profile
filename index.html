@@ -24,7 +24,8 @@
         $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
         if(window.location.href.substring(0,5)=="file:") $vm.hosting_path="https://www.vmiis.com";
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
-        $vm.m_path='https://modules.vmiis.com'; if($vm.localhost==true) $vm.m_path='http://127.0.0.1:8000/vmiis/modules'; 
+        $vm.m1_path='https://modules.vmiis.com'; if($vm.localhost==true) $vm.m1_path='http://127.0.0.1:8000/vmiis/modules'; 
+        $vm.m2_path='https://app-templates.vmiis.com'; if($vm.localhost==true) $vm.m2_path='http://127.0.0.1:8000/vmiis/app-templates'; 
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
@@ -35,27 +36,28 @@
         //modules used immediately
         $vm.module_list={
             //you can add modules here directly
-            "home":	            {url:"$H/0/home.html",router:1},
-            "app":	            {url:"$H/0/app.html",nositemap:1},
-            "header":	        {url:"$H/0/header.html",nositemap:1},
-            "footer":	        {url:"$H/0/footer.html",nositemap:1},
-            /*
-            "panel-modules":	{url:"$A/modules/p/panels/modules.html",router:1},
-            "vmiis-365-app":	{url:"$A/modules/v/vmiis-365-app/index.html",router:1},
-            "test":	            {url:"$A/modules/a/australian-gdp-growth-chart.html",router:1},
-            */
+            "home":	                {url:"$H/0/home.html",router:1,sys:1},
+            "app":	                {url:"$H/0/app.html",nositemap:1,sys:1},
+            "header":	            {url:"$H/0/header.html",nositemap:1,sys:1},
+            "footer":	            {url:"$H/0/footer.html",nositemap:1,sys:1},
+            "module-library":	    {url:"$H/0/module-library.html",router:1,sys:1},
+            "module-library-panel": {url:"$H/0/module-library-panel.html",router:1,sys:1},
+            "app-templates":	    {url:"$H/0/app-templates.html",router:1,sys:1},
+            "app-templates-panel":	{url:"$H/0/app-templates-panel.html",router:1,sys:1},
         };
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$H',$vm.hosting_path);
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$M',$vm.m_path);
         //------------------------------------
         //all other modules, used on demand 
         $vm.app_modules=[
             //you can add a js file that will add mmodules to the $vm.module_list
-            //"$H/module-list.js",
-            "$M/module-list.js",
+            "$M1/module-list.js",
+            "$M1/module-list-bookkeeping.js",
+            "$M2/module-list.js",
         ]
-        for(i in $vm.app_modules) $vm.app_modules[i]=$vm.app_modules[i].replace('$H',$vm.hosting_path);
-        for(i in $vm.app_modules) $vm.app_modules[i]=$vm.app_modules[i].replace('$M',$vm.hosting_path);
+        for(i in $vm.app_modules){
+            $vm.app_modules[i]=$vm.app_modules[i].replace('$M1',$vm.m1_path);
+            $vm.app_modules[i]=$vm.app_modules[i].replace('$M2',$vm.m2_path);
+        }
         //------------------------------------
         //called by framework
         $vm.start=function(){

@@ -12,15 +12,18 @@
                 <hr class=hr__ID>
                 <ul>
                     <li><a href=?/bookkeeping-workflow><i class="fas fa-caret-right"></i>Bookkeeping workflow</a></li>
+                    <li><a href=?/invoice-management-workflow><i class="fas fa-caret-right"></i>Invoice management workflow</a></li>
+                    <li><a href=?/purchase-order-workflow><i class="fas fa-caret-right"></i>Purchase order request workflow</a></li>
+                    <li><a href=?/module-library-panel tag=finance ><i class="fas fa-caret-right"></i>More...</a></li>
+                    <!--
                     <li><a href=?/transaction-data><i class="fas fa-caret-right"></i>Transactions search...</a></li>
                     <br>
-                    <li><a href=?/invoice-management-workflow><i class="fas fa-caret-right"></i>Invoice management workflow</a></li>
                     <li><a href=?/invoice-data><i class="fas fa-caret-right"></i>Invoice search...</a></li>
                     <br>
-                    <li><a href=?/purchase-order-workflow><i class="fas fa-caret-right"></i>Purchase order request workflow</a></li>
                     <li><a href=?/purchase-order-data-s><i class="fas fa-caret-right"></i>Purchase order request (requester)</a></li>
                     <li><a href=?/purchase-order-data-p1><i class="fas fa-caret-right"></i>Purchase order request (manager)</a></li>
                     <li><a href=?/purchase-order-data-p2><i class="fas fa-caret-right"></i>Purchase order request (accountant)</a></li>
+                    -->
                 </ul>
                 <span class=hd__ID><i class="fas fa-chart-area"></i>Economic</span>
                 <hr class=hr__ID>
@@ -152,6 +155,11 @@
                 <span class=hd__ID><i class="fas fa-clone"></i>Application Templates</span>
                 <hr class=hr__ID>
                 <ul>
+                    <li><a app href=?/app-a-simple-application><i class="fas fa-external-link-alt fa-fw"></i>A simple application</a></li>
+                    <li><a app href=?/app-sleep-fix><i class="fas fa-external-link-alt fa-fw"></i>SleepFix</a></li>
+                    <li><a app href=?/app-aaxsys><i class="fas fa-external-link-alt fa-fw"></i>Aaxsys</a></li>
+                    <li><a href=?/app-templates-panel><i class="fas fa-caret-right fa-fw"></i>More...</a></li>
+                    <!--
                     <li><a app href=?/a-basic-application-framework-index><i class="fas fa-caret-right fa-fw"></i>A basic application framework</a></li>
                     <li><a app href=?/layout-with-fixed-header-and-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with fixed header and footer</a></li>
                     <li><a app href=?/layout-with-fixed-header-and-scrollable-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with fixed header scrollable footer</a></li>
@@ -176,10 +184,7 @@
                     <li><a app href=?/particle-background-app><i class="fas fa-external-link-alt fa-fw"></i>Particle background</a></li>
                     <li><a app href=?/purchase-order-request-app><i class="fas fa-external-link-alt fa-fw"></i>Purchase order request</a></li>
                     <li><a app href=?/snow-background-app><i class="fas fa-external-link-alt fa-fw"></i>Snow background</a></li>
-                    <li><a app href=?/template-001><i class="fas fa-external-link-alt fa-fw"></i>Template 1</a></li>
-                    <li><a app href=?/template-002><i class="fas fa-external-link-alt fa-fw"></i>Template 2 (SleepFix)</a></li>
                     <li><a app href=?/template-003><i class="fas fa-external-link-alt fa-fw"></i>Template 3 (Flat trial)</a></li>
-                    <li><a app href=?/aaxsys><i class="fas fa-external-link-alt fa-fw"></i>Aaxsys</a></li>
                     <li style='display:none' class=builder__ID><a app href=?/template-004><i class="fas fa-external-link-alt fa-fw"></i>Template 4 </a></li>
                     <li style='display:none' class=builder__ID><a app href=?/template-005><i class="fas fa-external-link-alt fa-fw"></i>Template 5 </a></li>
                     <li style='display:none' class=builder__ID><a app href=?/template-006><i class="fas fa-external-link-alt fa-fw"></i>Template 6 </a></li>
@@ -187,6 +192,7 @@
                     <li style='display:none' class=builder__ID><a app href=?/template-008><i class="fas fa-external-link-alt fa-fw"></i>Template 8 </a></li>
                     <li style='display:none' class=builder__ID><a app href=?/template-009><i class="fas fa-external-link-alt fa-fw"></i>Template 9 </a></li>
                     <li style='display:none' class=builder__ID><a app href=?/template-010><i class="fas fa-external-link-alt fa-fw"></i>Template 10 </a></li>
+                    -->
                 </ul>
                 <span class=hd__ID><i class="fab fa-js"></i>Technology</span>
                 <hr class=hr__ID>
@@ -333,7 +339,9 @@
                 if(href!=undefined){
                     href=href.replace('?\/','');
                     href=href.replace(/\//g,'_');
-                    if(app==undefined && $vm.module_list[href]!=undefined && $vm.module_list[href].app==undefined) $vm.load_module(href,'',{});
+                    if(app==undefined && $vm.module_list[href]!=undefined && $vm.module_list[href].app==undefined){
+                        $vm.load_module(href,'',{tag:$(this).attr('tag')});
+                    }
                     //else if($vm.module_list[href]!=undefined && $vm.module_list[href].app==1) window.open($vm.module_list[href].url);
                     else if($vm.module_list[href]!=undefined) window.open($vm.module_list[href].url);
                     else alert("The '"+ href +"' is not defined in the module list");

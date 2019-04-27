@@ -5,9 +5,16 @@
                 <span id=vm_username></span>
             </div>
         </div>
+        <div bottom-right-corner id=_sys_dev_info_0 class='d-none d-xl-block'>
+            Dev Info: <span id=_sys_dev_info_elapsed></span>
+            , <u id=_sys_dev_info_code style='cursor:pointer'>source code of current module</u>
+            , <u id=_sys_dev_info_list style='cursor:pointer'>module list</u>
+        </div>
+        <!--
         <div style='position:fixed;right:20px;bottom:0'>
             <span id=vm_system_info style='color:#555' class='c_print';></span>
         </div>
+        -->
         <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -150,7 +157,8 @@
                 if(a.length==1){
                     $vm.load_module("home",'',{});
                     console.log("home module(1)  "+(new Date().getTime()-$vm.start_time)+'ms');
-                    $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+                    //$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+                    $('#_sys_dev_info_elapsed').text((new Date().getTime()-$vm.start_time).toString()+"ms")
                 }
                 else if(a.length==2){
                     $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
@@ -158,7 +166,8 @@
                     if($vm.search_module=='home'){
                         $vm.load_module("home",'',{});
                         console.log("home module(2) "+(new Date().getTime()-$vm.start_time)+'ms');
-                        $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+                        //$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+                        $('#_sys_dev_info_elapsed').text((new Date().getTime()-$vm.start_time).toString()+"ms")
                     }
                     else{
                         //-------------------------------------
@@ -171,7 +180,8 @@
                                 else location.replace($vm.module_list[$vm.search_module].url);
                                 
                                 console.log($vm.search_module+"  "+(new Date().getTime()-$vm.start_time)+'ms');
-                                $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+                                //$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+                                $('#_sys_dev_info_elapsed').text((new Date().getTime()-$vm.start_time).toString()+"ms")
                             }
                             I++; if(I>50){
                                 clearInterval(loop); alert($vm.search_module+" is not installed.");
@@ -234,6 +244,20 @@
             line-height:13px;
             color:#fff;
             z-index: 99999;
+        }
+        #_sys_dev_info_0{
+            display:block;
+            position:fixed;
+            bottom:3px;
+            right:3px;
+            font-size:11px;
+            line-height:13px;
+            z-index: 99999;
+
+            background-color: #333;
+            padding: 3px 10px;
+            border-radius: 3px;
+            color: #fff;            
         }
         #vm_username{
             float:right;

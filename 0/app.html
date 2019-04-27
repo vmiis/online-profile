@@ -32,23 +32,54 @@
                 $("body").removeClass();
                 $("body").addClass('body_background_default');
                 $vm.active_id=undefined;
-                if(m_name!=undefined) $vm.active_id=$vm.module_list[m_name].id;
+                $vm.active_name=undefined;
+                if(m_name!=undefined){ $vm.active_id=$vm.module_list[m_name].id; $vm.active_name=m_name; }
                 if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
                 if($vm.active_id!=undefined){
                     $('#D'+$vm.active_id).css('height','unset');
                     $('#D'+$vm.active_id).css('min-height',($(window).height()-$('#header').outerHeight())+"px");
-                    $('#D'+$vm.active_id).css('overflow','unset');
+                    $('#D'+$vm.active_id).css('overflow','hidden');
                     $('#D'+$vm.active_id).css('overflow-x','auto');
                     //if(m_name=='home') $('#D'+$vm.active_id).css('height',$vm.min_height+"px");
                 }
             }
             //------------------------------------
-            $vm.show('home');
+            //$vm.show('home');
             window.onresize=function(){set_layout();}
             //------------------------------------
             $vm.init(function(){
                 $vm.init_status=1;
                 $vm.show_user();
+            })
+            //------------------------------------
+            if($vm.first_module!=undefined) $vm.show($vm.first_module);
+            //------------------------------------
+            $('#_sys_dev_info_code').on('click',function(){
+                if($vm.active_name!=undefined){
+                    var url=$vm.module_list[$vm.active_name].url;
+                    url=url.replace('https://github.com/vmiis/online-profile','https://github.com/vmiis/online-profile/blob/master');
+                    url=url.replace('http://127.0.0.1:8000/vmiis/online-profile','https://github.com/vmiis/online-profile/blob/master');
+                    url=url.replace('https://github.com/vmiis/modules','https://github.com/vmiis/modules/blob/master');
+                    url=url.replace('http://127.0.0.1:8000/vmiis/modules','https://github.com/vmiis/modules/blob/master');
+                    window.open(url);
+                }
+            })
+            //------------------------------------
+            $('#_sys_dev_info_list').on('click',function(){
+                var txt="";
+                var s=[];
+                for(a in $vm.module_list){
+                    var L=a.length;
+                    var tt="";
+                    for(k=0;k<50-L;k++) tt+="&nbsp;"; 
+                    s.push(a+tt+JSON.stringify($vm.module_list[a]));
+                }
+                s.sort();
+                for(i in s){
+                    txt+=s[i]+"<br>";
+                }
+                var win=window.open("","Module list");
+                win.document.body.innerHTML=txt+"<title>Module List</title><style> body{ font-family:Courier New;font-size:12px; white-space: nowrap; } </style>";
             })
             //------------------------------------
         }
