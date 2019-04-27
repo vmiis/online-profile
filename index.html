@@ -19,6 +19,7 @@
     <script boot-up>
         //------------------------------------
         $vm={};$vm.ver=[1.36,0.79]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm.debug=1;
         //------------------------------------
         //setup modules location
         $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
@@ -37,6 +38,7 @@
         $vm.module_list={
             //you can add modules here directly
             "home":	                {url:"$H/0/home.html",router:1,sys:1},
+            "frame":	            {url:"$H/0/frame.html",sys:1},
             "app":	                {url:"$H/0/app.html",nositemap:1,sys:1},
             "header":	            {url:"$H/0/header.html",nositemap:1,sys:1},
             "footer":	            {url:"$H/0/footer.html",nositemap:1,sys:1},
@@ -52,6 +54,8 @@
             //you can add a js file that will add mmodules to the $vm.module_list
             "$M1/module-list.js",
             "$M1/module-list-bookkeeping.js",
+            "$M1/invoice-management.js",
+            "$M1/purchase-order.js",
             "$M2/module-list.js",
         ]
         for(i in $vm.app_modules){

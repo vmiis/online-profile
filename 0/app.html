@@ -11,10 +11,9 @@
         //------------------------------------
         var ready1=function(){
             var set_layout=function(){
-                $vm.min_height=$(window).height();
+                $vm.min_height=$(window).height()-$('#header').outerHeight();
                 $('#content').css('min-height',$vm.min_height);
                 $('#content').css('padding-top',$('#header').outerHeight());
-                //alert($('#header').outerHeight())
             }
             //------------------------------------
             set_layout();
@@ -40,11 +39,9 @@
                     $('#D'+$vm.active_id).css('min-height',($(window).height()-$('#header').outerHeight())+"px");
                     $('#D'+$vm.active_id).css('overflow','hidden');
                     $('#D'+$vm.active_id).css('overflow-x','auto');
-                    //if(m_name=='home') $('#D'+$vm.active_id).css('height',$vm.min_height+"px");
                 }
             }
             //------------------------------------
-            //$vm.show('home');
             window.onresize=function(){set_layout();}
             //------------------------------------
             $vm.init(function(){
