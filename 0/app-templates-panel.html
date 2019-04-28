@@ -1,6 +1,6 @@
 <div id=D__ID>
     <div style='padding:10px 0 0 20px;'>
-        <input id=filter__ID placeholder=keywords> <button id=apply__ID class="btn btn-secondary btn-sm">Apply</button>
+        <input id=filter__ID placeholder=keywords> <button id=apply__ID class="btn btn-secondary btn-sm">Refresh</button>
     </div>
     <div style='max-width:90%;margin-left:auto;margin-right:auto'>
         <div id=panel__ID class='panel__ID'>
@@ -12,15 +12,20 @@
                 var m=$vm.module_list["__MODULE__"];
                 var folder=m.input.folder;
                 if(folder==undefined) folder="ALL";
-                var txt="";
+                var st=[];
                 for(a in $vm.module_list){
                     if( (folder=='ALL' || a[0].toUpperCase()==folder) && $vm.module_list[a].app==1){
-                        var name=$vm.module_list[a].name;
-                        var prefix_len=$vm.module_list[a].prefix.length;
-                        if(name==undefined) name=a.substring(prefix_len).replace(/_/g,' ').replace(/-/g,' ');
-                        name=name.charAt(0).toUpperCase() + name.slice(1);
-                        txt+="<a href=?/"+a+">"+name+"</a><br>";
+                        st.push(a);
                     }
+                }
+                st.sort();
+
+                var txt="";
+                for(i in st){
+                    var name=st[i].name;
+                    if(name==undefined) name=st[i].replace(/_/g,' ').replace(/-/g,' ');
+                    name=name.charAt(0).toUpperCase() + name.slice(1);
+                    txt+="<a href=?/"+st[i]+" tags='"+$vm.module_list[st[i]].tags+"'>"+name+"</a><br>";
                 }
                 $('#panel__ID').html(txt);
                 $('.panel__ID a').on('click',function(e){
@@ -106,6 +111,12 @@
 	        padding:6px 26px 6px 6px;
 	        float:left;
 	    }
+
+        #D__ID ::placeholder {
+            color: #ccc;
+            padding-left:6px;
+        }        
+
         @media screen and (max-width:768px){
             .panel__ID{
                 padding:0;

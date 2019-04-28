@@ -14,14 +14,21 @@
                 $('#tags__ID').val(input_tag);
                 var folder=m.input.folder;
                 if(folder==undefined) folder="ALL";
-                var txt="";
+
+                var st=[];
                 for(a in $vm.module_list){
                     if( (folder=='ALL' || a[0].toUpperCase()==folder) && a!='home' && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1){
-                        var name=$vm.module_list[a].name;
-                        if(name==undefined) name=a.replace(/_/g,' ').replace(/-/g,' ');
-                        name=name.charAt(0).toUpperCase() + name.slice(1);
-                        txt+="<a href=?/"+a+" tags='"+$vm.module_list[a].tags+"'>"+name+"</a><br>";
+                        st.push(a);
                     }
+                }
+                st.sort();
+
+                var txt="";
+                for(i in st){
+                    var name=st[i].name;
+                    if(name==undefined) name=st[i].replace(/_/g,' ').replace(/-/g,' ');
+                    name=name.charAt(0).toUpperCase() + name.slice(1);
+                    txt+="<a href=?/"+st[i]+" tags='"+$vm.module_list[st[i]].tags+"'>"+name+"</a><br>";
                 }
                 
                 $('#panel__ID').html(txt);
@@ -120,6 +127,10 @@
 	        padding:6px 26px 6px 6px;
 	        float:left;
 	    }
+        #D__ID ::placeholder {
+            color: #ccc;
+            padding-left:6px;
+        }        
         @media screen and (max-width:768px){
             .panel__ID{
                 padding:0;
