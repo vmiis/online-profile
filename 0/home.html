@@ -160,16 +160,7 @@
                     <li><a app href=?/app-aaxsys><i class="fas fa-external-link-alt fa-fw"></i>Aaxsys</a></li>
                     <li><a href=?/app-templates-panel><i class="fas fa-caret-right fa-fw"></i>More...</a></li>
                     <!--
-                    <li><a app href=?/layout-with-fixed-header-and-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with fixed header and footer</a></li>
-                    <li><a app href=?/layout-with-fixed-header-and-scrollable-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with fixed header scrollable footer</a></li>
-                    <li><a app href=?/layout-with-scrollable-header-and-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with scrollable header and footer</a></li>
                     <li><a app href=?/layout-with-side-nav-and-fixed-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with nav and fixed footer</a></li>
-                    <li><a app href=?/woolcock-template-app><i class="fas fa-caret-right fa-fw"></i>Woolcock template</a></li>
-                    <li><a app href=?/fitness-app><i class="fas fa-external-link-alt fa-fw"></i>Fitness</a></li>
-                    <li><a app href=?/enquiry-app><i class="fas fa-external-link-alt fa-fw"></i>Enquiry</a></li>
-                    <li><a app href=?/event-calendar-app><i class="fas fa-external-link-alt fa-fw"></i>Event calendar</a></li>
-                    <li><a app href=?/medical-practitioner-app><i class="fas fa-external-link-alt fa-fw"></i>Medical practitioner</a></li>
-                    <li><a app href=?/purchase-order-request-app><i class="fas fa-external-link-alt fa-fw"></i>Purchase order request</a></li>
                     -->
                 </ul>
                 <span class=hd__ID><i class="fab fa-js"></i>Technology</span>
@@ -341,9 +332,7 @@
             if($vm.localhost==true) $('.builder__ID').show();
             //--------------------------------------------------------
             var get_news=function(sid,feed){
-                console.log(111)            
                 $vm.request({cmd:'proxy',url:feed},function(res){
-                console.log(222)            
                     var $xml=$($.parseXML(res.result));     
                     $channel = $xml.find( "channel" );
                     var txt="";
