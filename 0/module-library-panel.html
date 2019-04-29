@@ -14,21 +14,40 @@
                 $('#tags__ID').val(input_tag);
                 var folder=m.input.folder;
                 if(folder==undefined) folder="ALL";
-
                 var st=[];
                 for(a in $vm.module_list){
-                    if( (folder=='ALL' || a[0].toUpperCase()==folder) && a!='home' && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1){
-                        st.push(a);
+                    var n_a="";
+                    if($vm.module_list[a].name!=undefined) n_a=$vm.module_list[a].name+"|"+a;
+                    else n_a=a;
+                    
+                    if( (folder=='ALL' || m_a[0].toUpperCase()==folder) && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1){
+                        st.push(n_a);
                     }
                 }
-                st.sort();
+                st.sort(
+                    function(a, b) {
+                       return a.localeCompare(b)
+                    }
+                );
 
                 var txt="";
                 for(i in st){
                     var name=st[i].name;
-                    if(name==undefined) name=st[i].replace(/_/g,' ').replace(/-/g,' ');
+                    if(name==undefined)
+                    var x=st[i].split('|');
+                    var a=x[0];
+                    var name=x[0];
+                    
+                    if(x.length==1){
+                        a=x[0];
+                        name=a.replace(/_/g,' ').replace(/-/g,' ');
+                    }
+                    else if(x.length==2){
+                        name=x[0];
+                        a=x[1];
+                    }
                     name=name.charAt(0).toUpperCase() + name.slice(1);
-                    txt+="<a href=?/"+st[i]+" tags='"+$vm.module_list[st[i]].tags+"'>"+name+"</a><br>";
+                    txt+="<a href=?/"+a+" tags='"+$vm.module_list[a].tags+"'>"+name+"</a><br>";
                 }
                 
                 $('#panel__ID').html(txt);
@@ -68,7 +87,7 @@
                         var word=words[i].toUpperCase(); 
                         if(word!=""){
                             if(name.indexOf(word)==-1){
-                                console.log(name+"---"+word)
+                                //console.log(name+"---"+word)
                                 $(this).hide();
                                 $(this).next('br').hide();
                                 break;
@@ -80,7 +99,7 @@
                         var tag=tags[i].toUpperCase(); 
                         if(tag!=undefined && tag!=""){
                             if(a_tags.indexOf(tag)==-1){
-                                console.log(name+"---"+tag)
+                                //console.log(name+"---"+tag)
                                 $(this).hide();
                                 $(this).next('br').hide();
                                 break;

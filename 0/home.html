@@ -14,7 +14,7 @@
                     <li><a href=?/bookkeeping-workflow><i class="fas fa-caret-right"></i>Bookkeeping</a></li>
                     <li><a href=?/invoice-management-workflow><i class="fas fa-caret-right"></i>Invoice management</a></li>
                     <li><a href=?/purchase-order-workflow><i class="fas fa-caret-right"></i>Purchase order request</a></li>
-                    <!--<li><a href=?/module-library-panel tag=finance ><i class="fas fa-caret-right"></i>More...</a></li>-->
+                    <li><a href=?/module-library-panel tag=finance ><i class="fas fa-caret-right"></i>More...</a></li>
                     <!--
                     <li><a href=?/transaction-data><i class="fas fa-caret-right"></i>Transactions search...</a></li>
                     <br>
@@ -95,14 +95,17 @@
                 <ul>
                     <li><a href=?/services><i class="far fa-handshake fa-fw"></i>Clinic services</a></li>
                     <li><a href=?/trainers><i class="fas fa-caret-right fa-fw"></i>Gym Trainers</a></li>
-                    <li><a href=?/price-02><i class="fas fa-caret-right fa-fw"></i>Our clinic prices</a></li>
                     <li><a href=?/prices><i class="fas fa-caret-right fa-fw"></i>Our gym prices</a></li>
+                    <li><a href=?/module-library-panel tag=marketing ><i class="fas fa-caret-right fa-fw"></i>More...</a></li>
+                    <!--
+                    <li><a href=?/price-02><i class="fas fa-caret-right fa-fw"></i>Our clinic prices</a></li>
                     <li><a href=?/contact-us-form-01><i class="far fa-envelope fa-fw"></i>Send us a message</a></li>
                     <li><a href=?/contact-us-form-02><i class="far fa-envelope fa-fw"></i></i>Contact us</a></li>
                     <li><a href=?/contact-us-data><i class="fas fa-list fa-fw"></i>Contact us records</a></li>
                     <li><a href=?/contact-us-form-03><i class="fas fa-map-marker-alt fa-fw"></i>Location</a></li>
                     <li><a href=?/success><i class="fas fa-caret-right fa-fw"></i>Success</a></li>
                     <li><a href=?/portfolio><i class="fas fa-caret-right fa-fw"></i>Portfolio</a></li>
+                    -->
                 </ul>
                 <span class=hd__ID><i class="fas fa-cogs"></i>Facility</span>
                 <hr class=hr__ID>
@@ -159,9 +162,6 @@
                     <li><a app href=?/app-sleep-fix><i class="fas fa-external-link-alt fa-fw"></i>SleepFix</a></li>
                     <li><a app href=?/app-aaxsys><i class="fas fa-external-link-alt fa-fw"></i>Aaxsys</a></li>
                     <li><a href=?/app-templates-panel><i class="fas fa-caret-right fa-fw"></i>More...</a></li>
-                    <!--
-                    <li><a app href=?/layout-with-side-nav-and-fixed-footer-index><i class="fas fa-caret-right fa-fw"></i>Layout with nav and fixed footer</a></li>
-                    -->
                 </ul>
                 <span class=hd__ID><i class="fab fa-js"></i>Technology</span>
                 <hr class=hr__ID>
@@ -218,11 +218,6 @@
                 </ul>
             </div>
         </div>
-        <!--
-        <div class='row g_section_title'>
-            I am an IT solution and software developer. This website is a live demo that shows the technologies that I used in many projects.
-        </div>
-    -->
         <br>
         <div class=row>
             <div class="col-lg-6" style='margin:0;padding:0'>
@@ -418,7 +413,7 @@
                 if (Math.ceil(v1 + v2) >= v3) {
                     if(c_I>c_list.length) return;
                     if(c_I<c_list.length){
-                        $('#p__ID').append('<div id=c'+c_I+'__ID><div class=text-center style="font-size:22px">Loading more...</div></div>');
+                        $('#p__ID').append('<div id=c'+c_I+'__ID><div class=text-center style="font-size:22px"></div></div>');
                         $vm.load_component(c_list[c_I],"c"+c_I+"__ID",{});
                         c_I++;
                     }
