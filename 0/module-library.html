@@ -63,7 +63,7 @@
             var ready1=function(){
                 var I=0;
                 for(a in $vm.module_list){
-                    if($vm.module_list[a].app!=1 && $vm.module_list[a].sys!=1) I++;
+                    if($vm.module_list[a].app!=1 && $vm.module_list[a].sys!=1 && $vm.module_list[a].private!=1) I++;
                 }
                 $('#total__ID').text(I+" modules");
 
