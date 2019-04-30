@@ -20,7 +20,7 @@
                     if($vm.module_list[a].name!=undefined) n_a=$vm.module_list[a].name+"|"+a;
                     else n_a=a;
                     
-                    if( (folder=='ALL' || m_a[0].toUpperCase()==folder) && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1){
+                    if( (folder=='ALL' || n_a[0].toUpperCase()==folder) && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1){
                         st.push(n_a);
                     }
                 }
