@@ -2,8 +2,8 @@
     <div>
         <div id=toolbar__ID class="navbar navbar-default">
             <form class="form-inline">
-                <button id=load__ID type=button class="btn btn-secondary" title='Load'>load Code</button>
-                <!--<button id=download__ID type=button class="btn btn-secondary" title='Download'>Dowbload Code</button>-->
+                <button id=load__ID type=button class="btn btn-secondary" title='Load'>Load Code</button>
+                <!--<button id=download__ID type=button class="btn btn-secondary" title='Download'>Download Code</button>-->
                 <button id=run__ID type=button class="btn btn-secondary" title='Download'>Run</button>
                 <input id=Load_f__ID type=file style='display:none' />
             </form>
@@ -27,6 +27,13 @@
                 editor.getSession().setMode("ace/mode/javascript");
                 editor.getSession().setUseWorker(false);
                 $("#editor__ID").css('height',$vm.min_height+"px");
+
+                var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+		        var txt=localStorage.getItem(apppath+"_module_test_"+"_txt");
+
+                if(txt!=null){
+                    editor.setValue(txt);
+                }
             }
             //--------------------------------------------------------
             var I=0; var loop_1=setInterval(function (){
@@ -64,9 +71,29 @@
                 }
             })
             //--------------------------------------------------------
+            var download1=function(filename, text) {
+                var element = document.createElement('a');
+                element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(text));
+                element.setAttribute('download', filename);
+                //element.style.display = 'none';
+                //element.style = "visibility:hidden";
+                document.body.appendChild(element);
+                //element.click();
+                //document.body.removeChild(element);
+            }
+            //----------------------------------------------
+            function download2(filename, text) {
+                var blob = new Blob([text],{ type: 'text/plain' });
+                window.navigator.msSaveBlob(blob,filename);
+            }
+            //----------------------------------------------
             $('#download__ID').on('click',function(){   
-                var blob = new Blob([editor.getValue()],{ type: "text/plain;charset=utf-8" });
-                saveAs(blob, "static.txt");                
+                if (navigator.appVersion.toString().indexOf('Edge') > 0){
+                    download2("module.html",editor.getValue());
+                }
+                else{                
+                    download1("module.html",editor.getValue());
+                }
             })
             //--------------------------------------------------------
         }
