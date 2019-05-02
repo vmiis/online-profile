@@ -34,7 +34,7 @@
                 $vm.active_name=undefined;
                 if(m_name!=undefined){ $vm.active_id=$vm.module_list[m_name].id; $vm.active_name=m_name; }
                 if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
-                if($vm.active_id!=undefined){
+                else if($vm.active_id!=undefined){
                     $('#D'+$vm.active_id).css('height','unset');
                     $('#D'+$vm.active_id).css('min-height',($(window).height()-$('#header').outerHeight())+"px");
                     $('#D'+$vm.active_id).css('overflow','hidden');

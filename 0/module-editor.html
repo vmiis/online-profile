@@ -1,0 +1,89 @@
+<div id=D__ID>
+    <div>
+        <div id=toolbar__ID class="navbar navbar-default">
+            <form class="form-inline">
+                <button id=load__ID type=button class="btn btn-secondary" title='Load'>load Code</button>
+                <!--<button id=download__ID type=button class="btn btn-secondary" title='Download'>Dowbload Code</button>-->
+                <button id=run__ID type=button class="btn btn-secondary" title='Download'>Run</button>
+                <input id=Load_f__ID type=file style='display:none' />
+            </form>
+        </div>
+        <div id=editor__ID></div>
+    </div>
+    <script>
+        function F__ID(){
+            var editor;
+            $('#D__ID').on('load',function(){
+            })
+            //--------------------------------------------------------
+            $vm.module_list["__MODULE__"].show=function(){
+                document.title="Editor | "+$vm.default_title;
+                $("meta[name='description']").attr("content","Editor");
+            }
+            //--------------------------------------------------------
+            var ready1=function(){
+                editor=ace.edit("editor__ID");
+                editor.setTheme("ace/theme/monokai");
+                editor.getSession().setMode("ace/mode/javascript");
+                editor.getSession().setUseWorker(false);
+                $("#editor__ID").css('height',$vm.min_height+"px");
+            }
+            //--------------------------------------------------------
+            var I=0; var loop_1=setInterval(function (){
+                if($vm['ace-js']==1 ){  clearInterval(loop_1); ready1(); }
+                I++; if(I>50){ clearInterval(loop_1); alert("ace.js error."); }
+            },100);
+            //--------------------------------------------------------
+            $('#run__ID').on('click',function(){
+                var nm="_module_test_"
+                if($vm.module_list[nm]==undefined){
+                    $vm.module_list[nm]={url:nm}
+                }
+                var code=editor.getValue();
+                $vm.load_content(nm,'',{},code);
+            })
+            //--------------------------------------------------------
+            $('#load__ID').on('click',function(){   
+                $('#Load_f__ID').val('');
+                $('#Load_f__ID').trigger('click');
+            })
+            //--------------------------------------------------------
+            $('#Load_f__ID').on('change',function(){
+                var files=$(this)[0].files;
+                if(files.length==1){
+                    var reader=new FileReader();
+                    reader.onload=(function(e) {
+                        var contents=reader.result;
+                        if(contents.substring(0,4)!="<div"){
+                            alert("Not correct format.");
+                            return;
+                        }
+                        editor.setValue(contents);
+                    });
+                    reader.readAsText(files[0]);
+                }
+            })
+            //--------------------------------------------------------
+            $('#download__ID').on('click',function(){   
+                var blob = new Blob([editor.getValue()],{ type: "text/plain;charset=utf-8" });
+                saveAs(blob, "static.txt");                
+            })
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID{
+            background-color:#fff;
+            animation: vm_module_fadein 1.0s;
+        }
+        #toolbar__ID{
+            background-color:#ccc;
+            padding:5px 10px;
+            margin-bottom:0px;
+            overflow:hidden
+        }
+        #toolbar__ID button{
+            margin-right:8px; 
+        }
+    </style>
+</div>
