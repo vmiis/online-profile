@@ -27,7 +27,7 @@
                 editor.getSession().setMode("ace/mode/html");
                 editor.getSession().setUseWorker(false);
                 editor.setOption("showPrintMargin", false)
-                $("#editor__ID").css('height',$vm.min_height+"px");
+                $("#editor__ID").css('height',($vm.min_height-50)+"px");
 
                 var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
 		        var txt=localStorage.getItem(apppath+"_module_test_"+"_txt");
