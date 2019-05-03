@@ -23,9 +23,10 @@
             //--------------------------------------------------------
             var ready1=function(){
                 editor=ace.edit("editor__ID");
-                editor.setTheme("ace/theme/monokai");
-                editor.getSession().setMode("ace/mode/javascript");
+                editor.setTheme("ace/theme/twilight");
+                editor.getSession().setMode("ace/mode/html");
                 editor.getSession().setUseWorker(false);
+                editor.setOption("showPrintMargin", false)
                 $("#editor__ID").css('height',$vm.min_height+"px");
 
                 var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
@@ -75,11 +76,10 @@
                 var element = document.createElement('a');
                 element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(text));
                 element.setAttribute('download', filename);
-                //element.style.display = 'none';
-                //element.style = "visibility:hidden";
+                element.style.display = 'none';
                 document.body.appendChild(element);
-                //element.click();
-                //document.body.removeChild(element);
+                element.click();
+                document.body.removeChild(element);
             }
             //----------------------------------------------
             function download2(filename, text) {
@@ -104,7 +104,7 @@
             animation: vm_module_fadein 1.0s;
         }
         #toolbar__ID{
-            background-color:#ccc;
+            background-color:#aaa;
             padding:5px 10px;
             margin-bottom:0px;
             overflow:hidden
