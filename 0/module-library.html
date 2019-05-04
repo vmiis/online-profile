@@ -1,15 +1,19 @@
 <div id=D__ID>
-    <div class='panel__ID' style='font-size:200%'>
-
+    <div class='panel__ID' >
+        <div class='g_section_title'>
+            My concept of module is to define a module structure to replace the traditional web page, and the modules are reusable and can be hosted on any static web servers.  
+        </div>
+        <br><br>
         <span id=total__ID style='font-size:14px' ></span><br>
-
-        <a href=?/ALL>ALL</a>
-        <a href=?/A>A</a>        <a href=?/B>B</a>        <a href=?/C>C</a>        <a href=?/D>D</a>        <a href=?/E>E</a>
-        <a href=?/F>F</a>        <a href=?/G>G</a>        <a href=?/H>H</a>        <a href=?/I>I</a>        <a href=?/J>J</a>
-        <a href=?/K>K</a>        <a href=?/L>L</a>        <a href=?/M>M</a>        <a href=?/N>N</a>        <a href=?/O>O</a>
-        <a href=?/P>P</a>        <a href=?/Q>Q</a>        <a href=?/R>R</a>        <a href=?/S>S</a>        <a href=?/T>T</a>
-        <a href=?/U>U</a>        <a href=?/V>V</a>        <a href=?/W>W</a>        <a href=?/X>X</a>        <a href=?/Y>Y</a>
-        <a href=?/Z>Z</a>
+        <div style='font-size:200%'>
+            <a href=?/ALL>ALL</a>
+            <a href=?/A>A</a>        <a href=?/B>B</a>        <a href=?/C>C</a>        <a href=?/D>D</a>        <a href=?/E>E</a>
+            <a href=?/F>F</a>        <a href=?/G>G</a>        <a href=?/H>H</a>        <a href=?/I>I</a>        <a href=?/J>J</a>
+            <a href=?/K>K</a>        <a href=?/L>L</a>        <a href=?/M>M</a>        <a href=?/N>N</a>        <a href=?/O>O</a>
+            <a href=?/P>P</a>        <a href=?/Q>Q</a>        <a href=?/R>R</a>        <a href=?/S>S</a>        <a href=?/T>T</a>
+            <a href=?/U>U</a>        <a href=?/V>V</a>        <a href=?/W>W</a>        <a href=?/X>X</a>        <a href=?/Y>Y</a>
+            <a href=?/Z>Z</a>
+        </div>
     </div>
     <!--
     <div class='panel__ID'>
@@ -26,6 +30,13 @@
             <button id=load__ID type=button class="btn btn-secondary" title='Load'>Load</button>
         </form>
     </div>
+
+    <div class='panel__ID'>
+        <br>
+        <br>
+        <u id=module_editor__ID style='cursor:pointer'>Module Editer: develop and test a module</u>
+    </div>
+
     <script>
         function F__ID(){
             //--------------------------------------------------------
@@ -63,6 +74,13 @@
                 $vm.load_module("__test__",'',{})
             })
             //--------------------------------------------------------
+            $('#module_editor__ID').on('click',function(){
+                var code="<div id=D__"+"ID>\r\n\t<div>\r\n\t\tHello World!\r\n\t</div>\r\n";
+                code+="\t<scr"+"ipt>\r\n\t\tfunction F__"+"ID(){\r\n\t\t}\r\n\t</scr"+"ipt>\r\n";
+                code+="\t<sty"+"le>\r\n\t</sty"+"le>\r\n</div>"
+                $vm.load_module('module-editor','',{code:code})
+            })
+            //--------------------------------------------------------
             var ready1=function(){
                 var I=0;
                 for(a in $vm.module_list){
@@ -78,6 +96,7 @@
                         website_item_list_for_search.push({label:b.charAt(0).toUpperCase()+b.slice(1),value:a})
                     }
                 }
+                /*
                 $("#vm_system_search").autocomplete({
                     minLength:0,
                     source: function(request, response) {
@@ -91,6 +110,7 @@
                     }
                 });
                 $("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
+                */
             }
             //--------------------------------------------------------
             var I=0; var loop_1=setInterval(function (){
@@ -111,6 +131,8 @@
             padding:30px 50px 10px 50px;
             font-size:14px;
             max-width:1600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .panel__ID a {
             text-decoration: none;

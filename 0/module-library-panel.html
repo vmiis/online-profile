@@ -14,11 +14,26 @@
                 $('#tags__ID').val(input_tag);
                 var folder=m.input.folder;
                 if(folder==undefined) folder="ALL";
+                /*
                 var st=[];
                 for(a in $vm.module_list){
                     var n_a="";
                     if($vm.module_list[a].name!=undefined) n_a=$vm.module_list[a].name+"|"+a;
                     else n_a=a;
+                    
+                    if( (folder=='ALL' || n_a[0].toUpperCase()==folder) && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1 && $vm.module_list[a].private!=1){
+                        st.push(n_a);
+                    }
+                }
+                */
+                var st=[];
+                for(a in $vm.module_list){
+                    var prefix=$vm.module_list[a].prefix; if(prefix==undefined) prefix="";
+                    var L=prefix.length;
+                    
+                    var n_a="";
+                    if($vm.module_list[a].name!=undefined) n_a=$vm.module_list[a].name+"|"+a;
+                    else n_a=a.substring(L)+"|"+a;
                     
                     if( (folder=='ALL' || n_a[0].toUpperCase()==folder) && $vm.module_list[a].sys!=1 && $vm.module_list[a].app!=1 && $vm.module_list[a].private!=1){
                         st.push(n_a);

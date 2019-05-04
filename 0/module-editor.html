@@ -2,18 +2,31 @@
     <div>
         <div id=toolbar__ID class="navbar navbar-default">
             <form class="form-inline">
-                <button id=load__ID type=button class="btn btn-secondary" title='Load'>Load Code</button>
-                <!--<button id=download__ID type=button class="btn btn-secondary" title='Download'>Download Code</button>-->
+                <!--<button id=load__ID type=button class="btn btn-secondary" title='Load'>Load Code</button>-->
                 <button id=run__ID type=button class="btn btn-secondary" title='Download'>Run</button>
                 <input id=Load_f__ID type=file style='display:none' />
             </form>
         </div>
-        <div id=editor__ID></div>
+        <div class="grid-container__ID">
+            <div class="item1__ID" id=editor__ID></div>
+            <div class="item2__ID" id=dragbar__ID></div>
+            <div class="item__ID3" id=module__ID></div>
+        </div>
     </div>
     <script>
         function F__ID(){
-            var editor;
+            var editor=null;
+            //--------------------------------------------------------
             $('#D__ID').on('load',function(){
+                if($vm['ace-js']!=1) return; 
+                if(editor==null){
+                    set_editor();
+                }
+                var input=$vm.module_list["__MODULE__"].input;
+                if(input.code!=undefined){
+                    editor.setValue(input.code);
+                    $('#run__ID').triggerHandler('click');
+                }
             })
             //--------------------------------------------------------
             $vm.module_list["__MODULE__"].show=function(){
@@ -21,14 +34,17 @@
                 $("meta[name='description']").attr("content","Editor");
             }
             //--------------------------------------------------------
-            var ready1=function(){
+            var set_editor=function(){
                 editor=ace.edit("editor__ID");
                 editor.setTheme("ace/theme/twilight");
                 editor.getSession().setMode("ace/mode/html");
                 editor.getSession().setUseWorker(false);
                 editor.setOption("showPrintMargin", false)
                 $("#editor__ID").css('height',($vm.min_height-50)+"px");
-
+            }
+            //--------------------------------------------------------
+            var ready1=function(){
+                set_editor();
                 var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
 		        var txt=localStorage.getItem(apppath+"_module_test_"+"_txt");
 
@@ -48,7 +64,7 @@
                     $vm.module_list[nm]={url:nm}
                 }
                 var code=editor.getValue();
-                $vm.load_content(nm,'',{},code);
+                $vm.load_content(nm,'module__ID',{},code);
             })
             //--------------------------------------------------------
             $('#load__ID').on('click',function(){   
@@ -72,29 +88,15 @@
                 }
             })
             //--------------------------------------------------------
-            var download1=function(filename, text) {
-                var element = document.createElement('a');
-                element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(text));
-                element.setAttribute('download', filename);
-                element.style.display = 'none';
-                document.body.appendChild(element);
-                element.click();
-                document.body.removeChild(element);
-            }
-            //----------------------------------------------
-            function download2(filename, text) {
-                var blob = new Blob([text],{ type: 'text/plain' });
-                window.navigator.msSaveBlob(blob,filename);
-            }
-            //----------------------------------------------
-            $('#download__ID').on('click',function(){   
-                if (navigator.appVersion.toString().indexOf('Edge') > 0){
-                    download2("module.html",editor.getValue());
-                }
-                else{                
-                    download1("module.html",editor.getValue());
-                }
-            })
+            $('#dragbar__ID').mousedown(function(e){
+                e.preventDefault();
+                $(document).mousemove(function(e){
+                    $('#editor__ID').css("width",e.pageX-3);
+                })
+            });
+            $(document).mouseup(function(e){
+                $(document).unbind('mousemove');
+            });
             //--------------------------------------------------------
         }
     </script>
@@ -111,6 +113,19 @@
         }
         #toolbar__ID button{
             margin-right:8px; 
+        }
+        .item1__ID { grid-area: left; width:500px;}
+        .item2__ID { grid-area: d; width:5px}
+        .item3__ID { grid-area: right; }
+
+        .grid-container__ID {
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        grid-template-areas:'left d right';
+        }
+        #dragbar__ID{
+            background-color: #aaa;
+            cursor: col-resize;
         }
     </style>
 </div>
