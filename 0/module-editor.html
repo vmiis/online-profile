@@ -24,7 +24,7 @@
                 }
                 var input=$vm.module_list["__MODULE__"].input;
                 if(input.code!=undefined){
-                    editor.setValue(input.code);
+                    editor.setValue(input.code,-1);
                     $('#run__ID').triggerHandler('click');
                 }
             })

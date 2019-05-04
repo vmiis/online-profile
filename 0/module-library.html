@@ -77,7 +77,12 @@
             $('#module_editor__ID').on('click',function(){
                 var code="<div id=D__"+"ID>\r\n\t<div>\r\n\t\tHello World!\r\n\t</div>\r\n";
                 code+="\t<scr"+"ipt>\r\n\t\tfunction F__"+"ID(){\r\n\t\t}\r\n\t</scr"+"ipt>\r\n";
-                code+="\t<sty"+"le>\r\n\t</sty"+"le>\r\n</div>"
+                code+="\t<sty"+"le>\r\n";
+                code+="\t\t#D__"+"ID{\r\n";
+                code+="\t\t\theight:100%;\r\n";
+                code+="\t\t\tanimation: vm_module_fadein 1.0s;\r\n";
+                code+="\t\t}\r\n";
+                code+="\t</sty"+"le>\r\n</div>"
                 $vm.load_module('module-editor','',{code:code})
             })
             //--------------------------------------------------------
