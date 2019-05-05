@@ -58,6 +58,18 @@
             I++; if(I>50){ clearInterval(loop_1); alert("header error."); }
         },100);
         //-------------------------------------
+        $(window).on('scroll', function() {
+            /*
+            if($vm.active_name=='home'){
+                var y=-$(window).scrollTop()/2;
+                $('body').css({ 'background-position-y': y+'px'});
+                var r=-y/300; if(r>0.5) r=0.5;
+                $("#header").css("background","rgba(0,0,0,"+r+")");
+            }
+            */
+            if($vm.demo_scroll!=undefined) $vm.demo_scroll();
+        });
+        //-------------------------------------
     </script>
     <style main-style>
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}

@@ -255,6 +255,8 @@
                 <img src="__CURRENT_PATH__/home.html.02.jpeg" alt="" style='object-fit: cover;height: 390px; width: 100%;'>
             </div>
         </div>
+        <div id=demo__ID></div>
+        
     </div>
     <script>
         function F__ID(){
@@ -365,95 +367,8 @@
                 I++; if(I>50){ clearInterval(loop_1); alert("init error."); }
             },100);
             //-------------------------------------
-            //$vm.load_component("portfolio","c1__ID");
-            var c_I=0;
-            /*
-            var c_list=[
-                'first-aid-officer-panel'
-            ];
-            */
-            var c_list=[
-                'structure','contact-us-panel','bookkeeping-panel','aaxsys-panel','event-panel','document-panel','survey-panel','flat-trial',
-                'column-chart-panel','food-special','particle-panel','first-aid-officer-panel','image-with-title-on-hover',
-                'image-and-title-with-scale-rotate-effect-on-hover','c_services'
-            ];
-            //-----------------
-            $vm.portal_scroll_fun=function(){
-                var v1=document.documentElement.offsetHeight;
-                var v2=document.documentElement.scrollTop;
-                var v3=document.documentElement.scrollHeight;
-                if (Math.ceil(v1 + v2) >= v3) {
-                    if(c_I>c_list.length) return;
-                    if(c_I<c_list.length){
-                        $('#p__ID').append('<div id=c'+c_I+'__ID><div class=text-center style="font-size:22px"></div></div>');
-                        $vm.load_component(c_list[c_I],"c"+c_I+"__ID",{});
-                        c_I++;
-                    }
-                    else if(c_I==c_list.length){
-                        $('#p__ID').append('<div id=c'+c_I+'__ID><div class=text-center style="font-size:22px"><br>No more contents at the moment. Come later to see more.</div></div>');
-                        c_I++;
-                    }
-                }
-            }
-            $('body').attr('onscroll','$vm.portal_scroll_fun()');
-            //--------------------------------------------------------
-            $('#D__ID').on('show',function(){
-                for(var i=0;i<c_I;i++){
-                    $('#c'+i+'__ID').children().first().triggerHandler('show');
-                }
-            })
-            //--------------------------------------------------------
-            var code_links=function(){
-                if($vm.module_list["sys_code_viewer"]==undefined){
-                    $vm.module_list["sys_code_viewer"]={url:'__COMPONENT__/c/code-viewer.01.html'}
-                }
-                var txt=[];
-                for( a in $vm.module_list){
-                    var L=a.length;
-                    var s="";
-                    for(k=0;k<60-L;k++) s+=" ";
-                    txt.push(a+s+$vm.module_list[a].url)
-                }
-                txt.sort();
-                var txt2="";
-                for(var i=0;i<txt.length;i++){
-                    txt2+=(i+1).toString()+"\t"+txt[i]+"\r\n";
-                }
-                $vm.load_module("sys_code_viewer",'',{code:txt2,msg:''});
-            }
-            //--------------------------------------------------------
-            $('#code_links__ID').on('click',function(){
-                code_links();
-            })
-            $('#all_links__ID').on('click',function(){
-                code_links();
-            })
-            //--------------------------------------------------------
-            $('#html_links__ID').on('click',function(){
-                if($vm.module_list["sys_code_viewer"]==undefined){
-                    $vm.module_list["sys_code_viewer"]={url:'__COMPONENT__/c/code-viewer.01.html'}
-                }
-                var txt=[];
-                for( a in $vm.module_list){
-                    if($vm.module_list[a].nositemap==undefined){
-                        var L=a.length;
-                        var s="";
-                        for(k=0;k<60-L;k++) s+=" ";
-                        txt.push("https://www.vmiis.com/?/"+a);
-                    }
-                }
-                txt.sort();
-                var txt2="";
-                for(var i=0;i<txt.length;i++){
-                    txt2+=txt[i]+"\r\n";
-                }
-                $vm.load_module("sys_code_viewer",'',{code:txt2,msg:''});
-            })
-            //--------------------------------------------------------
-            $('#sourcecode__ID').on('click',function(){
-                window.open($vm.module_list['__MODULE__'].url.replace('__HOST__/','https://github.com/vmiis/online-profile/blob/master/'));
-            })
-            //---------------------------------------
+            $vm.load_component('demo','demo__ID',{})
+            //-------------------------------------
         }
     </script>
     <style>
