@@ -25,8 +25,8 @@
         $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
         if(window.location.href.substring(0,5)=="file:") $vm.hosting_path="https://www.vmiis.com";
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
-        $vm.m1_path='https://modules.vmiis.com'; if($vm.localhost==true) $vm.m1_path='http://127.0.0.1:8000/vmiis/modules'; 
-        $vm.m2_path='https://app-templates.vmiis.com'; if($vm.localhost==true) $vm.m2_path='http://127.0.0.1:8000/vmiis/app-templates'; 
+        $vm.m1_path='https://modules.vmiis.com'; if($vm.localhost==true) $vm.m1_path='http://'+window.location.hostname+':8000/vmiis/modules'; 
+        $vm.m2_path='https://app-templates.vmiis.com'; if($vm.localhost==true) $vm.m2_path='http://'+window.location.hostname+':8000/vmiis/app-templates'; 
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
