@@ -18,7 +18,7 @@
     </body>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[1.62,0.86]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[1.63,0.86]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         $vm.debug=1;
         //------------------------------------
         //setup modules location
@@ -47,7 +47,7 @@
             "module-library-panel": {url:"$H/0/module-library-panel.html",router:1,sys:1},
             "app-templates":	    {url:"$H/0/app-templates.html",router:1,sys:1},
             "app-templates-panel":	{url:"$H/0/app-templates-panel.html",router:1,sys:1},
-            "economic-data":	    {url:"$H/0/economic-data.html",router:1,sys:1},
+            "private":	            {url:"$H/0/private.html",router:1,sys:1},
             "demo":                 {url:"$M/d/demo.html"}
         };
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$H',$vm.hosting_path);
