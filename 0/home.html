@@ -173,6 +173,7 @@
                     <br><label>Humidity</label><b><span id=w_h__ID></span></b>
                     <br><label>Clouds</label><b><span id=w_c__ID></span></b>
                 </ul>
+                <!--
                 <span class=hd__ID><i class="fas fa-dollar-sign"></i>Forex Markets</span>
                 <hr class=hr__ID>
                 <ul class=weather__ID style='padding-bottom:0px'>
@@ -181,6 +182,7 @@
                     <br><label>GBP/USD</label><b><span id=f_gbp__ID></span></b>    
                     <br><label>USD/JPY</label><b><span id=f_jpy__ID></span></b>
                 </ul>
+            -->
                 <!--
                 <span class=hd__ID><i class="fab fa-windows"></i>Office 365</span>
                 <hr class=hr__ID>
@@ -347,6 +349,7 @@
                     $('#w_c__ID').text( a.clouds.all+"%");
                     $('#w_i__ID').attr("src","https://openweathermap.org/img/w/"+a.weather[0].icon+".png");
                 })
+                /*
                 $vm.request({cmd:'forex'},function(res){
                     var a=JSON.parse(res.result)
                     console.log(a);
@@ -360,6 +363,7 @@
                         }
                     }
                 })
+                */
             }
             //-------------------------------------
             var I=0; var loop_1=setInterval(function (){
