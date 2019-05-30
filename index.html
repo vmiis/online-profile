@@ -49,7 +49,7 @@
             "app-templates-panel":	{url:"$H/0/app-templates-panel.html",router:1,sys:1},
             "private":	            {url:"$H/0/private.html",router:1,sys:1},
             "demo":                 {url:"$M/d/demo.html"},
-            "module-list-data":     {url:"$H/0/module-list-data.html",Table:"module-list",form_module:"module-list-form"},
+            "module-list-data":     {url:"$H/0/module-list-data.html",Table:"module-list",form_module:"module-list-form",router:1,sys:1},
             "module-list-form":     {url:"$H/0/module-list-form.html",Table:"module-list"}
         };
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$H',$vm.hosting_path);
