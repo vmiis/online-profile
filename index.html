@@ -15,10 +15,16 @@
         <div id=footer></div>
         <div id=system></div>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+        <script>$vm={};</script>
+        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
+        <script src="https://apis.google.com/js/platform.js"></script>
+        <script src="microsoft.js"></script>
+        <script src="facebook.js"></script>
+        <script src="google.js"></script>
     </body>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[1.71,0.88]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm.ver=[1.71,0.88]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         $vm.debug=1;
         //------------------------------------
         //setup modules location

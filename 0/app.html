@@ -44,10 +44,47 @@
             //------------------------------------
             window.onresize=function(){set_layout();}
             //------------------------------------
+            /*
             $vm.init(function(){
                 $vm.init_status=1;
                 $vm.show_user();
             })
+            */
+            //------------------------------------
+            $vm.app_init=function(){
+                $vm.init(function(){
+                    $vm.init_status=1;
+                    $vm.show_user();
+                    if($vm.user_name_3rd!=undefined && $vm.user_name_3rd!=$vm.user_name){
+                        if($vm.issuer_3rd=="microsoft"){
+                            $vm.m365_msal.acquireTokenSilent({scopes:["user.read"]}).then(function (tokenResponse) {
+                                var token=tokenResponse.idToken.rawIdToken;
+                                $vm.request({cmd:'signin-3rd',issuer:'microsoft',token:token},function(res){
+                                    $vm.user_name=res.user_name;
+                                    $vm.set_token(res.token,res.user_name);
+                                    $vm.show_user();
+                                })
+                            })
+                        }
+                        else if($vm.issuer_3rd=="facebook"){
+                            $vm.request({cmd:'signin-3rd',issuer:'facebook323',token:$vm.facebook_token},function(res){
+                                $vm.user_name=res.user_name;
+                                $vm.set_token(res.token,res.user_name);
+                                $vm.show_user();
+                            })
+                        }
+                        else if($vm.issuer_3rd=="google"){
+                            $vm.request({cmd:'signin-3rd',issuer:'google',token:$vm.google_token},function(res){
+                                $vm.user_name=res.user_name;
+                                $vm.set_token(res.token,res.user_name);
+                                $vm.show_user();
+                            })
+                        }
+                    }
+                })
+            }
+            //------------------------------------
+            $vm.app_init();
             //------------------------------------
             if($vm.first_module!=undefined) $vm.show($vm.first_module);
             //------------------------------------

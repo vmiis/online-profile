@@ -20,8 +20,21 @@
             <a href="?/module-library">Module Library</a>
             <a href="?/app-templates">App Templates</a>
             <!--<a href="?/private">Private</a>-->
-            <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
-            <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
+            <!--<a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>-->
+
+
+            <div id=vm_signin class="vm-dropdown">
+                <span class="vm-dropbtn"><i class="fa fa-user"></i> Sign In</a> <i class="fa fa-caret-down"></i></span>
+                <div class="vm-dropdown-content">
+                    <a id="microsoft_signin">Microsoft</a>
+                    <a id="google_signin">Google</a>
+                    <a id="facebook_signin">Facebook</a>
+                    <a id="wappsystem_signin">Wappsystem</a>
+                </div>
+            </div>
+
+
+            <a class=vm-hide id=vm_signout ><i class="fa fa-user"></i> Sign Out</a>
         </div>
         <div class=search__ID>
             <script>
@@ -77,6 +90,19 @@
         }
         //------------------------------------
         $vm.header_ready=1;
+        //------------------------------------
+        $('#microsoft_signin').on('click',function(){ $vm.m365_signin(); })
+        //$('#google_signin').on('click',function(){ $vm.google_signin(); })
+        $('#facebook_signin').on('click',function(){ $vm.facebook_signin(); })
+        $('#wappsystem_signin').on('click',function(){ $vm.signin(); })
+        if($vm.google_button!=undefined) $vm.google_button('google_signin')
+        //------------------------------------
+        $('#vm_signout').on('click',function(){ 
+            if($vm.issuer_3rd=="microsoft") $vm.m365_signout();
+            else if($vm.issuer_3rd=="google") $vm.google_signout();
+            else if($vm.issuer_3rd=="facebook") $vm.facebook_signout();
+            else $vm.signout(); 
+        })
         //------------------------------------
     </script>
     <style>
