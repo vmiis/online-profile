@@ -92,19 +92,26 @@
         $vm.header_ready=1;
         //------------------------------------
         $('#microsoft_signin').on('click',function(){ $vm.m365_signin(); })
-        //$('#google_signin').on('click',function(){ $vm.google_signin(); })
+        //$('#google_signin').on('click',function(){ if($vm.google_signin==undefined) $vm.google_init(); $vm.google_signin(); })
         $('#facebook_signin').on('click',function(){ $vm.facebook_signin(); })
         $('#wappsystem_signin').on('click',function(){ $vm.signin(); })
-        if($vm.google_button!=undefined) $vm.google_button('google_signin')
+        //if($vm.google_button!=undefined){ $vm.google_button('google_signin');}
         //------------------------------------
         $('#vm_signout').on('click',function(){ 
-            if($vm.issuer_3rd=="microsoft") $vm.m365_signout();
-            else if($vm.issuer_3rd=="google") $vm.google_signout();
-            else if($vm.issuer_3rd=="facebook") $vm.facebook_signout();
-            else $vm.signout(); 
+            localStorage.setItem("authentication-issuer","")
+            $vm.clear_token();
+            var a=localStorage.getItem("authentication-issuer")
+            if(a=="microsoft") $vm.m365_signout();
+            else if(a=="google") $vm.vm_signout();
+            else if(a=="facebook") $vm.facebook_signout();
+            else $vm.vm_signout();
         })
         //------------------------------------
-    </script>
+        $vm.vm_signout=function(){
+            location.reload(true);
+        }
+        //------------------------------------
+        </script>
     <style>
         .search__ID{
             float:right;

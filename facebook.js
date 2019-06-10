@@ -7,6 +7,7 @@ $vm.facebook_init=function(){
         version    : 'v3.3'
         });
         FB.AppEvents.logPageView();
+        /*
         FB.getLoginStatus(function(response) {
             console.log(response)
             if (response.status === 'connected') {
@@ -18,6 +19,7 @@ $vm.facebook_init=function(){
                 })
             } 
         });
+        */
     };
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -27,15 +29,27 @@ $vm.facebook_init=function(){
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     //------------------------------------
+    $vm.w_facebook_token=function(token){
+        $vm.request({cmd:'signin-3rd',issuer:'facebook323',token:token},function(res){
+            $vm.user_name=res.user_name;
+            $vm.set_token(res.token,res.user_name);
+            $vm.show_user();
+            localStorage.setItem("authentication-issuer","facebook");
+        })
+    }
+    //------------------------------------
     $vm.facebook_signin=function(){
         FB.login(function(response){
             if(response.status==='connected'){
-                $vm.issuer_3rd="facebook";
-                $vm.facebook_token=response.authResponse.accessToken;
+                $vm.w_facebook_token(response.authResponse.accessToken);
+                /*
+                //$vm.issuer_3rd="facebook";
+                //$vm.facebook_token=response.authResponse.accessToken;
                 FB.api('/me?fields=name,email', function(response) {
                     $vm.user_name_3rd=response.email;
                     $vm.app_init();
                 })
+                */
             }
             else{
             }
@@ -51,5 +65,6 @@ $vm.facebook_init=function(){
     //------------------------------------
 }
 //---------------------------------------------
-if($vm.user_name_3rd==undefined) $vm.facebook_init();
+//if(localStorage.getItem("authentication-issuer")=="facebook") 
+$vm.facebook_init();
 //---------------------------------------------
