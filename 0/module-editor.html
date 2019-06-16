@@ -4,6 +4,7 @@
             <form class="form-inline">
                 <!--<button id=load__ID type=button class="btn btn-secondary" title='Load'>Load Code</button>-->
                 <button id=run__ID type=button class="btn btn-secondary" title='Download'>Run</button>
+                <button id=save__ID type=button class="btn btn-secondary" title='Save'>Save</button>
                 <input id=Load_f__ID type=file style='display:none' />
             </form>
         </div>
@@ -16,13 +17,16 @@
     <script>
         function F__ID(){
             var editor=null;
+            var file_url="";
             //--------------------------------------------------------
             $('#D__ID').on('load',function(){
+                url="";
                 if($vm['ace-js']!=1) return; 
                 if(editor==null){
                     set_editor();
                 }
                 var input=$vm.module_list["__MODULE__"].input;
+                if(input.url!=undefined) file_url=input.url;
                 if(input.code!=undefined){
                     editor.setValue(input.code,-1);
                     $('#run__ID').triggerHandler('click');
@@ -65,6 +69,34 @@
                 }
                 var code=editor.getValue();
                 $vm.load_content(nm,'module__ID',{},code);
+            })
+            //--------------------------------------------------------
+            $('#save__ID').on('click',function(){
+                var endpoint=window.location.protocol+"//"+window.location.hostname+":"+window.location.port;
+                if(file_url==""){
+                    $vm.alert("No file path.")
+                }
+                var path=file_url.replace(endpoint,"");
+                var d={"path":path,"content":editor.getValue()}
+                var da=JSON.stringify(d);
+
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function () {
+                    console.log(this.readyState+" "+this.status);
+                    if (this.readyState == 4 && this.status == 200){
+                        $vm.alert(this.responseText);
+                    }
+                }
+                xmlHttp.open("POST", endpoint, true);
+                xmlHttp.send(da);
+                /*
+                var nm="_module_test_"
+                if($vm.module_list[nm]==undefined){
+                    $vm.module_list[nm]={url:nm}
+                }
+                var code=editor.getValue();
+                $vm.load_content(nm,'module__ID',{},code);
+                */
             })
             //--------------------------------------------------------
             $('#load__ID').on('click',function(){   

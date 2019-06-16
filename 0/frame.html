@@ -92,7 +92,7 @@
                 if($vm.active_name!=undefined){
                     var url=$vm.module_list[$vm.active_name].url;
                     $.get(url,function(txt){
-                        $vm.load_module('module-editor','',{code:txt})
+                        $vm.load_module('module-editor','',{code:txt,url:url})
                     },'text');
                 }
             })
